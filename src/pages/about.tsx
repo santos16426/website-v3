@@ -1,8 +1,10 @@
-const Home = () => {
-  return (<div>
+import Layout from "@/app/components/Layout"
+
+const About = () => {
+  return (<Layout>
     <p>About page</p>
     <a href="/">Go back</a>
-  </div>)
+  </Layout>)
 }
 
-export default Home
+export default About
