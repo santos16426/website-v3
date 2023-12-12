@@ -3,9 +3,13 @@
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+  --primary-color: #6c757d; /* Slate Gray */
+  --secondary-color: #ffffff; /* White */
+  --tertiary-color: #add8e6; /* Light Blue */
+
+  /* Additional colors if needed */
+  --background-color: #f8f9fa; /* Off white */
+  --text-color: #333333; /* Dark Gray */
 }
 
 @media (prefers-color-scheme: dark) {
