@@ -1,2 +1,2 @@
-const Logo = () => <div className="font-bold text-xl">Billy Joe Santos</div>;
+const Logo = () => <box-icon type="logo" name="bootstrap" size="lg"></box-icon>;
 export default Logo;

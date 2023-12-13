@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "boxicons": "^2.1.4",
     "gsap": "^3.12.3",
     "next": "14.0.4",
     "react": "^18",
