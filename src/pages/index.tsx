@@ -14,23 +14,24 @@ const Home = () => {
       behavior: "smooth"
     })
   }
+  
   return (
     <Layout>
       <div className={`container ${styles.container}`}>
         <div ref={homeRef}>
-          <SnapSection sectionId="3" bgImg="/images/coffee-bg3.jpg" scrollTo={scrollTo} goTo={aboutRef}/>
+          <SnapSection sectionId="1" scrollTo={scrollTo} goTo={aboutRef} content={<div><h2>lorem ipsum dolor</h2></div>}/>
         </div>
         <div ref={aboutRef}>
-          <SnapSection sectionId="1" bgImg="/images/coffee-bg1.jpg" scrollTo={scrollTo} goTo={expRef}/>
+          <SnapSection sectionId="2" scrollTo={scrollTo} goTo={expRef}  content={<div><h2>lorem ipsum dolor</h2></div>}/>
         </div>
         <div ref={expRef}>
-          <SnapSection sectionId="2" bgImg="/images/coffee-bg2.jpg" scrollTo={scrollTo} goTo={projRef}/>
+          <SnapSection sectionId="3" bgImg="/images/coffee-bg2.jpg" scrollTo={scrollTo} goTo={projRef}  content={<div><h2>lorem ipsum dolor</h2></div>}/>
         </div>
         <div ref={projRef}>
-          <SnapSection sectionId="3" bgImg="/images/coffee-bg3.jpg" scrollTo={scrollTo} goTo={contactRef}/>
+          <SnapSection sectionId="4"  scrollTo={scrollTo} goTo={contactRef}  content={<div><h2>lorem ipsum dolor</h2></div>}/>
         </div>
         <div ref={contactRef}>
-          <SnapSection sectionId="4" bgImg="/images/coffee-bg1.jpg"/>
+          <SnapSection sectionId="5"  content={<div><h2>lorem ipsum dolor</h2></div>}/>
         </div>
       </div>
     </Layout>

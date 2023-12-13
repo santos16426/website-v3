@@ -18,7 +18,15 @@ const Header = () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
-
+  const scrollToSection = (sectionId) => {
+    const section = document.getElementById(sectionId);
+    if (section) {
+      section.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+    }
+  };
   return (
     <header
       className={`z-10 fixed top-0 left-0 right-0 p-4 transition-all px-24 ${
@@ -30,24 +38,28 @@ const Header = () => {
         <nav className="space-x-4">
           <a
             href="#about"
+            onClick={() => scrollToSection("2")}
             className="text-black hover:text-gray-500 transition-colors"
           >
             About
           </a>
           <a
             href="#experience"
+            onClick={() => scrollToSection("3")}
             className="text-black hover:text-gray-500 transition-colors"
           >
             Experience
           </a>
           <a
             href="#projects"
+            onClick={() => scrollToSection("4")}
             className="text-black hover:text-gray-500 transition-colors"
           >
             Projects
           </a>
           <a
             href="#contact"
+            onClick={() => scrollToSection("5")}
             className="text-black hover:text-gray-500 transition-colors"
           >
             Contact

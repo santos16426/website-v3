@@ -1,21 +1,25 @@
-import { RefObject, useEffect, useRef } from "react";
+import { ReactNode, RefObject, useEffect, useRef } from "react";
 import Image from "next/image";
 import styles from "./SnapSection.module.scss";
+
+
+
 interface SnapSectionProps {
   sectionId: string;
-  bgImg: string;
+  bgImg?: string | null;
   scrollTo?: Function| null;
   goTo?:  RefObject<HTMLDivElement> | null;
+  content: ReactNode
 }
-const SnapSection:React.FC<SnapSectionProps> = ({ sectionId, bgImg, scrollTo, goTo }) => {
+const SnapSection:React.FC<SnapSectionProps> = ({ sectionId, bgImg, scrollTo, goTo, content }) => {
   return (
-    <div className={`container ${styles.section}`} id={sectionId}>
+    <div className={`${styles.section}`} id={sectionId}>
       <div className={styles.copy}>
-        <h2>Lorem Ipsum</h2>
+        {content}
       </div>
-      <div className={styles.imageContainer}>
+      {bgImg && <div className={styles.imageContainer}>
         <Image src={bgImg} layout="fill" alt=""/>
-      </div>
+      </div>}
       {goTo && scrollTo &&<button className={styles.downarrow} onClick={()=>scrollTo(goTo)}></button>}
     </div>
   );
