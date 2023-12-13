@@ -1,0 +1,20 @@
+@tailwind base;
+@tailwind utilities;
+
+:root {
+  --primary-color: #ffffff; /* White */
+  --secondary-color: #000000; /* Black */
+  --tertiary-color: #808080; /* Gray */
+
+ /* Additional colors if needed */
+  --background-color: #f8f9fa; /* Off white */
+  --text-color: #333333; /* Dark Gray */
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
