@@ -2,6 +2,7 @@ import Layout from "@/app/components/Layout";
 import styles from "@/app/styles/Home.module.scss";
 import SnapSection from "@/app/components/SnapSection";
 import { useRef } from "react";
+import Homepage from "@/app/components/Homepage";
 
 const Home = () => {
   const homeRef = useRef <HTMLDivElement>(null);
@@ -19,7 +20,7 @@ const Home = () => {
     <Layout>
       <div className={`container ${styles.container}`}>
         <div ref={homeRef}>
-          <SnapSection sectionId="1" scrollTo={scrollTo} goTo={aboutRef} content={<div><h2>lorem ipsum dolor</h2></div>}/>
+          <SnapSection sectionId="1" scrollTo={scrollTo} goTo={aboutRef} content={<Homepage/>}/>
         </div>
         <div ref={aboutRef}>
           <SnapSection sectionId="2" scrollTo={scrollTo} goTo={expRef}  content={<div><h2>lorem ipsum dolor</h2></div>}/>

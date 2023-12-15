@@ -18,7 +18,7 @@ const Header = () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
-  const scrollToSection = (sectionId) => {
+  const scrollToSection = (sectionId: string) => {
     const section = document.getElementById(sectionId);
     if (section) {
       section.scrollIntoView({

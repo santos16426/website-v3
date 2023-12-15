@@ -16,7 +16,8 @@
     "react-dom": "^18",
     "react-tsparticles": "^2.12.2",
     "sass": "^1.69.5",
-    "typeface-roboto": "^1.1.13"
+    "typeface-roboto": "^1.1.13",
+    "typewriter-effect": "^2.21.0"
   },
   "devDependencies": {
     "@types/node": "^20",
