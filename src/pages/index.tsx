@@ -3,7 +3,7 @@ import styles from "@/app/styles/Home.module.scss";
 import SnapSection from "@/app/components/SnapSection";
 import { useRef } from "react";
 import Homepage from "@/app/components/Homepage";
-
+import Experience from "@/app/components/Experience";
 const Home = () => {
   const homeRef = useRef <HTMLDivElement>(null);
   const aboutRef = useRef <HTMLDivElement>(null);
@@ -26,7 +26,7 @@ const Home = () => {
           <SnapSection sectionId="2" scrollTo={scrollTo} goTo={expRef}  content={<div><h2>lorem ipsum dolor</h2></div>}/>
         </div>
         <div ref={expRef}>
-          <SnapSection sectionId="3" bgImg="/images/coffee-bg2.jpg" scrollTo={scrollTo} goTo={projRef}  content={<div><h2>lorem ipsum dolor</h2></div>}/>
+          <SnapSection sectionId="3" scrollTo={scrollTo} goTo={projRef}  content={<Experience/>}/>
         </div>
         <div ref={projRef}>
           <SnapSection sectionId="4"  scrollTo={scrollTo} goTo={contactRef}  content={<div><h2>lorem ipsum dolor</h2></div>}/>

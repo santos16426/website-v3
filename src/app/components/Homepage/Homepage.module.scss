@@ -7,4 +7,68 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
+
+    .avatar{
+        width: 200px;
+        height: 200px;
+        overflow: hidden;
+        border-radius: 50%;
+        margin-bottom: 20px;
+        img{
+            width: 100%;
+            height: 100%;
+            object-position: center;
+            object-fit: cover;
+        }
+    }
+
+    p{
+        font-size: 2rem;
+        font-weight: 1000;
+    }
+
+    .socials{
+        padding: 20px 0;
+        font-size: 1.2rem;
+        display: flex;
+        justify-content: space-between;
+        width: 100px;
+    }
+    .hireButton {
+        position: relative;
+        display: inline-block;
+        overflow: hidden;
+        padding: 10px 20px;
+        border: 2px solid black;
+        color: var(--text-color, black);
+        text-align: center;
+        text-decoration: none;
+        font-weight: bold;
+        cursor: pointer;
+        transition: color 0.3s ease-out;
+      
+        &:hover {
+          color: #ffffff;
+        }
+      
+        &::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 0;
+          height: 100%;
+          background: var(--hover-bg, black);
+          transition: width 0.3s ease-out;
+          z-index: -1;
+        }
+      
+        &:hover::before {
+          width: 100%;
+        }
+      }
 }
+
+
+
+

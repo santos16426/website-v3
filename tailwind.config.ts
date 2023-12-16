@@ -15,6 +15,7 @@ const config: Config = {
       },
       fontFamily: {
         'sans': ['Roboto', 'sans-serif'],
+        'nunito': ['Nunito', 'sans-serif'],
       },
       spacing: {
         '15' : '60px'

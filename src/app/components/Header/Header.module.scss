@@ -1,0 +1,16 @@
+.header{
+    .bigName {
+        font-size: 200px; /* Adjust as needed */
+        /* Add any other styles for the big name */
+      }
+      
+      .name {
+        font-size: 200px; /* Adjust as needed, initially set to the same size as big-name */
+        transition: font-size 0.3s ease, transform 0.3s ease; /* Add transform property */
+      }
+      
+      .smallName {
+        font-size: 1rem; /* Adjust as needed */
+        transform: scale(0.5); /* Add scaling factor */
+      }
+}
