@@ -13,7 +13,7 @@ const Homepage = () =>{
     return(
         <div className={styles.container}>
             <div className={styles.avatar}>
-            <Image  src="/images/profile.jpg"  width={200} height={200} layout='responsive' alt=""/>
+                <Image  src="/images/profile.jpg"  width={200} height={200} layout='responsive' alt=""/>
             </div>
             <p>Billy Santos</p>
             <TypeWriter skills={skills}/>

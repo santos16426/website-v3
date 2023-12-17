@@ -1,18 +1,18 @@
-// src/app/components/Layout.js
-import React, { ReactNode } from "react";
+import React, { ReactElement, ReactNode } from "react";
 import Header from "../Header";
 
 interface LayoutProps {
-  children: ReactNode;
+  children: ReactNode | ReactElement[] | ReactNode;
 }
 const Layout:React.FC<LayoutProps> = ({ children }) => {
-  
-  return (
+
+  return(
     <>
-      <Header />
+      <Header/>
       <main>{children}</main>
     </>
-  );
+  )
 };
+
 
 export default Layout;
