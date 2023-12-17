@@ -6,7 +6,7 @@ const App = ({ Component, pageProps }) => {
     <>
       <Head>
         <title>Lucas | Software Engineer</title>
-        <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+        <link rel="icon" href="/images/icons/logo.svg" type="image/svg+xml" />
       </Head>
       <Component {...pageProps} />
     </>
