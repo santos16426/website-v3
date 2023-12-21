@@ -2,6 +2,8 @@ import styles from './Homepage.module.scss'
 import TypeWriter from '@/app/components/Typewriter'
 import Image from 'next/image'
 import { useState } from 'react';
+import {FillButton} from '@/app/components/common/Button'
+import SocialLinks from '../common/SocialLinks';
 const Homepage = () =>{
     const skills = [
         "Software Engineer",
@@ -30,13 +32,9 @@ const Homepage = () =>{
             </div>
             <p>Billy Santos</p>
             <TypeWriter skills={skills}/>
-            <div className={styles.socials}>
-                <a target='_blank' href="https://www.linkedin.com/in/billy-santos/"><i className='bx bxl-linkedin'></i></a>
-                <a target='_blank' href="https://github.com/santos16426"><i className='bx bxl-github' ></i></a>
-                <a target='_blank' href="https://www.instagram.com/lucas.gif/"><i className='bx bxl-instagram' ></i></a>
-            </div>
+            <SocialLinks/>
             <div>
-                <button className={styles.hireButton}>Hire me</button>
+                <FillButton label="Hire Me"/>
             </div>
             
         </div>

@@ -11,12 +11,14 @@
   "dependencies": {
     "@fontsource/nunito": "^5.0.16",
     "boxicons": "^2.1.4",
+    "emailjs-com": "^3.2.0",
     "gsap": "^3.12.3",
     "next": "14.0.4",
     "react": "^18",
     "react-dom": "^18",
     "react-tsparticles": "^2.12.2",
     "sass": "^1.69.5",
+    "scss": "^0.2.4",
     "typeface-roboto": "^1.1.13",
     "typewriter-effect": "^2.21.0"
   },
@@ -28,6 +30,7 @@
     "eslint": "^8",
     "eslint-config-next": "14.0.4",
     "postcss": "^8",
+    "prettier": "^3.1.1",
     "tailwindcss": "^3.3.0",
     "typescript": "^5"
   }

@@ -17,11 +17,11 @@ const Header: React.FC = () => {
 
   return (
     <header
-      className={`z-10 fixed top-0 left-0 right-0 p-8 transition-all px-24 bg-white shadow-md`}
+      className={`z-10 fixed top-0 left-0 right-0 p-4 sm:p-8 transition-all bg-white shadow-md md:px-24`}
 >
       <div className="container mx-auto flex items-center justify-between">
         <Logo  onClick={() => scrollToSection("1")}/>
-        <nav className="space-x-4">
+        <nav className="space-x-4 hidden sm:flex">
           <a
             href="#about"
             onClick={() => scrollToSection("2")}
@@ -51,6 +51,7 @@ const Header: React.FC = () => {
             Contact
           </a>
         </nav>
+        
       </div>
     </header>
   );

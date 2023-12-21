@@ -1,0 +1,35 @@
+.hoverFillBtn {
+    position: relative;
+    overflow: hidden;
+    padding: 10px 20px;
+    border: 2px solid black;
+    color: var(--text-color, black);
+    text-align: center;
+    text-decoration: none;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.3s ease-out;
+    i{
+        margin-left: 5px;
+    }
+    &:hover {
+      color: #ffffff;
+    }
+  
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 0;
+      height: 100%;
+      background: var(--hover-bg, black);
+      transition: width 0.3s ease-out;
+      z-index: -1;
+    }
+  
+    &:hover::before {
+      width: 100%;
+    }
+
+  }
