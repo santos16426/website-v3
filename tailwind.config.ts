@@ -8,6 +8,12 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      screens: {
+        'sm': '480px', 
+        'md': '768px', 
+        'lg': '1024px',
+        'xl': '1280px',
+      },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
         'gradient-conic':
@@ -15,6 +21,7 @@ const config: Config = {
       },
       fontFamily: {
         'sans': ['Roboto', 'sans-serif'],
+        'nunito': ['Nunito', 'sans-serif'],
       },
       spacing: {
         '15' : '60px'

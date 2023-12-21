@@ -1,6 +1,8 @@
 @tailwind base;
+@tailwind component;
 @tailwind utilities;
-
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap');
+@import '~boxicons/css/boxicons.min.css';
 :root {
   --primary-color: #ffffff; /* White */
   --secondary-color: #000000; /* Black */
@@ -17,4 +19,8 @@
     --background-start-rgb: 0, 0, 0;
     --background-end-rgb: 0, 0, 0;
   }
+}
+
+body{
+  font-family: 'Nunito', sans-serif;
 }

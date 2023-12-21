@@ -20,7 +20,13 @@ const SnapSection:React.FC<SnapSectionProps> = ({ sectionId, bgImg, scrollTo, go
       {bgImg && <div className={styles.imageContainer}>
         <Image src={bgImg} layout="fill" alt=""/>
       </div>}
-      {goTo && scrollTo &&<button className={styles.downarrow} onClick={()=>scrollTo(goTo)}></button>}
+      {goTo && scrollTo &&
+      <div className={styles.scrolldown} onClick={()=>scrollTo(goTo)}>
+        <span className={styles.left}>Scroll</span>
+        <span className={styles.mouse}></span>
+        <span className={styles.right}>Down</span>
+    </div>
+       }
     </div>
   );
 };

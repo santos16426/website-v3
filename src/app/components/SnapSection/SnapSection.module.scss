@@ -1,9 +1,7 @@
+$dark-gray: #525252;
 .section{
     height: 100vh;
     width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     position: relative;
     scroll-snap-align: center;
     img{
@@ -33,17 +31,68 @@
         }
     }
 
-    .downarrow{
-        position: absolute;
-        bottom:20px;
-        left:0;
-        right:0;
-        margin: 0 auto;
-        background-image: url("/images/downarrow.png");
-        background-repeat: no-repeat;
-        background-size: contain;
-        width: 40px;
-        height: 40px;
-        z-index: 2;
-    }
+
+.scrolldown {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+
+
+  position: absolute;
+  bottom:10px;
+  cursor: pointer;
+}
+
+.mouse {
+  display: inline-block;
+  vertical-align: middle;
+  width: 14px;
+  height: 22px;
+  position: relative;
+  border: 2px solid $dark-gray;
+  border-radius: 14px;
+  
+  &:before {
+    content: '';
+    display: inline-block;
+    width: 2px;
+    height: 6px;
+    position: absolute;
+    top: 5px;
+    left: 4px;
+    background-color: $dark-gray;
+    animation: mouse-animation 2.75s ease-in-out infinite;
+  }
+}
+
+@keyframes mouse-animation {
+	0% {
+  transform: scale(1,0);
+  transform-origin: 50% 0;
+	}
+	20%, 80% {
+  transform: scale(1,1);
+	}
+  81% {
+  transform-origin: 50% 100%;  
+  }
+	100% {
+  transform: scale(1,0);
+  transform-origin: 50% 100%; 
+	}
+}
+
+.left,
+.right {
+  display: inline-block;
+  vertical-align: middle;
+  padding: 0 10px;
+  font-size: 13px;
+  font-weight: bold;
+  color: $dark-gray;
+  text-transform: uppercase;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+    
 }
