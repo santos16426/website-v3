@@ -7,6 +7,7 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    margin: 0 auto;
 
     .rowSpanInit {
         grid-row: span 2;
@@ -24,4 +25,24 @@
           grid-row: span 1;
         }
       }
+      .profileCard{
+        .profile{
+          height: 80%;
+        }
+        .expDetails{
+          height: 20%;
+        }
+      }
+}
+
+.slider{
+  .sliderImageContainer{
+    width: 100%;
+    overflow: hidden;
+    .sliderImage{
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+}
 }
