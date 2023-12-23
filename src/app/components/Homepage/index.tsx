@@ -1,7 +1,6 @@
 import styles from './Homepage.module.scss'
 import TypeWriter from '@/app/components/Typewriter'
 import Image from 'next/image'
-import { useState } from 'react';
 import {FillButton} from '@/app/components/common/Button'
 import SocialLinks from '../common/SocialLinks';
 const Homepage = () =>{
@@ -13,8 +12,15 @@ const Homepage = () =>{
         "Continuous Integration",
         "Continuous Deployment"
     ];
-    const [isHovered, setIsHovered] = useState(false);
-
+    const scrollToSection = () => {
+        const section = document.getElementById('2');
+          if (section) {
+            section.scrollIntoView({
+              behavior: "smooth",
+              block: "start",
+            });
+          }
+      };
     return(
         <div className={styles.container}>
             <div className={styles.avatarOnHover}>
@@ -34,7 +40,7 @@ const Homepage = () =>{
             <TypeWriter skills={skills}/>
             <SocialLinks/>
             <div>
-                <FillButton label="Hire Me"/>
+                <FillButton label="Know more about me" onClick={scrollToSection}/>
             </div>
             
         </div>
