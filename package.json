@@ -11,8 +11,11 @@
   "dependencies": {
     "@fontsource/nunito": "^5.0.16",
     "boxicons": "^2.1.4",
+    "class-variance-authority": "^0.7.0",
+    "clsx": "^2.0.0",
     "emailjs-com": "^3.2.0",
     "gsap": "^3.12.3",
+    "lucide-react": "^0.300.0",
     "next": "14.0.4",
     "react": "^18",
     "react-dom": "^18",
@@ -21,6 +24,8 @@
     "sass": "^1.69.5",
     "scss": "^0.2.4",
     "slick-carousel": "^1.8.1",
+    "tailwind-merge": "^2.2.0",
+    "tailwindcss-animate": "^1.0.7",
     "typeface-roboto": "^1.1.13",
     "typewriter-effect": "^2.21.0"
   },
