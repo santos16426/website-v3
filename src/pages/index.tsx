@@ -21,7 +21,7 @@ const Home = () => {
   
   return (
     <Layout>
-      <div className={`container ${styles.container}`}>
+      <div className={`${styles.container}`}>
         <div ref={homeRef}>
           <SnapSection sectionId="1" scrollTo={scrollTo} goTo={aboutRef} content={<Homepage/>}/>
         </div>
