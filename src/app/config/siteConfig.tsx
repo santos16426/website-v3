@@ -1,5 +1,6 @@
 import Gallery from "../components/Gallery";
 import GoogleMapsComponent from "../components/Maps";
+import { Github, Instagram, Linkedin, LucideIcon } from 'lucide-react'
 
 export type GridItemLayout = "1x1" | "1x2" | "2x1" | "2x2" | "4x2" | "2x4" | "2x3" | "4x4";
 
@@ -8,12 +9,38 @@ export interface GridItemInterface {
     title?: string;
     children?: React.ReactNode
 }
+
+export interface DigitalSpaceItem{
+    name: string,
+    url: string,
+    icon: LucideIcon
+}
+
 const photoAlbum = [
     "/images/about/1x1/about-1.jpg",
     "/images/about/1x1/about-2.jpg",
     "/images/about/1x1/about-4.jpg",
     "/images/about/1x1/about-6.jpg",
 ]
+
+export const digitalSpace: DigitalSpaceItem[] = [
+    {
+        name: 'LinkedIn',
+        url: "https://www.linkedin.com/in/billy-santos/",
+        icon: Linkedin
+    },
+    {
+        name: 'Github',
+        url: "https://github.com/santos16426",
+        icon: Github
+    },
+    {
+        name: 'Instagram',
+        url: "https://www.instagram.com/lucas.gif/",
+        icon: Instagram
+    }
+]
+
 export const DesktopGridItems : GridItemInterface[] = [
     {
         layout: "2x2",
