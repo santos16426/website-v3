@@ -1,5 +1,4 @@
-import styles from './AboutMe.module.scss'
-import { useRef } from 'react';
+import styles from '@/app/styles/AboutMe.module.scss'
 import Gallery from './Gallery';
 
 const AboutMe = () => {

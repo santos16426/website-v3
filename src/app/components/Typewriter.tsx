@@ -1,6 +1,6 @@
 import React from "react";
 import Typewriter from "typewriter-effect";
-import styles  from "./Typewriter.module.scss";
+import styles  from "@/app/styles/Typewriter.module.scss";
 interface BannerStringProps{
   skills : string[]
 }

@@ -1,5 +1,5 @@
 import Slider from 'react-slick'
-import styles from './Gallery.module.scss'
+import styles from '@/app/styles/Gallery.module.scss'
 import Image from 'next/image'
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';

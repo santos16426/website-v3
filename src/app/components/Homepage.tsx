@@ -1,8 +1,9 @@
-import styles from './Homepage.module.scss'
+import styles from '@/app/styles/Homepage.module.scss'
 import TypeWriter from '@/app/components/Typewriter'
 import Image from 'next/image'
 import {FillButton} from '@/app/components/common/Button'
-import SocialLinks from '../common/SocialLinks';
+import SocialLinks from './common/SocialLinks';
+import MaxWidthWrapper from './MaxWidthWrapper';
 const Homepage = () =>{
     const skills = [
         "Software Engineer",
@@ -22,7 +23,7 @@ const Homepage = () =>{
           }
       };
     return(
-        <div className={styles.container}>
+        <MaxWidthWrapper className={styles.container}>
             <div className={styles.avatarOnHover}>
                 <div className={styles.avatar}>
                     <Image src="/images/profile.jpg"  width={200} height={200} layout='responsive' alt=""/>
@@ -43,7 +44,7 @@ const Homepage = () =>{
                 <FillButton label="Know more about me" onClick={scrollToSection}/>
             </div>
             
-        </div>
+        </MaxWidthWrapper>
     )
 }
 export default Homepage

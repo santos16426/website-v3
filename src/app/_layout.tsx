@@ -1,6 +1,6 @@
 import React, { ReactElement, ReactNode } from "react";
 import { Inter } from 'next/font/google'
-import Header from "../Header";
+import Header from "./components/Header";
 import "@/app/styles/globals.scss";
 import { Metadata } from "next";
 import { cn } from "@/lib/utils";
@@ -19,7 +19,11 @@ export default function RootLayout({
   return(
       <div className={cn("relative h-full font-sans antialiased", inter.className)}>
           <Header/>
-          <main>{children}</main>
+          <main className='relative flex flex-col min-h-screen'>
+            <div className='flex-grow flex-1'>
+              {children}
+            </div>
+          </main>
       </div>
   )
 };

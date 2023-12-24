@@ -1,4 +1,4 @@
-import Layout from "@/app/components/Layout";
+import Layout from "@/app/_layout";
 import styles from "@/app/styles/Home.module.scss";
 import SnapSection from "@/app/components/SnapSection";
 import { useRef } from "react";
@@ -7,6 +7,7 @@ import AboutMe from "@/app/components/AboutMe";
 import Experience from "@/app/components/Experience";
 import Projects from "@/app/components/Projects";
 import ContactMe from "@/app/components/ContactMe";
+import MaxWidthWrapper from "@/app/components/MaxWidthWrapper";
 const Home = () => {
   const homeRef = useRef <HTMLDivElement>(null);
   const aboutRef = useRef <HTMLDivElement>(null);

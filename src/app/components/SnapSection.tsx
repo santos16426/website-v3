@@ -1,6 +1,6 @@
 import { ReactNode, RefObject, useEffect, useRef } from "react";
 import Image from "next/image";
-import styles from "./SnapSection.module.scss";
+import styles from "@/app/styles/SnapSection.module.scss";
 
 
 

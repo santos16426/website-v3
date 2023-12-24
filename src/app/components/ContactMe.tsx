@@ -1,7 +1,7 @@
 import { useState, useRef } from 'react';
-import styles from './ContactMe.module.scss';
-import { FillButton } from '../common/Button';
-import SocialLinks from '../common/SocialLinks';
+import styles from '@/app/styles/ContactMe.module.scss';
+import { FillButton } from './common/Button';
+import SocialLinks from './common/SocialLinks';
 import emailjs from 'emailjs-com';
 
 const SuccessMessage = () => (

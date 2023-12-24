@@ -1,4 +1,4 @@
-import styles from './Experience.module.scss'
+import styles from '@/app/styles/Experience.module.scss'
 const Experience = () => {
     return(
         <div className={styles.wrapper}>
