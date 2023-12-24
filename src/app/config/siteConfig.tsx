@@ -1,10 +1,13 @@
+import GoogleMapsComponent from "../components/Maps";
+
 export type GridItemLayout = "1x1" | "1x2" | "2x1" | "2x2" | "4x2" | "2x4" | "2x3" | "4x4";
 
 export interface GridItemInterface {
     layout : GridItemLayout;
     title?: string;
+    children?: React.ReactNode
 }
-
+console.log(process.env)
 export const DesktopGridItems : GridItemInterface[] = [
     {
         layout: "2x2",
@@ -25,6 +28,7 @@ export const DesktopGridItems : GridItemInterface[] = [
     {
         layout: "2x3",
         title:"map",
+        children: <GoogleMapsComponent apiKey={process.env.NEXT_PUBLIC_GOOGLE_API_KEY}/>
     },
     {
         layout: "2x2",
@@ -68,6 +72,7 @@ export const MobileGridItems : GridItemInterface[] = [
     {
         layout: "2x2",
         title:"map",
+        children: <GoogleMapsComponent apiKey={process.env.NEXT_PUBLIC_GOOGLE_API_KEY}/>
     },
     {
         layout: "4x2",
