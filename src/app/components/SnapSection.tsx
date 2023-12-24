@@ -1,7 +1,7 @@
 import { ReactNode, RefObject, useEffect, useRef } from "react";
 import Image from "next/image";
 import styles from "@/app/styles/SnapSection.module.scss";
-import { cn } from "@/lib/utils";
+import { cn } from "@/app/lib/utils";
 
 
 

@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@fontsource/nunito": "^5.0.16",
+    "@radix-ui/react-dialog": "^1.0.5",
     "@react-google-maps/api": "^2.19.2",
     "boxicons": "^2.1.4",
     "class-variance-authority": "^0.7.0",
@@ -27,8 +28,10 @@
     "slick-carousel": "^1.8.1",
     "tailwind-merge": "^2.2.0",
     "tailwindcss-animate": "^1.0.7",
+    "typeface-montserrat": "^1.1.13",
     "typeface-roboto": "^1.1.13",
-    "typewriter-effect": "^2.21.0"
+    "typewriter-effect": "^2.21.0",
+    "vaul": "^0.8.0"
   },
   "devDependencies": {
     "@types/node": "^20",

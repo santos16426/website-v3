@@ -73,10 +73,13 @@
   body {
     @apply bg-background text-foreground;
     div{
-      scrollbar-width: none;
-    &::-webkit-scrollbar{
-        display: none;
+        scrollbar-width: none;
+      &::-webkit-scrollbar{
+          display: none;
+      }
     }
+    * {
+      font-family: 'Roboto' sans-serif;
     }
   }
   

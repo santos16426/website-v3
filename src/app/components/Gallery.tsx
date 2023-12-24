@@ -5,7 +5,7 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import Image from 'next/image'
 import { ChevronLeft, ChevronRight, Dot } from 'lucide-react';
-import { cn } from '@/lib/utils';
+import { cn } from '@/app/lib/utils';
 const Gallery = ({ 
         images 
     }:{ 

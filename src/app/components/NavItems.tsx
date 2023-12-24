@@ -1,10 +1,12 @@
 import { useState } from "react";
 import styles from '@/app/styles/NavItems.module.scss'
-import { cn } from "@/lib/utils";
+import { cn } from "@/app/lib/utils";
+import { Menu } from "lucide-react";
+
 
 
 const NavItems = () => {
-    const [activeIndex, setActiveIndex] = useState<null|number>(null);
+    const [isDrawerOpen, setIsDrawerOpen] = useState<boolean>(false);
     const scrollToSection = (sectionId: string) => {
         const section = document.getElementById(sectionId);
           if (section) {
@@ -15,6 +17,7 @@ const NavItems = () => {
           }
       };
     return(
+    <>
         <nav className="space-x-6 hidden lg:block">
             <a
                 href="#about"
@@ -45,6 +48,9 @@ const NavItems = () => {
                 Contact
             </a>
         </nav>
+        <Menu className="block sm:hidden text-gray-700 cursor-pointer" onClick={()=>setIsDrawerOpen(true)}/>
+    </>
+        
     )
 }
 export default NavItems

@@ -4,7 +4,7 @@ import Image from 'next/image'
 import {FillButton} from '@/app/components/common/Button'
 import SocialLinks from './common/SocialLinks';
 import MaxWidthWrapper from './MaxWidthWrapper';
-import { cn } from '@/lib/utils';
+import { cn } from '@/app/lib/utils';
 const Homepage = () =>{
     const skills = [
         "Software Engineer",
