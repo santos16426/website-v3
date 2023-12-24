@@ -1,3 +1,4 @@
+import Gallery from "../components/Gallery";
 import GoogleMapsComponent from "../components/Maps";
 
 export type GridItemLayout = "1x1" | "1x2" | "2x1" | "2x2" | "4x2" | "2x4" | "2x3" | "4x4";
@@ -7,7 +8,12 @@ export interface GridItemInterface {
     title?: string;
     children?: React.ReactNode
 }
-console.log(process.env)
+const photoAlbum = [
+    "/images/about/1x1/about-1.jpg",
+    "/images/about/1x1/about-2.jpg",
+    "/images/about/1x1/about-4.jpg",
+    "/images/about/1x1/about-6.jpg",
+]
 export const DesktopGridItems : GridItemInterface[] = [
     {
         layout: "2x2",
@@ -16,6 +22,7 @@ export const DesktopGridItems : GridItemInterface[] = [
     {
         layout: "1x2",
         title:"photo album",
+        children: <Gallery images={photoAlbum} />
     },
     {
         layout: "1x2",
@@ -48,6 +55,7 @@ export const MobileGridItems : GridItemInterface[] = [
     {
         layout: "2x2",
         title:"album",
+        children: <Gallery images={photoAlbum} />
     },
     {
         layout: "2x1",
