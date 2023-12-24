@@ -1,49 +1,4 @@
 $dark-gray: #525252;
-.section{
-    height: 100vh;
-    width: 100%;
-    position: relative;
-    scroll-snap-align: center;
-    img{
-        position: relative;
-        object-fit: fill;
-        object-position: center;
-        width: 100%;
-        height: 100%;
-    }
-    .imageContainer {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width:  100%;
-        height: 100%;
-      }
-    .copy{
-        h2{
-            position: relative;
-            z-index: 5;
-            font-size: 1.4rem;
-            font-weight: bold;
-            text-align: center;
-            @media (min-width: 768px) {
-                font-size: 3rem;
-            }
-        }
-    }
-
-
-.scrolldown {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  text-align: center;
-
-
-  position: absolute;
-  bottom:10px;
-  cursor: pointer;
-}
-
 .mouse {
   display: inline-block;
   vertical-align: middle;
@@ -83,16 +38,7 @@ $dark-gray: #525252;
 	}
 }
 
-.left,
-.right {
-  display: inline-block;
-  vertical-align: middle;
-  padding: 0 10px;
-  font-size: 13px;
-  font-weight: bold;
+.textScroll {
   color: $dark-gray;
-  text-transform: uppercase;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-}
-    
 }

@@ -1,0 +1,23 @@
+.navLink {
+    transition: color 0.3s ease, transform 0.3s ease;
+  }
+  
+  .navLink:hover {
+    color: black;
+  }
+  
+  .navLink::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: black;
+    transform-origin: bottom left; /* Adjust the transform origin */
+    transition: width 0.3s ease; /* Use width for the left-to-right effect */
+  }
+  
+  .navLink:hover::after {
+    width: 100%;
+  }
