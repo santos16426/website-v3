@@ -1,7 +1,6 @@
-import styles from '@/app/styles/Projects.module.scss'
 const Projects = () => {
     return(
-        <div className={styles.wrapper}>
+        <div className='relative w-full h-screen flex flex-col justify-center items-center'>
             <h1> Projects </h1>
         </div>
     )

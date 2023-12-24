@@ -4,6 +4,7 @@ import Image from 'next/image'
 import {FillButton} from '@/app/components/common/Button'
 import SocialLinks from './common/SocialLinks';
 import MaxWidthWrapper from './MaxWidthWrapper';
+import { cn } from '@/lib/utils';
 const Homepage = () =>{
     const skills = [
         "Software Engineer",
@@ -23,12 +24,12 @@ const Homepage = () =>{
           }
       };
     return(
-        <MaxWidthWrapper className={styles.container}>
-            <div className={styles.avatarOnHover}>
-                <div className={styles.avatar}>
+        <MaxWidthWrapper className={cn('relative w-full h-screen p-[0] sm:p-[80px] flex flex-col justify-center items-center')}>
+            <div className={cn('relative', styles.avatarOnHover)}>
+                <div className='relative w-[200px] h-[200px] rounded-full overflow-hidden mb-5 cursor-pointer'>
                     <Image src="/images/profile.jpg"  width={200} height={200} layout='responsive' alt=""/>
                 </div>
-                <div className={styles.techStack}>
+                <div className={cn('flex absolute z-[-999] top-[50%] left-[50%] transform translate-x-[-50%] translate-y-[-50%]',styles.techStack)}>
                     <Image className={styles.techStackItem}  src="/images/icons/html.svg"  width={5} height={5} layout='responsive' alt="" style={{ width: 30, height: 30}}/>
                     <Image className={styles.techStackItem}  src="/images/icons/css.svg"  width={5} height={5} layout='responsive' alt="" style={{ width: 30, height: 30}}/>
                     <Image className={styles.techStackItem}  src="/images/icons/javascript.svg"  width={5} height={5} layout='responsive' alt=""style={{ width: 30, height: 30}}/>
@@ -37,13 +38,12 @@ const Homepage = () =>{
                     <Image className={styles.techStackItem}  src="/images/icons/sass.svg"  width={5} height={5} layout='responsive' alt="" style={{ width: 30, height: 30}}/>
                 </div>
             </div>
-            <p>Billy Santos</p>
+            <p className='text-3xl font-bold'>Billy Santos</p>
             <TypeWriter skills={skills}/>
             <SocialLinks/>
             <div>
                 <FillButton label="Know more about me" onClick={scrollToSection}/>
             </div>
-            
         </MaxWidthWrapper>
     )
 }

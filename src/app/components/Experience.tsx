@@ -1,7 +1,6 @@
-import styles from '@/app/styles/Experience.module.scss'
 const Experience = () => {
     return(
-        <div className={styles.wrapper}>
+        <div className="relative w-full h-screen flex flex-col justify-center items-center">
             <h1> exp </h1>
         </div>
     )

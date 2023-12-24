@@ -34,10 +34,9 @@ const ContactMe: React.FC = () => {
   };
 
   return (
-    <div className={styles.wrapper}>
-      <div className={`flex flex-row ${styles.formWrapper}`}>
-      
-        <div className={styles.contactDetails}>
+    <div className='bg-red-100 p-20 relative w-full h-screen flex flex-col justify-center items-center text-black'>
+      <div className='bg-white flex flex-row w-full overflow-hidden rounded-md shadow-xl'>
+        <div className='text-primary w-full relative flex flex-start items-end flex-col p-12'>
             <div className='heading text-3xl font-bold'>
                 <span className="text-orange-500">&lt;</span>
                 <span className=''>Contact Me</span>
@@ -57,24 +56,24 @@ const ContactMe: React.FC = () => {
             </div>
             <SocialLinks />
         </div>
-        <form onSubmit={handleSubmit} ref={formRef}>
-          <div className={`flex flex-col  gap-2 px-32 py-20 ${styles.form}`}>
-            <p>Write me a message</p>
-            <div className="flex gap-2">
-              <input type="email" name="email" placeholder="Email" className="border rounded-md p-2" />
-              <input type="text" name="phoneNumber" placeholder="Phone number" className="border rounded-md p-2" />
+        <div className='w-full'>
+          <form onSubmit={handleSubmit} ref={formRef}>
+            <div className='flex flex-col gap-2 px-32 py-20 w-full'>            
+              <p>Write me a message</p>
+              <div className="flex gap-2">
+                <input type="email" name="email" placeholder="Email" className="border rounded-md p-2" />
+                <input type="text" name="phoneNumber" placeholder="Phone number" className="border rounded-md p-2" />
+              </div>
+              <input type="text" name="subject" placeholder="Subject" className="border rounded-md p-2" />
+              <textarea className="border rounded-md p-2" name="message" placeholder="Message" />
+                {/* {showSuccess && <SuccessMessage />} */}
+              <div className="flex flex-row justify-space-between">
+                <div />
+                <FillButton label="Send" icon={<i className="bx bxs-send text-lg"></i>} onClick={handleSubmit} />
+              </div>
             </div>
-            <input type="text" name="subject" placeholder="Subject" className="border rounded-md p-2" />
-            <textarea className="border rounded-md p-2" name="message" placeholder="Message" />
-              {/* {showSuccess && <SuccessMessage />} */}
-            <div className="flex flex-row justify-space-between">
-              <div />
-              <FillButton label="Send" icon={<i className="bx bxs-send text-lg"></i>} onClick={handleSubmit} />
-            </div>
-            
-          </div>
-        </form>
-      
+          </form>
+        </div>
       </div>
     </div>
   );
