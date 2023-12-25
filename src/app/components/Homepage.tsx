@@ -40,7 +40,7 @@ const Homepage = () =>{
             </div>
             <p className='text-3xl font-bold'>Billy Santos</p>
             <TypeWriter skills={skills}/>
-            <SocialLinks/>
+            <SocialLinks showLabel={false}/>
             <div>
                 <FillButton label="Know more about me" onClick={scrollToSection}/>
             </div>

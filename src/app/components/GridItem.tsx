@@ -2,7 +2,7 @@ import { cn } from "@/app/lib/utils"
 import { cva, type VariantProps } from "class-variance-authority"
 
 const variants = cva(
-    "relative rounded-md bg-pink-300 shadow-md overflow-hidden flex flex-col",
+    "relative rounded-md bg-white shadow-md overflow-hidden flex flex-col",
     {
        variants: {
         size: {
