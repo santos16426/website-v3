@@ -1,4 +1,5 @@
-import Gallery from "../components/Gallery";
+import SocialLinks from "@/app/components/common/SocialLinks";
+import {IconGallery, PhotoGallery} from "../components/Gallery";
 import GoogleMapsComponent from "../components/Maps";
 import { Github, Instagram, Linkedin, LucideIcon } from 'lucide-react'
 
@@ -13,7 +14,9 @@ export interface GridItemInterface {
 export interface DigitalSpaceItem{
     name: string,
     url: string,
-    icon: LucideIcon
+    icon: LucideIcon,
+    color?: string,
+    className?:string,
 }
 
 const photoAlbum = [
@@ -27,17 +30,20 @@ export const digitalSpace: DigitalSpaceItem[] = [
     {
         name: 'LinkedIn',
         url: "https://www.linkedin.com/in/billy-santos/",
-        icon: Linkedin
+        icon: Linkedin,
+        className: 'bg-[#3076EE]',
     },
     {
         name: 'Github',
         url: "https://github.com/santos16426",
-        icon: Github
+        icon: Github,
+        className: 'bg-black'
     },
     {
         name: 'Instagram',
         url: "https://www.instagram.com/lucas.gif/",
-        icon: Instagram
+        icon: Instagram,
+        className:"instagram"
     }
 ]
 
@@ -49,7 +55,7 @@ export const DesktopGridItems : GridItemInterface[] = [
     {
         layout: "1x2",
         title:"photo album",
-        children: <Gallery images={photoAlbum} />
+        children: <PhotoGallery images={photoAlbum} />
     },
     {
         layout: "1x2",
@@ -75,6 +81,14 @@ export const DesktopGridItems : GridItemInterface[] = [
     {
         layout: "1x1",
         title:"digital space",
+        children: <div>
+                    <div className="text-sm absolute bg-black text-white px-2 rounded-sm flex flex-row">
+                        <span className="text-orange-500">&lt;</span>
+                        <span className="text-black-500 hidden sm:flex">digital space</span>
+                        <span className="text-orange-500">/&gt;</span>
+                    </div>
+                    <SocialLinks showLabel/>
+                </div>
     },
 ]
 
@@ -82,7 +96,7 @@ export const MobileGridItems : GridItemInterface[] = [
     {
         layout: "2x2",
         title:"album",
-        children: <Gallery images={photoAlbum} />
+        children: <PhotoGallery images={photoAlbum} />
     },
     {
         layout: "2x1",
@@ -91,6 +105,7 @@ export const MobileGridItems : GridItemInterface[] = [
     {
         layout: "1x1",
         title:"digi space",
+        children: <IconGallery items={digitalSpace} />
     },
     {
         layout: "1x1",
@@ -112,6 +127,5 @@ export const MobileGridItems : GridItemInterface[] = [
     {
         layout: "4x2",
         title:"2x4",
-    },
-   
+    },  
 ]
