@@ -88,7 +88,7 @@ export const DesktopGridItems : GridItemInterface[] = [
                         <span className="text-orange-500">/&gt;</span>
                     </div>
                     <SocialLinks showLabel/>
-                </div>
+                    </div>
     },
 ]
 

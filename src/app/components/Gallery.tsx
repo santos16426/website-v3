@@ -16,7 +16,7 @@ export const PhotoGallery = ({
     const sliderRef = useRef<Slider>(null);
     const [activeSlide, setActiveSlide] = useState(0);
     const settings = {
-        dots: true,
+        dots: false,
         infinite: true,
         slidesToScroll: 1,
         autoplay: true,
@@ -73,11 +73,11 @@ export const IconGallery = ({items}:{items:DigitalSpaceItem[]}) =>{
     const sliderRef = useRef<Slider>(null);
     const settings = {
         dots: false,
-        arrow:false,
         infinite: true,
-        speed: 500,
-        slidesToShow: 1,
         slidesToScroll: 1,
+        autoplay: true,
+        autoplaySpeed: 1000,
+        slidesToShow: 1,
     };
     return(
     <div className="flex flex-col rounded-full">
