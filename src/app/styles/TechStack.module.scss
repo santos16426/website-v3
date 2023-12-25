@@ -1,0 +1,18 @@
+.techStackWrapper{
+    &:hover{
+        animation-play-state: paused;
+    }
+}
+.techStackItem{
+    p{
+        display: none;
+    }
+    &:hover{
+        p{
+            display:block;
+            font-size:.5rem;
+            font-weight: bold;
+            margin-top: 5px;
+        }
+    }
+}

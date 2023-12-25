@@ -64,7 +64,7 @@ const SocialLinks = ({showLabel = false}:{showLabel?:boolean}) => {
         <div className='p-[20px] text-2xl flex flex-row gap-4 justify-center'>
             {digitalSpace.map((item,index)=>(
                 generateToolTip({
-                    content: <a target='_blank' href={item.url} key={index} className='flex flex-col gap-2 items-center transform hover:scale-150'><item.icon></item.icon><p className={cn(!showLabel && 'hidden','text-xs')}>{item.name}</p></a>,
+                    content: <a target='_blank' rel='noopener noreferrer' href={item.url} key={index} className='flex flex-col gap-2 items-center transform hover:scale-150'><item.icon></item.icon><p className={cn(!showLabel && 'hidden','text-xs')}>{item.name}</p></a>,
                     description: item.name,
                     key: index
                 })

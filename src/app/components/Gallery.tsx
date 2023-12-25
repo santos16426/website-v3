@@ -6,7 +6,7 @@ import 'slick-carousel/slick/slick-theme.css';
 import Image from 'next/image'
 import { ChevronLeft, ChevronRight, Dot } from 'lucide-react';
 import { cn } from '@/app/lib/utils';
-import { DigitalSpaceItem } from '../config/siteConfig';
+import { IconGalleryItem } from '../config/siteConfig';
 
 export const PhotoGallery = ({ 
         images 
@@ -69,7 +69,7 @@ export const PhotoGallery = ({
     );
 };
 
-export const IconGallery = ({items}:{items:DigitalSpaceItem[]}) =>{
+export const IconGallery = ({items}:{items:IconGalleryItem[]}) =>{
     const sliderRef = useRef<Slider>(null);
     const settings = {
         dots: false,
@@ -83,7 +83,7 @@ export const IconGallery = ({items}:{items:DigitalSpaceItem[]}) =>{
     <div className="rounded-full">
         <Slider {...settings} ref={sliderRef}>
             {items.map((ico,index)=>(
-                <a key={index} target='_target' href={ico.url}>
+                <a key={index} target='_target' href={ico.url} rel='noopener noreferrer'>
                     <div className={cn('overflow-hidden',ico.className)} key={index}>
                         <ico.icon className='text-white p-6 mt-[-8px] h-full w-full'/>
                     </div>
