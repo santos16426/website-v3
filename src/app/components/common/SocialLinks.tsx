@@ -5,7 +5,7 @@ import {
     TooltipTrigger,
 } from "@/app/components/ui/tooltip"
 import { cn } from '@/app/lib/utils'
-import { Github, Instagram, Linkedin, LucideIcon } from 'lucide-react'
+import { Facebook, Github, Instagram, Linkedin, LucideIcon } from 'lucide-react'
 export interface DigitalSpaceItem{
     name: string,
     url: string,
@@ -34,6 +34,12 @@ const SocialLinks = ({showLabel = false}:{showLabel?:boolean}) => {
             url: "https://www.instagram.com/lucas.gif/",
             icon: Instagram,
             className:"instagram"
+        },
+        {
+            name: 'Facebook',
+            url: "https://www.facebook.com/joeee.lucas",
+            icon: Facebook,
+            className: 'bg-[#0966FE]'
         }
     ]
     const generateToolTip = ({
