@@ -43,7 +43,7 @@ export const PhotoGallery = ({
         }
       };
   return (
-    <div className="full-screen-slider h-screen">
+    <div className="full-screen-slider">
         <Slider {...settings} ref={sliderRef}>
             {images.map((image,index)=>(
                 <div className="slide" key={index}>
@@ -80,7 +80,7 @@ export const IconGallery = ({items}:{items:DigitalSpaceItem[]}) =>{
         slidesToShow: 1,
     };
     return(
-    <div className="flex flex-col rounded-full">
+    <div className="rounded-full">
         <Slider {...settings} ref={sliderRef}>
             {items.map((ico,index)=>(
                 <a key={index} target='_target' href={ico.url}>

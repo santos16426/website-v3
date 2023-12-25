@@ -1,7 +1,7 @@
 import SocialLinks from "@/app/components/common/SocialLinks";
 import {IconGallery, PhotoGallery} from "../components/Gallery";
 import GoogleMapsComponent from "../components/Maps";
-import { Github, Instagram, Linkedin, LucideIcon } from 'lucide-react'
+import { Facebook, Github, Instagram, Linkedin, LucideIcon } from 'lucide-react'
 
 export type GridItemLayout = "1x1" | "1x2" | "2x1" | "2x2" | "4x2" | "2x4" | "2x3" | "4x4";
 
@@ -44,6 +44,12 @@ export const digitalSpace: DigitalSpaceItem[] = [
         url: "https://www.instagram.com/lucas.gif/",
         icon: Instagram,
         className:"instagram"
+    },
+    {
+        name: 'Facebook',
+        url: "https://www.facebook.com/joeee.lucas",
+        icon: Facebook,
+        className: 'bg-[#0966FE]'
     }
 ]
 
