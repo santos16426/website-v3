@@ -21,19 +21,19 @@ const Home = () => {
   return (
     <Layout>
       <div className='relative overflow-x-hidden overflow-y-auto overscroll-y-contain h-screen w-full snap-y snap-mandatory'>
-        <div ref={homeRef}>
+        <div className="h-screen" ref={homeRef}>
           <SnapSection sectionId="1" scrollTo={scrollTo} goTo={aboutRef} content={<Homepage/>}/>
         </div>
-        <div ref={aboutRef}>
+        <div className="h-screen" ref={aboutRef}>
           <SnapSection sectionId="2" scrollTo={scrollTo} goTo={expRef}  content={<AboutMe/>}/>
         </div>
-        <div ref={expRef}>
+        <div className="h-screen" ref={expRef}>
           <SnapSection sectionId="3" scrollTo={scrollTo} goTo={projRef}  content={<Experience/>}/>
         </div>
-        <div ref={projRef}>
+        <div className="h-screen" ref={projRef}>
           <SnapSection sectionId="4"  scrollTo={scrollTo} goTo={contactRef}  content={<Projects/>}/>
         </div>
-        <div ref={contactRef}>
+        <div className="h-screen" ref={contactRef}>
           <SnapSection sectionId="5"  content={<ContactMe/>}/>
         </div>
       </div>
