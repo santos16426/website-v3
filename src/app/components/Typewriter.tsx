@@ -7,7 +7,7 @@ interface BannerStringProps{
   className?:string,
 }
 const BannerString:React.FC<BannerStringProps> = ({ skills, className }) => (
-  <div className={cn('text-left text-black text-3xl md:text-4xl mt-4 font-serif', styles.wrapper, className)}>
+  <div className={cn('text-left text-black text-3xl md:text-4xl mt-4 font-serif', styles.wrapper,className)}>
     <Typewriter
       options={{
         strings: skills,

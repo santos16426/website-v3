@@ -3,6 +3,7 @@ import {IconGallery, PhotoGallery} from "../components/Gallery";
 import GoogleMapsComponent from "../components/Maps";
 import { Facebook, Github, Instagram, Linkedin, LucideIcon, MonitorSmartphone, ScanEye, UsersRound } from 'lucide-react'
 import TechStack from "../components/TechStack";
+import Typewriter from "typewriter-effect";
 import Resources from "../components/Resources";
 export type GridItemLayout = "1x1" | "1x2" | "2x1" | "2x2" | "4x2" | "2x4" | "2x3" | "4x4";
 
@@ -173,6 +174,31 @@ export const DesktopGridItems : GridItemInterface[] = [
     {
         layout: "2x4",
         title:"description",
+        children:
+        <div className="flex flex-col justify-center items-center w-full h-full px-2 pt-15 pb-2  text-xl text-left font-nunito bg-black text-white">
+            <div className="flex flex-row gap-2 absolute top-5 left-5">
+                <div className='bg-[#ff423c] rounded-full p-2'/>
+                <div className='bg-[#ffc13a] rounded-full p-2'/>
+                <div className='bg-[#00ff00] rounded-full p-2'/>
+            </div>
+            <div  className="w-full h-full rounded-md p-10 font-[Courier] leading-6">
+            <div>
+                <span className="text-cyan-400">$ </span>node<span className="text-green-400"> billyjoe.tsx</span> 
+                <br />
+                <div className="mt-3 flex flex-row gap-2"><span className="text-cyan-400">$</span><Typewriter options={{
+                    strings:["Hey there! I'm a Software Engineer based in the Philippines, with over 5 years of hands-on experience in crafting and maintaining software. Fluent in various programming languages, I enjoy coming up with creative solutions for complex problems. I thrive on continual learning, navigating the ever-evolving realm of software engineering with a fervor for achieving excellence. Let's code and have some fun on this exciting journey!"],
+                    autoStart:true,
+                    loop:true,
+                    delay: 25,
+                    deleteSpeed:10,
+                    cursorClassName:"w-2 bg-green-400"
+                    
+                }}/>
+                </div>
+                
+            </div>
+            </div>
+        </div>
 
     },
     {
@@ -241,6 +267,26 @@ export const MobileGridItems : GridItemInterface[] = [
     {
         layout: "4x2",
         title:"description",
+        children:
+        <div className="flex flex-col justify-center items-center w-full h-full pt-5 pb-2  text-xs text-left font-nunito bg-black text-white">
+        <div className="flex flex-row gap-2 absolute top-1 left-1">
+            <div className='bg-[#ff423c] rounded-full p-1'/>
+            <div className='bg-[#ffc13a] rounded-full p-1'/>
+            <div className='bg-[#00ff00] rounded-full p-1'/>
+        </div>
+        <div className="w-full h-full rounded-md px-2 font-[Courier] leading-[.8rem]">
+            <div className="flex flex-row gap-2"><span className="text-cyan-400">$</span><Typewriter options={{
+                strings:["Hey there! I'm a Software Engineer based in the Philippines, with over 5 years of hands-on experience in crafting and maintaining software. Fluent in various programming languages, I enjoy coming up with creative solutions for complex problems. I thrive on continual learning, navigating the ever-evolving realm of software engineering with a fervor for achieving excellence. Let's code and have some fun on this exciting journey!"],
+                autoStart:true,
+                loop:true,
+                delay: 25,
+                deleteSpeed:10,
+                cursorClassName:"w-2 bg-green-400"
+                
+            }}/>
+            </div>
+        </div>
+    </div>
     },
     {
         layout: "2x2",
