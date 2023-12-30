@@ -1,6 +1,6 @@
 // FullScreenSlider.js
 import React, { useRef, useState } from 'react';
-import Slider from 'react-slick';
+import Slider, { Settings } from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import Image from 'next/image'
@@ -9,13 +9,15 @@ import { cn } from '@/app/lib/utils';
 import { IconGalleryItem } from '../config/siteConfig';
 
 export const PhotoGallery = ({ 
-        images 
+        images,
+        customSettings,
     }:{ 
-        images: string[]
+        images: string[],
+        customSettings?: Settings
     }) => {
     const sliderRef = useRef<Slider>(null);
     const [activeSlide, setActiveSlide] = useState(0);
-    const settings = {
+    const defaultSettings = {
         dots: false,
         infinite: true,
         slidesToScroll: 1,
@@ -26,6 +28,7 @@ export const PhotoGallery = ({
             setActiveSlide(next);
         },
     };
+    const settings = customSettings ? customSettings : defaultSettings;
     const goToSlide = (index: number): void => {
         if (sliderRef.current) {
           sliderRef.current.slickGoTo(index);

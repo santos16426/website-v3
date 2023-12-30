@@ -1,12 +1,13 @@
 import Layout from "@/app/_layout";
 import SnapSection from "@/app/components/SnapSection";
-import { useRef } from "react";
+import { useRef, useEffect, useState, SetStateAction } from "react";
 import Homepage from "@/app/components/Homepage";
 import AboutMe from "@/app/components/AboutMe";
 import Experience from "@/app/components/Experience";
 import Projects from "@/app/components/Projects";
 import ContactMe from "@/app/components/ContactMe";
 const Home = () => {
+  const [isScrolledTop, setIsScrolledTop] = useState<boolean>(true);
   const homeRef = useRef <HTMLDivElement>(null);
   const aboutRef = useRef <HTMLDivElement>(null);
   const expRef = useRef <HTMLDivElement>(null);
@@ -17,23 +18,26 @@ const Home = () => {
       behavior: "smooth"
     })
   }
+  const handleScroll = (event: { currentTarget: { scrollTop: number; }; }) => {
+    setIsScrolledTop(event.currentTarget.scrollTop < 400)
+  };
   
   return (
     <Layout>
-      <div className='relative overflow-x-hidden overflow-y-auto overscroll-y-contain h-screen w-full snap-y snap-mandatory'>
-        <div ref={homeRef}>
-          <SnapSection sectionId="1" scrollTo={scrollTo} goTo={aboutRef} content={<Homepage/>}/>
+      <div className='relative overflow-x-hidden overflow-y-auto overscroll-y-contain h-screen w-full' onScroll={handleScroll}>
+        <div className="h-screen" ref={homeRef}>
+          <SnapSection sectionId="1" showScrollTo={isScrolledTop} scrollTo={scrollTo} goTo={aboutRef} content={<Homepage/>}/>
         </div>
-        <div ref={aboutRef}>
-          <SnapSection sectionId="2" scrollTo={scrollTo} goTo={expRef}  content={<AboutMe/>}/>
+        <div className="h-screen" ref={aboutRef}>
+          <SnapSection sectionId="2" content={<AboutMe/>}/>
         </div>
-        <div ref={expRef}>
-          <SnapSection sectionId="3" scrollTo={scrollTo} goTo={projRef}  content={<Experience/>}/>
+        <div className="h-screen" ref={expRef}>
+          <SnapSection sectionId="3" content={<Experience/>}/>
         </div>
-        <div ref={projRef}>
-          <SnapSection sectionId="4"  scrollTo={scrollTo} goTo={contactRef}  content={<Projects/>}/>
+        <div className="h-screen" ref={projRef}>
+          <SnapSection sectionId="4"  content={<Projects/>}/>
         </div>
-        <div ref={contactRef}>
+        <div className="h-screen" ref={contactRef}>
           <SnapSection sectionId="5"  content={<ContactMe/>}/>
         </div>
       </div>
