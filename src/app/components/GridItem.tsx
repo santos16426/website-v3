@@ -2,7 +2,7 @@ import { cn } from "@/app/lib/utils"
 import { cva, type VariantProps } from "class-variance-authority"
 
 const variants = cva(
-    "relative rounded-md bg-white shadow-md overflow-hidden flex flex-col h-full",
+    "relative rounded-md bg-white shadow-xl overflow-hidden flex flex-col h-full",
     {
        variants: {
         size: {
@@ -22,11 +22,12 @@ const variants = cva(
     })
 
 type GridItemsProps = {
-    children: React.ReactNode
+    children: React.ReactNode,
+    className?: string,
 } & VariantProps<typeof variants>;
-const GridItem = ({size, children} : GridItemsProps)=>(
+const GridItem = ({size, children, className} : GridItemsProps)=>(
     <div className={
-        cn(variants({size, className: ""}))
+        cn(variants({size, className}))
     }>
         {children}
     </div>

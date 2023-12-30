@@ -3,10 +3,11 @@ import Typewriter from "typewriter-effect";
 import styles  from "@/app/styles/Typewriter.module.scss";
 import { cn } from "@/app/lib/utils";
 interface BannerStringProps{
-  skills : string[]
+  skills : string[],
+  className?:string,
 }
-const BannerString:React.FC<BannerStringProps> = ({ skills }) => (
-  <div className={cn('text-left text-black text-3xl md:text-4xl mt-4', styles.wrapper)}>
+const BannerString:React.FC<BannerStringProps> = ({ skills, className }) => (
+  <div className={cn('text-left text-black text-3xl md:text-4xl mt-4 font-serif', styles.wrapper, className)}>
     <Typewriter
       options={{
         strings: skills,

@@ -1,20 +1,21 @@
 import SocialLinks from "@/app/components/common/SocialLinks";
 import {IconGallery, PhotoGallery} from "../components/Gallery";
 import GoogleMapsComponent from "../components/Maps";
-import { Facebook, Github, Instagram, Linkedin, LucideIcon } from 'lucide-react'
+import { Facebook, Github, Instagram, Linkedin, LucideIcon, MonitorSmartphone, ScanEye, UsersRound } from 'lucide-react'
 import TechStack from "../components/TechStack";
-
+import Resources from "../components/Resources";
 export type GridItemLayout = "1x1" | "1x2" | "2x1" | "2x2" | "4x2" | "2x4" | "2x3" | "4x4";
 
 export interface GridItemInterface {
     layout : GridItemLayout;
     title?: string;
-    children?: React.ReactNode
+    children?: React.ReactNode;
+    className?: string;
 }
 
 export interface IconGalleryItem{
     name: string,
-    url: string,
+    url?: string,
     icon: LucideIcon,
     color?: string,
     className?:string,
@@ -56,36 +57,101 @@ export const digitalSpace: IconGalleryItem[] = [
 
 export const techStack: IconGalleryItem[] = [
     {
-        name: 'LinkedIn',
-        url: "https://www.linkedin.com/in/billy-santos/",
-        icon: Linkedin,
+        name: 'NextJS',
+        icon: Github,
         className: 'bg-[#3076EE]',
     },
     {
         name: 'Github',
-        url: "https://github.com/santos16426",
         icon: Github,
         className: 'bg-black'
     },
     {
         name: 'Instagram',
-        url: "https://www.instagram.com/lucas.gif/",
         icon: Instagram,
         className:"instagram"
     },
     {
         name: 'Facebook',
-        url: "https://www.facebook.com/joeee.lucas",
         icon: Facebook,
         className: 'bg-[#0966FE]'
     }
 ]
+export interface CharacterType {
+    name: string,
+    icon: LucideIcon,
+    color: string,
+}
+export const characterBox:CharacterType[] = [
+    {
+        name:'Detail Oriented',
+        icon: ScanEye,
+        color:'green'    
+    },
+    {
+        name:'Team Player',
+        icon: UsersRound,
+        color:'orange'    
+    },
+    {
+        name:'Responsive Designs',
+        icon: MonitorSmartphone,
+        color:'blue'
+    },
+]
+export const CharBox = ({desc, icon, key, color}:{desc:string, icon:LucideIcon, key:number, color:string})=>{
+    const Icon = icon;
+    return(
+    <div className="bg-white rounded-md flex flex-col justify-center items-center w-full text-center text-xs font-semibold shadow-xl" key={key}>    
+        <Icon color={color}/>
+        {desc}
+    </div>
+)}
 
+export interface LearningPathItem {
+    thumbnail: string[],
+    title: string,
+    url:string,
+    status: number
+}
+
+export const learningPath:LearningPathItem[] = [
+    {
+        thumbnail:['/images/icons/typescript.svg'],
+        title:"Typescript: The Complete Developer's Guide",
+        url:'https://www.udemy.com/course/typescript-the-complete-developers-guide/',
+        status: 100
+    },
+    {
+        thumbnail:['/images/icons/java.svg', '/images/icons/spring.svg'],
+        title:"Java Spring Boot - Complete Course Bundle",
+        url:'https://www.udemy.com/course/java-spring-boot-complete-course-bundle/',
+        status: 50
+    },
+    {
+        thumbnail:['/images/icons/mongo.svg', '/images/icons/express.svg', '/images/icons/nodejs.svg'],
+        title:"Node.js, Express, MongoDB & More: The Complete Bootcamp 2024",
+        url:'https://www.udemy.com/course/nodejs-express-mongodb-bootcamp/',
+        status: 20
+    },
+]
 
 export const DesktopGridItems : GridItemInterface[] = [
     {
+        layout: "1x1",
+        title:"1x2",
+        className:"bg-slate-400 text-white flex flex-col justify-center items-center",
+        children: <div className="flex flex-row gap-2">
+                    <div className='bg-[#00ff00] rounded-full p-4 animate-blink'/>
+                    <p className="text-white text-sm md:text-2xl font-nunito">Looking for work</p>
+                </div>
+    },
+    {
         layout: "2x2",
         title:"Short introduction",
+        className:"bg-slate-400 flex flex-col justify-center items-center",
+        
+
     },
     {
         layout: "1x2",
@@ -93,12 +159,21 @@ export const DesktopGridItems : GridItemInterface[] = [
         children: <PhotoGallery images={photoAlbum} />
     },
     {
-        layout: "1x2",
-        title:"1x2",
+        layout: "1x1",
+        title:"digital space",
+        children: <div>
+                    <div className="text-sm absolute bg-black text-white px-2 rounded-sm flex flex-row">
+                        <span className="text-orange-500">&lt;</span>
+                        <span className="text-black-500 hidden sm:flex">digital space</span>
+                        <span className="text-orange-500">/&gt;</span>
+                    </div>
+                    <SocialLinks showLabel/>
+                    </div>
     },
     {
         layout: "2x4",
         title:"description",
+
     },
     {
         layout: "2x3",
@@ -108,6 +183,9 @@ export const DesktopGridItems : GridItemInterface[] = [
     {
         layout: "2x2",
         title:"2x2",
+        className:'bg-slate-50',
+        children: <Resources/>
+        
     },
     {
         layout: "1x1",
@@ -124,16 +202,16 @@ export const DesktopGridItems : GridItemInterface[] = [
     },
     {
         layout: "1x1",
-        title:"digital space",
-        children: <div>
-                    <div className="text-sm absolute bg-black text-white px-2 rounded-sm flex flex-row">
-                        <span className="text-orange-500">&lt;</span>
-                        <span className="text-black-500 hidden sm:flex">digital space</span>
-                        <span className="text-orange-500">/&gt;</span>
-                    </div>
-                    <SocialLinks showLabel/>
-                    </div>
+        title:"isipan ko pa?",
+        className:"bg-slate-400 flex flex-col justify-center items-center",
+        children: <div className="flex flex-row gap-2 p-2 w-full h-full">
+                    {characterBox.map((char,index)=>
+                        <CharBox desc={char.name} key={index} icon={char.icon} color={char.color}/>
+                    )}
+                    
+                </div>
     },
+    
 ]
 
 export const MobileGridItems : GridItemInterface[] = [
@@ -144,7 +222,11 @@ export const MobileGridItems : GridItemInterface[] = [
     },
     {
         layout: "2x1",
-        title:"short desciption",
+        className:"bg-slate-400 text-white flex flex-col justify-center items-center",
+        children: <div className="flex flex-row gap-2">
+        <div className='bg-[#00ff00] rounded-full p-3 animate-blink'/>
+        <p className="text-white text-sm md:text-2xl mt-0.5 sm:mt-0 font-nunito">Looking for work</p>
+        </div>
     },
     {
         layout: "1x1",
@@ -154,6 +236,7 @@ export const MobileGridItems : GridItemInterface[] = [
     {
         layout: "1x1",
         title:"tech stack",
+        children: <IconGallery items={techStack} />
     },
     {
         layout: "4x2",
@@ -171,5 +254,6 @@ export const MobileGridItems : GridItemInterface[] = [
     {
         layout: "4x2",
         title:"2x4",
+        children: <Resources/>
     },  
 ]
