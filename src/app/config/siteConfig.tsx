@@ -5,6 +5,10 @@ import { Facebook, Github, Instagram, Linkedin, LucideIcon, MonitorSmartphone, S
 import TechStack from "../components/TechStack";
 import Typewriter from "typewriter-effect";
 import Resources from "../components/Resources";
+import Slider, { Settings } from 'react-slick';
+import Image from 'next/image'
+import HoverText from "../components/HoverText";
+
 export type GridItemLayout = "1x1" | "1x2" | "2x1" | "2x2" | "4x2" | "2x4" | "2x3" | "4x4";
 
 export interface GridItemInterface {
@@ -56,27 +60,60 @@ export const digitalSpace: IconGalleryItem[] = [
     }
 ]
 
-export const techStack: IconGalleryItem[] = [
+const iconPath = '/images/icons/'
+const techStackList: {
+    name: string,
+    iconPath: string,
+    className?:string,
+}[] = [
     {
-        name: 'NextJS',
-        icon: Github,
-        className: 'bg-[#3076EE]',
+        name: "NextJS",
+        iconPath: iconPath + 'nextjs.svg',
     },
     {
-        name: 'Github',
-        icon: Github,
-        className: 'bg-black'
+        name: "TypeScript",
+        iconPath: iconPath + 'typescript.svg',
     },
     {
-        name: 'Instagram',
-        icon: Instagram,
-        className:"instagram"
+        name: "React",
+        iconPath: iconPath + 'react.svg',
     },
     {
-        name: 'Facebook',
-        icon: Facebook,
-        className: 'bg-[#0966FE]'
-    }
+        name: "NodeJS",
+        iconPath: iconPath + 'nodejs.svg',
+    },
+    {
+        name: "Tailwind",
+        iconPath: iconPath + 'tailwind.svg',
+    },
+    {
+        name: "SASS",
+        iconPath: iconPath + 'sass.svg',
+    },
+    {
+        name: "CSS",
+        iconPath: iconPath + 'css.svg',
+    },
+    {
+        name: "HTML",
+        iconPath: iconPath + 'html.svg',
+    },
+    {
+        name: "Javascript",
+        iconPath: iconPath + 'javascript.svg',
+    },
+    {
+        name: "Flutter",
+        iconPath: iconPath + 'flutter.svg',
+    },
+    {
+        name: "Spring Boot",
+        iconPath: iconPath + 'spring.svg',
+    },
+    {
+        name: "NetSuite",
+        iconPath: iconPath + 'netsuite.svg',
+    },
 ]
 export interface CharacterType {
     name: string,
@@ -150,7 +187,18 @@ export const DesktopGridItems : GridItemInterface[] = [
     {
         layout: "2x2",
         title:"Short introduction",
-        className:"bg-slate-400 flex flex-col justify-center items-center",
+        className:'bg-slate-400',
+        children:
+        <>
+        <div className=" flex flex-row gap-5 items-center justify-center mt-12 cursor-pointer">
+            <HoverText string="<"/>
+            <HoverText string="Billy"/>
+            <HoverText string="Joe"/>
+            <HoverText string="Santos"/>
+            <HoverText string="/>"/>
+
+        </div>
+        </>
         
 
     },
@@ -216,21 +264,23 @@ export const DesktopGridItems : GridItemInterface[] = [
     {
         layout: "1x1",
         title:"techStack",
-        children:   <div className="relative h-full">
-                        <div className="text-sm absolute bg-black text-white px-2 rounded-sm flex flex-row">
-                            <span className="text-orange-500">&lt;</span>
-                            <span className="text-black-500 hidden sm:flex">tech stack</span>
-                            <span className="text-orange-500">/&gt;</span>
-                        </div>
-                        <TechStack/>
+        children:   
+                <div className="relative h-full">
+                    <div className="text-sm absolute bg-black text-white px-2 rounded-sm flex flex-row">
+                        <span className="text-orange-500">&lt;</span>
+                        <span className="text-black-500 hidden sm:flex">tech stack</span>
+                        <span className="text-orange-500">/&gt;</span>
                     </div>
+                    <TechStack/>
+                </div>
         
     },
     {
         layout: "1x1",
         title:"isipan ko pa?",
         className:"bg-slate-400 flex flex-col justify-center items-center",
-        children: <div className="flex flex-row gap-2 p-2 w-full h-full">
+        children: 
+                <div className="flex flex-row gap-2 p-2 w-full h-full">
                     {characterBox.map((char,index)=>
                         <CharBox desc={char.name} key={index} icon={char.icon} color={char.color}/>
                     )}
@@ -248,11 +298,24 @@ export const MobileGridItems : GridItemInterface[] = [
     },
     {
         layout: "2x1",
-        className:"bg-slate-400 text-white flex flex-col justify-center items-center",
-        children: <div className="flex flex-row gap-2">
-        <div className='bg-[#00ff00] rounded-full p-3 animate-blink'/>
-        <p className="text-white text-sm md:text-2xl mt-0.5 sm:mt-0 font-nunito">Looking for work</p>
+        children:
+        <div className="relative h-full">
+            <Slider 
+                dots={false}
+                infinite
+                autoplay
+                slidesToScroll={1}
+                autoplaySpeed={1}
+                slidesToShow={4.2}
+            >
+            {techStackList.map((tech,index)=>(
+                <div className="slide p-3 mt-4 flex flex-col justify-between items-center text-center h-full" key={index}>
+                    <Image src={tech.iconPath} width={25} height={25} alt={tech.name} className="object-cover items-center" />
+                </div>
+            ))}
+        </Slider>
         </div>
+       
     },
     {
         layout: "1x1",
@@ -262,31 +325,37 @@ export const MobileGridItems : GridItemInterface[] = [
     {
         layout: "1x1",
         title:"tech stack",
-        children: <IconGallery items={techStack} />
+        className:"bg-slate-400 text-white flex flex-col justify-center items-center",
+        children: 
+        <div className="flex flex-row gap-1 justify-center items-center text-center">
+            <div className='bg-[#00ff00] rounded-full p-2 w-1 h-1 animate-blink text-center'/>
+            <p className="text-white text-xs font-nunito ">Available</p>
+        </div>
+        
     },
     {
         layout: "4x2",
         title:"description",
         children:
         <div className="flex flex-col justify-center items-center w-full h-full pt-5 pb-2  text-xs text-left font-nunito bg-black text-white">
-        <div className="flex flex-row gap-2 absolute top-1 left-1">
-            <div className='bg-[#ff423c] rounded-full p-1'/>
-            <div className='bg-[#ffc13a] rounded-full p-1'/>
-            <div className='bg-[#00ff00] rounded-full p-1'/>
-        </div>
-        <div className="w-full h-full rounded-md px-2 font-[Courier] leading-[.8rem]">
-            <div className="flex flex-row gap-2"><span className="text-cyan-400">$</span><Typewriter options={{
-                strings:["Hey there! I'm a Software Engineer based in the Philippines, with over 5 years of hands-on experience in crafting and maintaining software. Fluent in various programming languages, I enjoy coming up with creative solutions for complex problems. I thrive on continual learning, navigating the ever-evolving realm of software engineering with a fervor for achieving excellence. Let's code and have some fun on this exciting journey!"],
-                autoStart:true,
-                loop:true,
-                delay: 25,
-                deleteSpeed:10,
-                cursorClassName:"w-2 bg-green-400"
-                
-            }}/>
+            <div className="flex flex-row gap-2 absolute top-1 left-1">
+                <div className='bg-[#ff423c] rounded-full p-1'/>
+                <div className='bg-[#ffc13a] rounded-full p-1'/>
+                <div className='bg-[#00ff00] rounded-full p-1'/>
+            </div>
+            <div className="w-full h-full rounded-md px-2 font-[Courier] leading-[.8rem]">
+                <div className="flex flex-row gap-2"><span className="text-cyan-400">$</span><Typewriter options={{
+                    strings:["Hey there! I'm a Software Engineer based in the Philippines, with over 5 years of hands-on experience in crafting and maintaining software. Fluent in various programming languages, I enjoy coming up with creative solutions for complex problems. I thrive on continual learning, navigating the ever-evolving realm of software engineering with a fervor for achieving excellence. Let's code and have some fun on this exciting journey!"],
+                    autoStart:true,
+                    loop:true,
+                    delay: 25,
+                    deleteSpeed:10,
+                    cursorClassName:"w-2 bg-green-400"
+                    
+                }}/>
+                </div>
             </div>
         </div>
-    </div>
     },
     {
         layout: "2x2",
@@ -300,6 +369,7 @@ export const MobileGridItems : GridItemInterface[] = [
     {
         layout: "4x2",
         title:"2x4",
+        className:'bg-transparent',
         children: <Resources/>
     },  
 ]

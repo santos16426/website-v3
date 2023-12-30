@@ -5,7 +5,7 @@ import { Progress } from "./ui/progress"
 
 
 const Resources = () =>(
-    <div className="w-full h-full p-2 sm:p-5 relative flex flex-row flex-grow gap-2 sm:gap-5 shadow-white">
+    <div className="w-full h-full p-0 sm:p-5 relative flex flex-row flex-grow gap-2 sm:gap-5 ">
             <div className="hidden sm:flex text-sm absolute bg-black top-0 left-0 text-white px-2 z-10 rounded-sm flex-row">
                 <span className="text-orange-500">&lt;</span>
                 <span className="text-black-500 hidden sm:flex">resources</span>
