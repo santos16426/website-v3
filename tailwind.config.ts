@@ -73,7 +73,7 @@ module.exports = {
         },
         'blink':{
           '0%': {opacity: 1},
-          '50%': {opacity:.5}
+          '50%': {opacity:0.2}
         },
         'tada': {
           from: { transform: 'scale3d(1,1,1)' },

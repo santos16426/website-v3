@@ -137,10 +137,10 @@ export const characterBox:CharacterType[] = [
         color:'blue'
     },
 ]
-export const CharBox = ({desc, icon, key, color}:{desc:string, icon:LucideIcon, key:number, color:string})=>{
+export const CharBox = ({desc, icon, index, color}:{desc:string, icon:LucideIcon, index:number, color:string})=>{
     const Icon = icon;
     return(
-    <div className="bg-white rounded-md flex flex-col justify-center items-center w-full text-center text-xs font-semibold shadow-xl" key={key}>    
+    <div className="bg-white rounded-md flex flex-col justify-center items-center w-full text-center text-xs font-semibold shadow-xl" key={index}>    
         <Icon color={color}/>
         {desc}
     </div>
@@ -223,7 +223,7 @@ export const DesktopGridItems : GridItemInterface[] = [
         layout: "2x4",
         title:"description",
         children:
-        <div className="flex flex-col justify-center items-center w-full h-full px-2 pt-15 pb-2  text-xl text-left font-nunito bg-black text-white">
+        <div className="flex flex-col justify-center items-center w-full h-full px-2 pt-15 pb-2  text-xl text-left font-nunito bg-slate-600 text-white">
             <div className="flex flex-row gap-2 absolute top-5 left-5">
                 <div className='bg-[#ff423c] rounded-full p-2'/>
                 <div className='bg-[#ffc13a] rounded-full p-2'/>
@@ -282,7 +282,7 @@ export const DesktopGridItems : GridItemInterface[] = [
         children: 
                 <div className="flex flex-row gap-2 p-2 w-full h-full">
                     {characterBox.map((char,index)=>
-                        <CharBox desc={char.name} key={index} icon={char.icon} color={char.color}/>
+                        <CharBox desc={char.name} key={index} index={index} icon={char.icon} color={char.color}/>
                     )}
                     
                 </div>
@@ -337,7 +337,7 @@ export const MobileGridItems : GridItemInterface[] = [
         layout: "4x2",
         title:"description",
         children:
-        <div className="flex flex-col justify-center items-center w-full h-full pt-5 pb-2  text-xs text-left font-nunito bg-black text-white">
+        <div className="flex flex-col justify-center items-center w-full h-full pt-5 pb-2  text-xs text-left font-nunito bg-slate-600 text-white">
             <div className="flex flex-row gap-2 absolute top-1 left-1">
                 <div className='bg-[#ff423c] rounded-full p-1'/>
                 <div className='bg-[#ffc13a] rounded-full p-1'/>
