@@ -67,8 +67,8 @@ const TechStack = ()=>{
             {techStackList.map((tech,index)=>{
                 return(
                 <div className={cn('flex flex-col h-full items-center mx-5 justify-center hover:scale-150', tech.className, styles.techStackItem)} key={index}>
-                    <Image src={tech.iconPath} width={25} height={25} alt={tech.name} />
-                    <p>{tech.name}</p>
+                    <Image src={tech.iconPath} width={25} height={25} alt={tech.name} className="shadow-lg"/>
+                    <p className="text-white">{tech.name}</p>
                 </div>
                 )
             })}

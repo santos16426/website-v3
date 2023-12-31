@@ -13,13 +13,13 @@ const Resources = () =>(
             </div>
             {learningPath.map((learn,index)=>(
                     <Link target="_blank" key={index} href={learn.url} rel='noopener noreferrer' className="w-full  h-full hover:scale-105 shadow-xl">
-                        <div  className="rounded-md bg-white w-full h-full flex flex-col justify-between items-center p-1 shadow-lg py-4 sm:p-5">
-                                <div className="flex flex-row gap-2 justify-center items-center">
+                        <div  className="rounded-2xl bg-slate-600 sm:bg-white w-full h-full flex flex-col justify-between items-center p-1 shadow-lg py-4 sm:p-5">
+                                <div className="flex flex-row sm:gap-2 justify-center items-center">
                                 {learn.thumbnail.map((img, index)=>(
                                     <Image key={index} src={img} width={35} height={35} alt={img}/>
                                 ))}
                                 </div>
-                                <p className="text-xs text-center font-semibold text-ellipsis line-clamp-2">{learn.title}</p>
+                                <p className="text-xs text-center text-white sm:text-black font-semibold text-ellipsis line-clamp-2">{learn.title}</p>
                                 <Progress value={learn.status} />
                         </div>
                     </Link>

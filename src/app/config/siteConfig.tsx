@@ -178,7 +178,7 @@ export const DesktopGridItems : GridItemInterface[] = [
     {
         layout: "1x1",
         title:"1x2",
-        className:"bg-slate-400 text-white flex flex-col justify-center items-center",
+        className:"bg-slate-600 text-white flex flex-col justify-center items-center",
         children: <div className="flex flex-row gap-2">
                     <div className='bg-[#00ff00] rounded-full p-4 animate-blink'/>
                     <p className="text-white text-sm md:text-2xl font-nunito">Looking for work</p>
@@ -187,7 +187,7 @@ export const DesktopGridItems : GridItemInterface[] = [
     {
         layout: "2x2",
         title:"Short introduction",
-        className:'bg-slate-400',
+        className:'bg-slate-600',
         children:
         <>
         <div className=" flex flex-row gap-5 items-center justify-center mt-12 cursor-pointer">
@@ -210,13 +210,14 @@ export const DesktopGridItems : GridItemInterface[] = [
     {
         layout: "1x1",
         title:"digital space",
+        className:"bg-slate-600 text-white",
         children: <div>
                     <div className="text-sm absolute bg-black text-white px-2 rounded-sm flex flex-row">
                         <span className="text-orange-500">&lt;</span>
                         <span className="text-black-500 hidden sm:flex">digital space</span>
                         <span className="text-orange-500">/&gt;</span>
                     </div>
-                    <SocialLinks showLabel/>
+                    <SocialLinks showLabel className=""/>
                     </div>
     },
     {
@@ -257,7 +258,7 @@ export const DesktopGridItems : GridItemInterface[] = [
     {
         layout: "2x2",
         title:"2x2",
-        className:'bg-slate-50',
+        className:'bg-slate-600',
         children: <Resources/>
         
     },
@@ -265,7 +266,7 @@ export const DesktopGridItems : GridItemInterface[] = [
         layout: "1x1",
         title:"techStack",
         children:   
-                <div className="relative h-full">
+                <div className="relative h-full bg-slate-600">
                     <div className="text-sm absolute bg-black text-white px-2 rounded-sm flex flex-row">
                         <span className="text-orange-500">&lt;</span>
                         <span className="text-black-500 hidden sm:flex">tech stack</span>
@@ -277,8 +278,7 @@ export const DesktopGridItems : GridItemInterface[] = [
     },
     {
         layout: "1x1",
-        title:"isipan ko pa?",
-        className:"bg-slate-400 flex flex-col justify-center items-center",
+        className:"bg-slate-600 flex flex-col justify-center items-center",
         children: 
                 <div className="flex flex-row gap-2 p-2 w-full h-full">
                     {characterBox.map((char,index)=>
@@ -320,12 +320,13 @@ export const MobileGridItems : GridItemInterface[] = [
     {
         layout: "1x1",
         title:"digi space",
+        className:'bg-slate-600',
         children: <IconGallery items={digitalSpace} />
     },
     {
         layout: "1x1",
         title:"tech stack",
-        className:"bg-slate-400 text-white flex flex-col justify-center items-center",
+        className:"bg-slate-600 text-white flex flex-col justify-center items-center",
         children: 
         <div className="flex flex-row gap-1 justify-center items-center text-center">
             <div className='bg-[#00ff00] rounded-full p-2 w-1 h-1 animate-blink text-center'/>
