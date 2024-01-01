@@ -88,6 +88,27 @@
     .tech-slide{
       display:flex !important
     }
+
+    .full-screen-slider{
+      .slick-slider{
+        height: 100% !important;
+        .slick-list{
+          height: 100% !important;
+          .slick-track{
+            height: 100% !important;
+            .slick-slide{
+              height: 100% !important;
+              div{
+                height: 100%;
+              }
+              .slide{
+                height: 100% !important;
+              }
+            }
+          }
+        }
+      }
+    }
   }
   
 }

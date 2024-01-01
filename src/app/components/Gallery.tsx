@@ -46,11 +46,11 @@ export const PhotoGallery = ({
         }
       };
   return (
-    <div className="full-screen-slider">
+    <div className="full-screen-slider h-full ">
         <Slider {...settings} ref={sliderRef}>
             {images.map((image,index)=>(
-                <div className="slide" key={index}>
-                    <Image src={image} width={1000} height={1000} alt={image} className="object-cover h-full w-full" />
+                <div className="slide h-full w-full bg-black" key={index}>
+                    <Image src={image} width={1000} height={1000} alt={image} className="h-full w-full object-cover object-top" />
                 </div>
             ))}
         </Slider>
