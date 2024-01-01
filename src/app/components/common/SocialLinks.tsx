@@ -15,7 +15,7 @@ export interface DigitalSpaceItem{
 }
 
 
-const SocialLinks = ({showLabel = false}:{showLabel?:boolean}) => {
+const SocialLinks = ({showLabel = false, className}:{showLabel?:boolean, className?:string}) => {
     const digitalSpace: DigitalSpaceItem[]= [
         {
             name: 'LinkedIn',
@@ -61,7 +61,7 @@ const SocialLinks = ({showLabel = false}:{showLabel?:boolean}) => {
         </TooltipProvider>
     )
     return(
-        <div className='p-[30px] text-2xl flex flex-row gap-4 justify-center'>
+        <div className={cn('p-[30px] text-2xl flex flex-row gap-4 justify-center',className)}>
             {digitalSpace.map((item,index)=>(
                 generateToolTip({
                     content: <a target='_blank' rel='noopener noreferrer' href={item.url} key={index} className='flex flex-col items-center transform hover:scale-150'><item.icon></item.icon><p className={cn(!showLabel && 'hidden','text-xs')}>{item.name}</p></a>,

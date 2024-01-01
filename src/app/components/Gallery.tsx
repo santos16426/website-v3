@@ -83,12 +83,12 @@ export const IconGallery = ({items}:{items:IconGalleryItem[]}) =>{
         slidesToShow: 1,
     };
     return(
-    <div className="rounded-full">
+    <div className="rounded-full w-full h-full">
         <Slider {...settings} ref={sliderRef}>
             {items.map((ico,index)=>(
                 <a key={index} target='_target' href={ico.url} rel='noopener noreferrer'>
-                    <div className={cn('overflow-hidden',ico.className)} key={index}>
-                        <ico.icon className='text-white p-6 mt-[-8px] h-full w-full'/>
+                    <div className={cn('p-2',ico.className)} key={index}>
+                        <ico.icon className='text-white object-cover w-full h-[60px]'/>
                     </div>
                 </a>
             ))}
