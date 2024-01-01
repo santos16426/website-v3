@@ -179,16 +179,7 @@ export const DesktopGridItems : GridItemInterface[] = [
     {
         layout: "1x1",
         title:"techStack",
-        children:   
-                <div className="relative h-full">
-                    <div className="text-sm absolute bg-black text-white px-2 rounded-sm flex flex-row">
-                        <span className="text-orange-500">&lt;</span>
-                        <span className="text-black-500 hidden sm:flex">tech stack</span>
-                        <span className="text-orange-500">/&gt;</span>
-                    </div>
-                    <TechStack/>
-                </div>
-        
+        children:<TechStack/>
     },
     {
         layout: "2x2",
@@ -217,14 +208,7 @@ export const DesktopGridItems : GridItemInterface[] = [
         layout: "1x1",
         title:"digital space",
         className:"bg-slate-600 text-white",
-        children: <div>
-                    <div className="text-sm absolute bg-black text-white px-2 rounded-sm flex flex-row">
-                        <span className="text-orange-500">&lt;</span>
-                        <span className="text-black-500 hidden sm:flex">digital space</span>
-                        <span className="text-orange-500">/&gt;</span>
-                    </div>
-                    <SocialLinks showLabel className=""/>
-                    </div>
+        children: <SocialLinks showLabel className=""/>
     },
     {
         layout: "2x4",
