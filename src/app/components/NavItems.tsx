@@ -51,7 +51,7 @@ const NavItems = () => {
             </a>
         </nav>
         
-        <Drawer open={isDrawerOpen}>
+        <Drawer open={isDrawerOpen} onClose={()=>setIsDrawerOpen(false)}>
             <DrawerTrigger><Menu className="block sm:hidden text-gray-700 cursor-pointer" onClick={()=>setIsDrawerOpen(true)}/></DrawerTrigger>
             <DrawerContent>
                 <div className="h-screen text-black flex flex-col justify-center items-center text-center">
