@@ -7,9 +7,10 @@ import Typewriter from "typewriter-effect";
 import Resources from "../components/Resources";
 import Slider, { Settings } from 'react-slick';
 import Image from 'next/image'
+import Link from 'next/link'
 import HoverText from "../components/HoverText";
 
-export type GridItemLayout = "1x1" | "1x2" | "2x1" | "2x2" | "4x2" | "2x4" | "2x3" | "4x4";
+export type GridItemLayout = "1x1" | "1x2" | "2x1" | "2x2" | "4x2" | "2x4" | "2x3" | "4x4" | "4x1";
 
 export interface GridItemInterface {
     layout : GridItemLayout;
@@ -177,12 +178,17 @@ export const learningPath:LearningPathItem[] = [
 export const DesktopGridItems : GridItemInterface[] = [
     {
         layout: "1x1",
-        title:"1x2",
-        className:"bg-slate-600 text-white flex flex-col justify-center items-center",
-        children: <div className="flex flex-row gap-2">
-                    <div className='bg-[#00ff00] rounded-full p-4 animate-blink'/>
-                    <p className="text-white text-sm md:text-2xl font-nunito">Looking for work</p>
+        title:"techStack",
+        children:   
+                <div className="relative h-full">
+                    <div className="text-sm absolute bg-black text-white px-2 rounded-sm flex flex-row">
+                        <span className="text-orange-500">&lt;</span>
+                        <span className="text-black-500 hidden sm:flex">tech stack</span>
+                        <span className="text-orange-500">/&gt;</span>
+                    </div>
+                    <TechStack/>
                 </div>
+        
     },
     {
         layout: "2x2",
@@ -244,7 +250,6 @@ export const DesktopGridItems : GridItemInterface[] = [
                     
                 }}/>
                 </div>
-                
             </div>
             </div>
         </div>
@@ -258,23 +263,17 @@ export const DesktopGridItems : GridItemInterface[] = [
     {
         layout: "2x2",
         title:"2x2",
-        className:'bg-slate-600',
         children: <Resources/>
         
     },
     {
         layout: "1x1",
-        title:"techStack",
-        children:   
-                <div className="relative h-full bg-slate-600">
-                    <div className="text-sm absolute bg-black text-white px-2 rounded-sm flex flex-row">
-                        <span className="text-orange-500">&lt;</span>
-                        <span className="text-black-500 hidden sm:flex">tech stack</span>
-                        <span className="text-orange-500">/&gt;</span>
-                    </div>
-                    <TechStack/>
+        title:"1x2",
+        className:"bg-slate-600 text-white flex flex-col justify-center items-center",
+        children: <div className="flex flex-row gap-2">
+                    <div className='bg-[#00ff00] rounded-full p-4 animate-blink blur-sm'/>
+                    <p className="text-white text-sm md:text-2xl font-nunito">Looking for work</p>
                 </div>
-        
     },
     {
         layout: "1x1",
@@ -292,60 +291,48 @@ export const DesktopGridItems : GridItemInterface[] = [
 
 export const MobileGridItems : GridItemInterface[] = [
     {
+        layout: "4x1",
+        children:
+        <div className="relative h-full">
+            <Slider 
+                infinite
+                slidesToScroll={3}
+                slidesToShow={7.2}
+            >
+            {techStackList.map((tech,index)=>(
+                <div className="tech-slide flex py-4 flex-col justify-between items-center text-center h-full" key={index}>
+                    <Image src={tech.iconPath} width={25} height={25} alt={tech.name} className="object-cover shadow-lg rounded-full w-8 h-8 bg-transparent mb-1 border-2 border-orange-400" />
+                    <p className="text-[.6rem] line-clamp-1">{tech.name}</p>
+                </div>
+            ))}
+        </Slider>
+        </div>
+    },
+    {
         layout: "2x2",
         title:"album",
         children: <PhotoGallery images={photoAlbum} />
     },
     {
-        layout: "2x1",
-        children:
-        <div className="relative h-full">
-            <Slider 
-                dots={false}
-                infinite
-                autoplay
-                slidesToScroll={1}
-                autoplaySpeed={1}
-                slidesToShow={4.2}
-            >
-            {techStackList.map((tech,index)=>(
-                <div className="slide p-3 mt-4 flex flex-col justify-between items-center text-center h-full" key={index}>
-                    <Image src={tech.iconPath} width={25} height={25} alt={tech.name} className="object-cover items-center" />
-                </div>
-            ))}
-        </Slider>
-        </div>
-       
+        layout: "2x2",
+        title:"map",
+        children: <GoogleMapsComponent apiKey={process.env.NEXT_PUBLIC_GOOGLE_API_KEY}/>
     },
     {
-        layout: "1x1",
-        title:"digi space",
-        className:'bg-slate-600',
-        children: <IconGallery items={digitalSpace} />
-    },
-    {
-        layout: "1x1",
-        title:"tech stack",
-        className:"bg-slate-600 text-white flex flex-col justify-center items-center",
-        children: 
-        <div className="flex flex-row gap-1 justify-center items-center text-center">
-            <div className='bg-[#00ff00] rounded-full p-2 w-1 h-1 animate-blink text-center'/>
-            <p className="text-white text-xs font-nunito ">Available</p>
-        </div>
-        
-    },
-    {
-        layout: "4x2",
+        layout: "4x4",
         title:"description",
         children:
-        <div className="flex flex-col justify-center items-center w-full h-full pt-5 pb-2  text-xs text-left font-nunito bg-slate-600 text-white">
-            <div className="flex flex-row gap-2 absolute top-1 left-1">
+        <div className="flex flex-col justify-center items-center w-full h-full text-sm text-left font-nunito bg-slate-600 text-white">
+            <div className="flex flex-row gap-2 absolute top-3 left-3">
                 <div className='bg-[#ff423c] rounded-full p-1'/>
                 <div className='bg-[#ffc13a] rounded-full p-1'/>
                 <div className='bg-[#00ff00] rounded-full p-1'/>
             </div>
-            <div className="w-full h-full rounded-md px-2 font-[Courier] leading-[.8rem]">
-                <div className="flex flex-row gap-2"><span className="text-cyan-400">$</span><Typewriter options={{
+            <div  className="w-full h-full rounded-md px-2 py-8 font-[Courier] leading-2">
+            <div>
+                <span className="text-cyan-400">$ </span>node<span className="text-green-400"> billyjoe.tsx</span> 
+                <br />
+                <div className="mt-3 flex flex-row gap-2"><span className="text-cyan-400">$</span><Typewriter options={{
                     strings:["Hey there! I'm a Software Engineer based in the Philippines, with over 5 years of hands-on experience in crafting and maintaining software. Fluent in various programming languages, I enjoy coming up with creative solutions for complex problems. I thrive on continual learning, navigating the ever-evolving realm of software engineering with a fervor for achieving excellence. Let's code and have some fun on this exciting journey!"],
                     autoStart:true,
                     loop:true,
@@ -356,21 +343,49 @@ export const MobileGridItems : GridItemInterface[] = [
                 }}/>
                 </div>
             </div>
+            </div>
         </div>
-    },
-    {
-        layout: "2x2",
-        title:"2x2",
-    },
-    {
-        layout: "2x2",
-        title:"map",
-        children: <GoogleMapsComponent apiKey={process.env.NEXT_PUBLIC_GOOGLE_API_KEY}/>
     },
     {
         layout: "4x2",
         title:"2x4",
-        className:'bg-transparent',
-        children: <Resources/>
-    },  
+        className:"bg-slate-600 p-2",
+        children:
+        <>
+        <p className="text-xl text-white font-bold mb-3">Resources</p>
+        <div className="flex flex-col px-3">
+            {learningPath.map((res, index)=>(
+                <Link key={index} href={res.url} target="_blank" className="border-b-[1px] last:border-b-0 border-orange-200">
+                <div className="flex flex-row gap-2 p-1 text-left">
+                    <div className="flex flex-row min-w-[90px] gap-2">{res.thumbnail.map((img,index)=><Image key={index} alt={img} src={img} width={20} height={20}/>)}</div>
+                    <div><p className="line-clamp-1 text-white font-bold">{res.title}</p></div>
+                    <div className="text-right text-white">{res.status<100?`${res.status}%`:'Done'}</div>
+                </div>
+                </Link>
+            ))}
+        </div>
+        </>
+    },
+    {
+        layout: "2x2",
+        title:"2x2",
+        
+    },
+    {
+        layout: "2x1",
+        title:"digi space",
+        className:'bg-slate-600',
+        children: <IconGallery items={digitalSpace} />
+    },
+    {
+        layout: "2x1",
+        className:"bg-slate-600 text-white flex flex-col justify-center items-center",
+        children: 
+        <div className="flex flex-row gap-1 justify-center items-center text-center">
+            <div className='bg-[#00ff00] blur-sm mr-2 rounded-full p-2 w-1 h-1 animate-blink text-center'/>
+            <p className="text-white text-xs font-nunito ">Looking for work</p>
+        </div>
+        
+    },
+     
 ]

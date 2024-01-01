@@ -14,6 +14,7 @@ const variants = cva(
             "4x2" : "col-span-4 row-span-2 max-h-[196px]",
             "2x4" : "col-span-2 row-span-4 max-w-[792px] max-h-[404px]",
             "4x4" : "col-span-4 row-span-4",
+            "4x1" : "col-span-4 row-span-1"
         }
         },
         defaultVariants:{

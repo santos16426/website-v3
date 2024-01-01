@@ -63,12 +63,12 @@ const techStackList: {
 ]
 const TechStack = ()=>{
     return(
-        <div className={`rounded-full inline-flex flex-nowrap h-full w-screen animate-infinite-scroll ${styles.techStackWrapper}`}>
+        <div className={`mt-2 rounded-full inline-flex flex-nowrap h-full w-screen animate-infinite-scroll ${styles.techStackWrapper}`}>
             {techStackList.map((tech,index)=>{
                 return(
                 <div className={cn('flex flex-col h-full items-center mx-5 justify-center hover:scale-150', tech.className, styles.techStackItem)} key={index}>
-                    <Image src={tech.iconPath} width={25} height={25} alt={tech.name} className="shadow-lg"/>
-                    <p className="text-white">{tech.name}</p>
+                    <Image src={tech.iconPath} width={25} height={25} alt={tech.name} className="shadow-lg rounded-full w-8 h-8 bg-transparent mb-1 border-2 border-orange-400"/>
+                    <p className="text-black text-[.6rem]">{tech.name}</p>
                 </div>
                 )
             })}
