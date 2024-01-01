@@ -50,63 +50,64 @@ const NavItems = () => {
                 Contact
             </a>
         </nav>
-        
-        <Drawer open={isDrawerOpen} onClose={()=>setIsDrawerOpen(false)}>
-            <DrawerTrigger><Menu className="block sm:hidden text-gray-700 cursor-pointer" onClick={()=>setIsDrawerOpen(true)}/></DrawerTrigger>
-            <DrawerContent>
-                <div className="h-screen text-black flex flex-col justify-center items-center text-center">
-                    <nav className="flex flex-col justify-center items-center text-center gap-10">
-                            <Logo  onClick={() =>{ 
-                                scrollToSection("1")
-                                setIsDrawerOpen(false)
-                            }}/>
-                        <a
-                            href="#about"
-                            onClick={() => {
-                                scrollToSection("2")
-                                setTimeout(()=>setIsDrawerOpen(false),250)
-                            }}
-                            className={cn('relative text-gray-500',styles.navLink)}
-                        >
-                            About
-                        </a>
+        <div className="block lg:hidden"> 
+            <Drawer open={isDrawerOpen} onClose={()=>setIsDrawerOpen(false)}>
+                <DrawerTrigger><Menu className="block lg:hidden text-gray-700 cursor-pointer" onClick={()=>setIsDrawerOpen(true)}/></DrawerTrigger>
+                <DrawerContent>
+                    <div className="h-screen text-black flex flex-col justify-center items-center text-center">
+                        <nav className="flex flex-col justify-center items-center text-center gap-10">
+                                <Logo  onClick={() =>{ 
+                                    scrollToSection("1")
+                                    setIsDrawerOpen(false)
+                                }}/>
                             <a
-                                href="#experience"
+                                href="#about"
                                 onClick={() => {
-                                    scrollToSection("3")
+                                    scrollToSection("2")
                                     setTimeout(()=>setIsDrawerOpen(false),250)
                                 }}
                                 className={cn('relative text-gray-500',styles.navLink)}
                             >
-                                Experience
+                                About
                             </a>
-                            <a
-                                href="#projects"
-                                onClick={() => {
-                                    scrollToSection("4")
-                                    setTimeout(()=>setIsDrawerOpen(false),250)
-                                }}
-                                className={cn('relative text-gray-500',styles.navLink)}
-                            >
-                                Projects
-                            </a>
-                            <a
-                                href="#contact"
-                                onClick={() => {
-                                    scrollToSection("5")
-                                    setTimeout(()=>setIsDrawerOpen(false),250)
-                                }}
-                                className={cn('relative text-gray-500',styles.navLink)}
-                            >
-                                Contact
-                            </a>
-                        <DrawerFooter>
-                                <X className="text-gray-500" onClick={()=>setIsDrawerOpen(false)}/>
-                        </DrawerFooter>
-                    </nav>
-                </div>
-            </DrawerContent>
-        </Drawer>
+                                <a
+                                    href="#experience"
+                                    onClick={() => {
+                                        scrollToSection("3")
+                                        setTimeout(()=>setIsDrawerOpen(false),250)
+                                    }}
+                                    className={cn('relative text-gray-500',styles.navLink)}
+                                >
+                                    Experience
+                                </a>
+                                <a
+                                    href="#projects"
+                                    onClick={() => {
+                                        scrollToSection("4")
+                                        setTimeout(()=>setIsDrawerOpen(false),250)
+                                    }}
+                                    className={cn('relative text-gray-500',styles.navLink)}
+                                >
+                                    Projects
+                                </a>
+                                <a
+                                    href="#contact"
+                                    onClick={() => {
+                                        scrollToSection("5")
+                                        setTimeout(()=>setIsDrawerOpen(false),250)
+                                    }}
+                                    className={cn('relative text-gray-500',styles.navLink)}
+                                >
+                                    Contact
+                                </a>
+                            <DrawerFooter>
+                                    <X className="text-gray-500" onClick={()=>setIsDrawerOpen(false)}/>
+                            </DrawerFooter>
+                        </nav>
+                    </div>
+                </DrawerContent>
+            </Drawer>
+        </div>
     </>
         
     )

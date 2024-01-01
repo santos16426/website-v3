@@ -20,7 +20,6 @@ const Header: React.FC = () => {
       <div className="mx-auto flex items-center justify-between">
         <Logo  onClick={() => scrollToSection("1")}/>
         <NavItems/>
-        
       </div>
     </header>
   );
