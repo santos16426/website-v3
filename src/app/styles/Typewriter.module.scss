@@ -1,6 +1,6 @@
 .wrapper{
-    font-family: "Courier New", Courier, monospace;
-    
+    span {font-family: "Courier New", Courier, monospace !important;}
+
     .typewrite > .wrap {
         border-right: 0.08em solid white;
         height: 100%;
@@ -9,5 +9,5 @@
         flex-direction: column;
         justify-content: center;
     }
-    
+
 }

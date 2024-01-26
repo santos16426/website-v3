@@ -9,7 +9,6 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@fontsource/nunito": "^5.0.16",
     "@radix-ui/react-dialog": "^1.0.5",
     "@radix-ui/react-progress": "^1.0.3",
     "@radix-ui/react-tooltip": "^1.0.7",
@@ -30,6 +29,7 @@
     "slick-carousel": "^1.8.1",
     "tailwind-merge": "^2.2.0",
     "tailwindcss-animate": "^1.0.7",
+    "typeface-bebas-neue": "^1.1.13",
     "typeface-montserrat": "^1.1.13",
     "typeface-roboto": "^1.1.13",
     "typewriter-effect": "^2.21.0",
