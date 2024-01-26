@@ -184,7 +184,33 @@ export const DesktopGridItems: GridItemInterface[] = [
     layout: '1x1',
     title: 'techStack',
     className: 'rounded-md',
-    children: <TechStack />,
+    children: (
+      <div className="relative h-full">
+        <Slider
+          infinite
+          slidesToScroll={1}
+          slidesToShow={4.2}
+          autoplaySpeed={500}
+          autoplay
+        >
+          {techStackList.map((tech, index) => (
+            <div
+              className="mt-2 tech-slide flex py-4 flex-col justify-between items-center text-center h-full"
+              key={index}
+            >
+              <Image
+                src={tech.iconPath}
+                width={25}
+                height={25}
+                alt={tech.name}
+                className="object-cover shadow-lg rounded-full w-8 h-8 bg-transparent mb-1 border-2 border-orange-400"
+              />
+              <p className="text-[.6rem] line-clamp-1">{tech.name}</p>
+            </div>
+          ))}
+        </Slider>
+      </div>
+    ),
   },
   {
     className: 'rounded-md',

@@ -1,6 +1,10 @@
 import { cn } from '@/app/lib/utils'
 import { MoveRight } from 'lucide-react'
 import Header from './Header'
+import { Suspense, lazy } from 'react'
+
+const ProfileImageComponent = lazy(() => import('./common/ProfileImage'))
+
 const Homepage = () => {
   const scrollToSection = () => {
     const section = document.getElementById('6')
@@ -36,13 +40,11 @@ const Homepage = () => {
           </div>
         </div>
         <div className="w-full flex justify-center items-center">
-          <div
-            className="relative w-[300px] sm:w-[280px] sm:h-[280px] lg:w-[350px] h-[300px] lg:h-[450px] rounded-full lg:rounded-lg mb-5 cursor-pointer shadow-2xl transition-all hover:scale-105"
-            style={{
-              backgroundImage: 'url(/images/profile.jpg)',
-              backgroundSize: 'cover',
-            }}
-          />
+          <Suspense
+            fallback={<h1>loading.........................................</h1>}
+          >
+            <ProfileImageComponent />
+          </Suspense>
         </div>
       </div>
     </div>
