@@ -1,16 +1,6 @@
 import { cn } from '@/app/lib/utils'
 import { MoveRight } from 'lucide-react'
 import Header from './Header'
-import dynamic from 'next/dynamic'
-import { Skeleton } from './ui/skeleton'
-
-const ProfileImageComponent = dynamic(() => import('./common/ProfileImage'), {
-  ssr: false,
-  loading: () => (
-    <Skeleton className="relative w-[300px] sm:w-[280px] sm:h-[280px] lg:w-[350px] h-[300px] lg:h-[450px] rounded-full lg:rounded-lg mb-5 cursor-pointer shadow-2xl transition-all hover:scale-105" />
-  ),
-})
-
 const Homepage = () => {
   const scrollToSection = () => {
     const section = document.getElementById('6')
@@ -46,7 +36,13 @@ const Homepage = () => {
           </div>
         </div>
         <div className="w-full flex justify-center items-center">
-          <ProfileImageComponent />
+          <div
+            className="relative w-[300px] sm:w-[280px] sm:h-[280px] lg:w-[350px] h-[300px] lg:h-[450px] rounded-full lg:rounded-lg mb-5 cursor-pointer shadow-2xl transition-all hover:scale-105"
+            style={{
+              backgroundImage: 'url(/images/profile.jpg)',
+              backgroundSize: 'cover',
+            }}
+          />
         </div>
       </div>
     </div>
