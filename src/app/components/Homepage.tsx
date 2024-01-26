@@ -1,9 +1,15 @@
 import { cn } from '@/app/lib/utils'
 import { MoveRight } from 'lucide-react'
 import Header from './Header'
-import { Suspense, lazy } from 'react'
+import dynamic from 'next/dynamic'
+import { Skeleton } from './ui/skeleton'
 
-const ProfileImageComponent = lazy(() => import('./common/ProfileImage'))
+const ProfileImageComponent = dynamic(() => import('./common/ProfileImage'), {
+  ssr: false,
+  loading: () => (
+    <Skeleton className="relative w-[300px] sm:w-[280px] sm:h-[280px] lg:w-[350px] h-[300px] lg:h-[450px] rounded-full lg:rounded-lg mb-5 cursor-pointer shadow-2xl transition-all hover:scale-105" />
+  ),
+})
 
 const Homepage = () => {
   const scrollToSection = () => {
@@ -40,11 +46,7 @@ const Homepage = () => {
           </div>
         </div>
         <div className="w-full flex justify-center items-center">
-          <Suspense
-            fallback={<h1>loading.........................................</h1>}
-          >
-            <ProfileImageComponent />
-          </Suspense>
+          <ProfileImageComponent />
         </div>
       </div>
     </div>
