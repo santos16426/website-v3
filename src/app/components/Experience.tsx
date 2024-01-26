@@ -1,17 +1,17 @@
 import { experiences } from '../config/experiences'
 const Experience = () => {
   return (
-    <div className="w-full h-full flex flex-col bg-[#EFEEEF] py-12">
-      <p className="text-7xl lg:text-[9rem] header font-bold p-8">
+    <div className="w-full h-full flex flex-col bg-[#EFEEEF] py-4 lg:py-12">
+      <p className="text-7xl lg:text-[9rem] header font-bold p-4 lg:p-8">
         Experience{' '}
       </p>
       <div className="w-full">
         <div className="mt-5 table w-full">
-          <div className="w-full hidden lg:flex flex-row border-b-[1px] border-gray-300 px-8">
+          <div className="w-full hidden lg:flex flex-row border-b-[1px] border-gray-300 px-4 lg:px-8">
             <div className="w-full">Company & Client</div>
             <div className="w-full">Details</div>
           </div>
-          <div className="w-full flex lg:hidden flex-row border-b-[1px] border-gray-300 px-8">
+          <div className="w-full flex lg:hidden flex-row border-b-[1px] border-gray-300 px-4 lg:px-8">
             <div className="w-full">Company & Client/Details</div>
           </div>
           {experiences.map(
@@ -25,7 +25,7 @@ const Experience = () => {
               }
             }) => (
               <div
-                className="relative w-full group flex flex-col lg:flex-row border-b-[1px] border-gray-300 px-8 py-12 text-lg hover:bg-gray-200 "
+                className="relative w-full group flex flex-col lg:flex-row border-b-[1px] border-gray-300 px-4 lg:px-8 py-12 text-lg hover:bg-gray-200 "
                 key={exp.key}
               >
                 <div className="w-full z-10 text-2xl">{exp.name}</div>

@@ -11,7 +11,6 @@ import {
   ScanEye,
   UsersRound,
 } from 'lucide-react'
-import TechStack from '../components/TechStack'
 import Slider from 'react-slick'
 import Image from 'next/image'
 
@@ -27,7 +26,7 @@ export type GridItemLayout =
   | '3x1'
   | '3x2'
   | '4x4'
-  | '4x5'
+  | '4x6'
   | '4x1'
 
 export interface GridItemInterface {
@@ -57,25 +56,25 @@ export const digitalSpace: IconGalleryItem[] = [
     name: 'LinkedIn',
     url: 'https://www.linkedin.com/in/billy-santos/',
     icon: Linkedin,
-    className: 'bg-[#3076EE]',
+    className: 'bg-[#3076EE] h-full',
   },
   {
     name: 'Github',
     url: 'https://github.com/santos16426',
     icon: Github,
-    className: 'bg-black',
+    className: 'bg-black h-full',
   },
   {
     name: 'Instagram',
     url: 'https://www.instagram.com/lucas.gif/',
     icon: Instagram,
-    className: 'instagram',
+    className: 'instagram h-full',
   },
   {
     name: 'Facebook',
     url: 'https://www.facebook.com/joeee.lucas',
     icon: Facebook,
-    className: 'bg-[#0966FE]',
+    className: 'bg-[#0966FE] h-full',
   },
 ]
 
@@ -279,7 +278,13 @@ export const MobileGridItems: GridItemInterface[] = [
     className: 'rounded-md bg-white shadow-md ',
     children: (
       <div className="relative h-full">
-        <Slider infinite slidesToScroll={3} slidesToShow={4}>
+        <Slider
+          infinite
+          slidesToScroll={1}
+          slidesToShow={3.2}
+          autoplay
+          autoplaySpeed={500}
+        >
           {techStackList.map((tech, index) => (
             <div
               className="tech-slide flex py-4 flex-col justify-between items-center text-center h-full"
@@ -290,9 +295,9 @@ export const MobileGridItems: GridItemInterface[] = [
                 width={25}
                 height={25}
                 alt={tech.name}
-                className="object-cover shadow-lg rounded-full w-8 h-8 bg-transparent mb-1 border-2 border-orange-400"
+                className="object-cover shadow-lg rounded-full w-10 h-10 bg-transparent mb-1 border-2 border-orange-400"
               />
-              <p className="text-[.6rem] line-clamp-1">{tech.name}</p>
+              <p className="text-md line-clamp-1">{tech.name}</p>
             </div>
           ))}
         </Slider>
@@ -302,7 +307,7 @@ export const MobileGridItems: GridItemInterface[] = [
   {
     layout: '1x1',
     title: 'digi space',
-    className: 'rounded-md bg-white shadow-md ',
+    className: 'rounded-md bg-white shadow-md h-full',
     children: <IconGallery items={digitalSpace} />,
   },
   {
@@ -320,11 +325,11 @@ export const MobileGridItems: GridItemInterface[] = [
     ),
   },
   {
-    layout: '4x4',
+    layout: '4x6',
     title: 'description',
     className: 'rounded-md bg-white shadow-md ',
     children: (
-      <div className="flex flex-col justify-center items-center w-full h-full text-sm text-left font-bebas bg-slate-800 text-white">
+      <div className="flex flex-col justify-center items-center w-full h-full text-md text-left font-bebas bg-slate-800 text-white">
         <div className="flex flex-row gap-2 absolute top-3 left-3">
           <div className="bg-[#ff423c] rounded-full p-1" />
           <div className="bg-[#ffc13a] rounded-full p-1" />

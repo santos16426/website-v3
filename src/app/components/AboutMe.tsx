@@ -18,7 +18,7 @@ const AboutMe = () => {
             )
           })}
       </div>
-      <div className="grid lg:hidden w-full h-full scale-90 grid-cols-4 auto-rows-[75px] gap-4">
+      <div className="grid lg:hidden w-full h-fit scale-90 grid-cols-4 auto-rows-[95px] gap-4">
         {MobileGridItems.map((item, index) => {
           return (
             <GridItem className={item.className} key={index} size={item.layout}>

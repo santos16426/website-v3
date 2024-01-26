@@ -17,7 +17,7 @@ const variants = cva(
         '4x2': 'col-span-4 row-span-2',
         '2x4': 'col-span-2 row-span-4',
         '4x4': 'col-span-4 row-span-4',
-        '4x5': 'col-span-4 row-span-5',
+        '4x6': 'col-span-4 row-span-6',
         '4x1': 'col-span-4 row-span-1',
       },
     },

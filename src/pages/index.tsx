@@ -47,7 +47,7 @@ const Home = () => {
         <div className="h-fit" ref={expRef}>
           <SnapSection sectionId="3" content={<Experience />} />
         </div>
-        <div className="" ref={aboutRef}>
+        <div className="h-fit" ref={aboutRef}>
           <SnapSection sectionId="4" content={<AboutMe />} />
         </div>
         <div className="h-fit" ref={contactRef}>

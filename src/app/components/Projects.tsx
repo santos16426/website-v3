@@ -3,20 +3,22 @@ import { cn } from '../lib/utils'
 
 const Projects = () => {
   return (
-    <div className="w-full h-fit flex flex-col bg-[#EFEEEF] py-12">
-      <p className="text-7xl lg:text-[9rem] header font-bold p-8">Projects </p>
+    <div className="w-full h-fit flex flex-col bg-[#EFEEEF] py-4 lg:py-12">
+      <p className="text-7xl lg:text-[9rem] header font-bold p-2 lg:p-8 select-none">
+        Projects{' '}
+      </p>
       <div className="w-full">
         <div className="mt-5 table w-full">
           <div className="w-full hidden lg:flex flex-row border-b-[1px] border-gray-300 px-8">
             <div className="w-full">Projects</div>
             <div className="w-full">Details</div>
           </div>
-          <div className="w-full flex lg:hidden flex-row border-b-[1px] border-gray-300 px-8">
+          <div className="w-full flex lg:hidden flex-row border-b-[1px] border-gray-300 p-4 lg:px-8">
             <div className="w-full">Projects/Details</div>
           </div>
           {projects.map((project) => (
             <div
-              className="relative w-full group flex flex-col lg:flex-row border-b-[1px] border-gray-300 px-8 py-12 text-2xl hover:text-white cursor-pointer"
+              className="relative w-full group flex flex-col lg:flex-row border-b-[1px] border-gray-300 px-4 lg:px-8 py-12 text-2xl hover:text-white cursor-pointer select-none"
               key={project.key}
             >
               {/* image */}
@@ -42,10 +44,9 @@ const Projects = () => {
                   </span>
                 )}
               </div>
-              <div className="w-full flex flex-row z-10">
+              <div className="w-full flex flex-row z-10 lg:text-black text-gray-400 group-hover:text-white group-hover:opacity-70">
                 {project.details.type}
               </div>
-
               {/*  bgHover */}
               <div
                 className={cn(

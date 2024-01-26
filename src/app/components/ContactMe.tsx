@@ -6,7 +6,7 @@ const ContactMe: React.FC = () => {
       <p className="text-5xl lg:text-[8rem] font-bold p-8 text-gray-500 transition-all hover:text-black">
         Have a project in mind?
       </p>
-      <p className="text-3xl font-bold p-8 text-gray-300 ">
+      <p className="text-xl lg:text-3xl font-bold p-8 text-gray-300 ">
         Drop me an email{' '}
         <span
           onClick={() =>
