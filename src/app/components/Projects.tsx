@@ -24,7 +24,7 @@ const Projects = () => {
               {/* image */}
               <div
                 className={cn(
-                  'scale-0 transition-all lg:group-hover:scale-100 fixed bottom-10 right-10 shadow-2xl h-[400px] z-10 aspect-video bg-red-500',
+                  'scale-0 transition-all lg:group-hover:scale-100 fixed bottom-10 right-10 shadow-2xl h-[400px] z-[100] aspect-video bg-red-500',
                   { grayscale: project.disabled },
                 )}
                 style={{
@@ -32,7 +32,11 @@ const Projects = () => {
                   backgroundSize: 'cover',
                 }}
               >
-                <div className="w-full h-full " />
+                {project.disabled && (
+                  <div className="w-full h-full header bg-black bg-opacity-80 font-bold text-8xl whitespace-nowrap grid place-items-center">
+                    <p className="">Coming Soon</p>
+                  </div>
+                )}
               </div>
               {/* project list */}
               <div className="w-full z-10">
