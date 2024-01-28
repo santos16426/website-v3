@@ -1,6 +1,6 @@
 import Layout from '@/app/components/_layout'
 import SnapSection from '@/app/components/SnapSection'
-import { Suspense, useRef, useState, lazy } from 'react'
+import { useRef, useState } from 'react'
 import Homepage from '@/app/components/Homepage'
 import AboutMe from '@/app/components/AboutMe'
 import Experience from '@/app/components/Experience'
