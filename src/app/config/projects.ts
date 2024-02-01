@@ -5,7 +5,7 @@ export const projects = [
     image: "/images/projects/Exploretale.png",
     link: "",
     details: {
-      type: "Website",
+      type: "Travel Website",
       techStack: [
         { name: "ReactJS", icon: "/images/icons/react.svg" },
         { name: "TypeScript", icon: "/images/icons/typescript.svg" },
@@ -22,7 +22,7 @@ export const projects = [
     image: "/images/projects/Kargax.png",
     link: "",
     details: {
-      type: "Website",
+      type: "Trucking & Logistics",
       techStack: [
         { name: "ReactJS", icon: "/images/icons/react.svg" },
         { name: "TypeScript", icon: "/images/icons/typescript.svg" },
@@ -38,7 +38,7 @@ export const projects = [
     image: "/images/projects/RealEstate.png",
     link: "",
     details: {
-      type: "Website",
+      type: "Property Finder",
       techStack: [
         { name: "ReactJS", icon: "/images/icons/react.svg" },
         { name: "TypeScript", icon: "/images/icons/typescript.svg" },
@@ -75,7 +75,6 @@ export const projects = [
         { name: "NextJS", icon: "/images/icons/nextjs.svg" },
         { name: "TypeScript", icon: "/images/icons/typescript.svg" },
         { name: "TailwindCSS", icon: "/images/icons/tailwind.svg" },
-        { name: "GraphQL", icon: "/images/icons/graphql.svg" },
       ],
       projectDate: "Coming soon",
     },
