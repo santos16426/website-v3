@@ -14,7 +14,7 @@ const Homepage = () => {
   return (
     <div className={cn('relative w-full h-screen')}>
       <Header />
-      <div className=" flex flex-col-reverse sm:flex-row p-4 lg:p-20 sm:py-24 lg:py-36 tracking-wider justify-center">
+      <div className=" flex flex-col-reverse sm:flex-row p-4 lg:p-20 sm:py-4 lg:py-36 tracking-wider justify-center">
         <div className="w-full flex items-center">
           <div className="">
             <p className="text-2xl sm:text-xl lg:text-4xl font text-[#2E2D2B] ">

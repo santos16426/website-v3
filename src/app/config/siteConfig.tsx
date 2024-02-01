@@ -275,7 +275,7 @@ export const DesktopGridItems: GridItemInterface[] = [
 export const MobileGridItems: GridItemInterface[] = [
   {
     layout: '3x1',
-    className: 'rounded-md bg-white shadow-md ',
+    className: 'rounded-md',
     children: (
       <div className="relative h-full">
         <Slider
@@ -284,6 +284,22 @@ export const MobileGridItems: GridItemInterface[] = [
           slidesToShow={3.2}
           autoplay
           autoplaySpeed={500}
+          responsive={[
+            {
+              breakpoint: 1000,
+              settings: {
+                slidesToShow: 6.3,
+                slidesToScroll: 1,
+              },
+            },
+            {
+              breakpoint: 480,
+              settings: {
+                slidesToShow: 3.9,
+                slidesToScroll: 1,
+              },
+            },
+          ]}
         >
           {techStackList.map((tech, index) => (
             <div
@@ -307,19 +323,19 @@ export const MobileGridItems: GridItemInterface[] = [
   {
     layout: '1x1',
     title: 'digi space',
-    className: 'rounded-md bg-white shadow-md h-full',
+    className: 'rounded-md h-full',
     children: <IconGallery items={digitalSpace} />,
   },
   {
     layout: '2x2',
     title: 'album',
-    className: 'rounded-md bg-white shadow-md ',
+    className: 'rounded-md',
     children: <PhotoGallery images={photoAlbum} />,
   },
   {
     layout: '2x2',
     title: 'map',
-    className: 'rounded-md bg-white shadow-md ',
+    className: 'rounded-md',
     children: (
       <GoogleMapsComponent apiKey={process.env.NEXT_PUBLIC_GOOGLE_API_KEY} />
     ),
@@ -327,9 +343,9 @@ export const MobileGridItems: GridItemInterface[] = [
   {
     layout: '4x6',
     title: 'description',
-    className: 'rounded-md bg-white shadow-md ',
+    className: 'rounded-md',
     children: (
-      <div className="flex flex-col justify-center items-center w-full h-full text-md text-left font-bebas bg-slate-800 text-white">
+      <div className="flex flex-col justify-center items-center w-full h-full text-md text-left">
         <div className="flex flex-row gap-2 absolute top-3 left-3">
           <div className="bg-[#ff423c] rounded-full p-1" />
           <div className="bg-[#ffc13a] rounded-full p-1" />

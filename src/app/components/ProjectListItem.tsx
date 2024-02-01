@@ -64,7 +64,7 @@ const ProjectListItem = ({
             {details.techStack.map((tech) => (
               <li
                 key={tech.name}
-                className="ml-4 font-semibold text-sm  text-gray-900 m-0 h-fit hover:bg-orange-200 group-hover:text-white"
+                className="ml-4 font-semibold text-sm  text-black/60 m-0 h-fit lg:over:bg-orange-200 lg:group-hover:text-white"
               >
                 {tech.name}
               </li>
