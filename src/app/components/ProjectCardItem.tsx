@@ -41,7 +41,7 @@ const ProjectCardItem = ({
           },
         )}
       ></div>
-      <div className="absolute top-0 left-0 w-full h-full text-white/90 p-8 flex flex-col justify-end">
+      <div className="absolute top-0 left-0 w-full h-full text-white/90 p-4 lg:p-8 flex flex-col justify-end">
         <p className="text-xl font-bold">
           {name}{' '}
           <span
@@ -53,7 +53,7 @@ const ProjectCardItem = ({
           </span>
         </p>
         <p className="text-md text-white/70">{details.type}</p>
-        <div className="flex gap-2 text-sm text-white/70">
+        <div className="flex flex-wrap gap-2 text-sm text-white/70">
           Tech Stack:
           {details.techStack.map((tech, index) => (
             <div
