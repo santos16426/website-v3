@@ -33,6 +33,22 @@ export const projects = [
     },
   },
   {
+    name: "Events Page",
+    alias: "events-page",
+    image: "/images/projects/Tanya.png",
+    link: "",
+    details: {
+      type: "Events Website (Christening)",
+      techStack: [
+        { name: "ReactJS", icon: "/images/icons/react.svg" },
+        { name: "TypeScript", icon: "/images/icons/typescript.svg" },
+        { name: "TailwindCSS", icon: "/images/icons/tailwind.svg" },
+
+      ],
+      projectDate: "2024",
+    },
+  },
+  {
     name: "Real Estate",
     alias: "real-estate",
     image: "/images/projects/RealEstate.png",

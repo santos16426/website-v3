@@ -49,7 +49,14 @@ const NavItems = () => {
         >
           About
         </a>
-        <a href="#contact" onClick={() => scrollToSection('5')}>
+        <a
+          href="#blogs"
+          onClick={() => scrollToSection('5')}
+          className={cn('relative text-primary', styles.navLink)}
+        >
+          Blogs
+        </a>
+        <a href="#contact" onClick={() => scrollToSection('6')}>
           <button
             className={cn(
               'relative w-fit z-10 h-full border-2 border-black px-3 py-2 font-semibold rounded-full overflow-hidden transition-all ease-out duration-300 hover:text-white',

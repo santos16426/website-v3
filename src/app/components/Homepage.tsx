@@ -13,8 +13,9 @@ const Homepage = () => {
   }
   return (
     <div className={cn('relative w-full h-screen')}>
+      <div className="absolute inset-0 z-[-10] h-full w-full bg-[#E3E1DF] bg-[radial-gradient(#f0f0f0_1px,transparent_1px)] [background-size:16px_16px]" />
       <Header />
-      <div className=" flex flex-col-reverse sm:flex-row p-4 lg:p-20 sm:py-4 lg:py-36 tracking-wider justify-center">
+      <div className="flex flex-col-reverse sm:flex-row p-4 lg:p-20 sm:py-4 lg:py-36 tracking-wider justify-center">
         <div className="w-full flex items-center">
           <div className="">
             <p className="text-2xl sm:text-xl lg:text-4xl font text-[#2E2D2B] ">

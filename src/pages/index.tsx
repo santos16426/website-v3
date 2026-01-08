@@ -6,6 +6,7 @@ import AboutMe from '@/app/components/AboutMe'
 import Experience from '@/app/components/Experience'
 import Projects from '@/app/components/Projects'
 import ContactMe from '@/app/components/ContactMe'
+import FeatureBlogs from '@/app/components/FeatureBlogs'
 import { ArrowUp } from 'lucide-react'
 import { cn } from '@/app/lib/utils'
 
@@ -16,6 +17,7 @@ const Home = () => {
   const expRef = useRef<HTMLDivElement>(null)
   const projRef = useRef<HTMLDivElement>(null)
   const contactRef = useRef<HTMLDivElement>(null)
+  const blogsRef = useRef<HTMLDivElement>(null)
   const scrollTo = (section: React.RefObject<HTMLElement>) => {
     section.current &&
       section.current.scrollIntoView({
@@ -29,7 +31,7 @@ const Home = () => {
   return (
     <Layout>
       <div
-        className="relative h-screen w-full bg-[#E3E1DF] overflow-y-scroll font-inter"
+        className="relative h-screen w-full  overflow-y-scroll font-inter"
         onScroll={handleScroll}
       >
         <div className="h-screen" ref={homeRef}>
@@ -49,6 +51,9 @@ const Home = () => {
         </div>
         <div className="h-fit" ref={aboutRef}>
           <SnapSection sectionId="4" content={<AboutMe />} />
+        </div>
+        <div className="h-fit" ref={blogsRef}>
+          <SnapSection sectionId="5" content={<FeatureBlogs />} />
         </div>
         <div className="h-fit" ref={contactRef}>
           <SnapSection sectionId="5" content={<ContactMe />} />

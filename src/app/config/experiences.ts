@@ -1,7 +1,7 @@
 export const experiences = [
   {
-    name: 'Magenic Manila Inc.',
-    key:'magenic',
+    name: 'Cognizant Softvision',
+    key:'cognizant',
     link: '',
     details: {
       title: 'Associate Software Engineer',

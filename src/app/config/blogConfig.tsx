@@ -1,3 +1,4 @@
+import { TBlog } from '../../types/blog'
 export const blogPosts: TBlog[] = [
   {
     featured: true,
@@ -7,7 +8,7 @@ export const blogPosts: TBlog[] = [
     shortDescription:
       'Explore the differences between Context API and Redux for state management in React, helping you make informed decisions for your projects.',
     date: '2024-07-01',
-    thumbnail: 'contextapi-vs-redux-thumbnail.jpg',
+    thumbnail: '/images/blogs/contextvsredux.png',
   },
   {
     featured: true,
@@ -17,7 +18,7 @@ export const blogPosts: TBlog[] = [
     shortDescription:
       'Dive into the debate of functional components vs class components in React, understanding the advantages and use cases of each approach.',
     date: '2024-07-15',
-    thumbnail: 'functional-vs-class-components-thumbnail.jpg',
+    thumbnail: '/images/blogs/fc.png',
   },
   {
     featured: true,
@@ -27,7 +28,7 @@ export const blogPosts: TBlog[] = [
     shortDescription:
       'Access handy cheatsheets for essential tools and languages, including Git, JavaScript, and more, to streamline your development workflow.',
     date: '2024-08-01',
-    thumbnail: 'developer-cheatsheets-thumbnail.jpg',
+    thumbnail: '/images/blogs/cheatsheet.png',
   },
   {
     featured: true,
@@ -37,7 +38,7 @@ export const blogPosts: TBlog[] = [
     shortDescription:
       'Learn and adopt best practices when using React with TypeScript to write clean, maintainable, and scalable code for your projects.',
     date: '2024-08-15',
-    thumbnail: 'react-typescript-best-practices-thumbnail.jpg',
+    thumbnail: '/images/blogs/best.png',
   },
   {
     featured: true,
@@ -47,7 +48,7 @@ export const blogPosts: TBlog[] = [
     shortDescription:
       'Explore common pitfalls and mistakes in React development and gain insights into how to avoid them for more successful projects.',
     date: '2024-09-01',
-    thumbnail: 'react-common-mistakes-guide-thumbnail.jpg',
+    thumbnail: '/images/blogs/mistake.png',
   },
   {
     type: 'overview',

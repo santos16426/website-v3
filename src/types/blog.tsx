@@ -1,4 +1,4 @@
-type TBlog = {
+export type TBlog = {
   featured?: boolean
   type: string
   title: string
