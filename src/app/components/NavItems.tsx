@@ -116,9 +116,19 @@ const NavItems = () => {
                   About
                 </a>
                 <a
-                  href="#contact"
+                  href="#about"
                   onClick={() => {
                     scrollToSection('5')
+                    setTimeout(() => setIsDrawerOpen(false), 250)
+                  }}
+                  className={cn('relative text-primary', styles.navLink)}
+                >
+                  Blogs
+                </a>
+                <a
+                  href="#contact"
+                  onClick={() => {
+                    scrollToSection('6')
                     setTimeout(() => setIsDrawerOpen(false), 250)
                   }}
                 >

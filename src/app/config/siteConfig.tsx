@@ -245,7 +245,7 @@ export const DesktopGridItems: GridItemInterface[] = [
                 <span className="inline font-semibold bg-gradient-to-b from-transparent from-50% to-50% to-orange-300 !font-[Courier]">
                   Software Engineer
                 </span>{' '}
-                {`based in the Philippines, with over 5 years of hands-on experience in crafting and maintaining software. Fluent in various programming languages, I enjoy coming up with creative solutions for complex problems. I thrive on continual learning, navigating the ever-evolving realm of software engineering with a fervor for achieving excellence. Let's code and have some fun on this exciting journey!`}
+                {`based in the Philippines, with over 7 years of hands-on experience in crafting and maintaining software. Fluent in various programming languages, I enjoy coming up with creative solutions for complex problems. I thrive on continual learning, navigating the ever-evolving realm of software engineering with a fervor for achieving excellence. Let's code and have some fun on this exciting journey!`}
                 <span className="-ml-1 w-2 h-3 bg-orange-400 animate-pulse duration-500 bg-opacity-50">
                   |
                 </span>
@@ -359,7 +359,7 @@ export const MobileGridItems: GridItemInterface[] = [
             <div className="mt-3 flex flex-row gap-2">
               <span className="text-orange-400">$</span>
               <span>
-                {`Hey there! I'm a Software Engineer based in the Philippines, with over 5 years of hands-on experience in crafting and maintaining software. Fluent in various programming languages, I enjoy coming up with creative solutions for complex problems. I thrive on continual learning, navigating the ever-evolving realm of software engineering with a fervor for achieving excellence. Let's code and have some fun on this exciting journey!`}
+                {`Hey there! I'm a Software Engineer based in the Philippines, with over 7 years of hands-on experience in crafting and maintaining software. Fluent in various programming languages, I enjoy coming up with creative solutions for complex problems. I thrive on continual learning, navigating the ever-evolving realm of software engineering with a fervor for achieving excellence. Let's code and have some fun on this exciting journey!`}
                 <span className="-ml-1 w-2 h-2 bg-orange-400 animate-pulse duration-500 bg-opacity-50">
                   |
                 </span>

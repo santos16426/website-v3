@@ -3,7 +3,7 @@ import { MoveRight } from 'lucide-react'
 import Header from './Header'
 const Homepage = () => {
   const scrollToSection = () => {
-    const section = document.getElementById('5')
+    const section = document.getElementById('6')
     if (section) {
       section.scrollIntoView({
         behavior: 'smooth',
