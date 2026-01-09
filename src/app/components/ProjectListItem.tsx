@@ -21,6 +21,7 @@ const ProjectListItem = ({
   alias: string
 }) => {
   const [isOpen, setIsOpen] = useState<boolean>(false)
+
   return (
     <div
       className="relative w-full group flex flex-col lg:flex-row border-b-[1px] border-gray-300 px-4 lg:px-8 py-12 text-2xl lg:hover:text-white cursor-pointer select-none"
