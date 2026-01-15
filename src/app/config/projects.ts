@@ -81,6 +81,22 @@ export const projects = [
     },
   },
   {
+    name: "Therapy Clinic Management",
+    alias: "clinic",
+    image: "/images/projects/TherapyClinic.png",
+    link: "",
+    details: {
+      type: "Case Study",
+      techStack: [
+        { name: "NextJS", icon: "/images/icons/nextjs.svg" },
+        { name: "TypeScript", icon: "/images/icons/typescript.svg" },
+        { name: "TailwindCSS", icon: "/images/icons/tailwind.svg" },
+        { name: "NodeJS", icon: "/images/icons/nodejs.svg" },
+      ],
+      projectDate: "2021",
+    },
+  },
+  {
     name: "Budget Tracker",
     alias: "budget-tracker",
     image: "/images/projects/BudgetTracker.png",
