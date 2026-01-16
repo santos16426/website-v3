@@ -7,18 +7,19 @@ import GridItem from './GridItem'
 import GoogleMapsComponent from './Maps'
 import {
   ArrowRight,
+  Briefcase,
   Codepen,
   Github,
   Keyboard,
+  Layers,
   Linkedin,
+  Music,
   Pin,
+  Star,
 } from 'lucide-react'
 import { GitHubCalendar } from 'react-github-calendar'
 import { PhotoGallery } from './Gallery'
-
-interface GitHubRepo {
-  updated_at: string
-}
+import TechStackV2 from './TechStackV2'
 
 type TypingBest = {
   wpm: number
@@ -45,7 +46,6 @@ const formatDate = (dateString: string): string => {
 }
 
 const AboutMe = () => {
-  const [repo, setRepo] = useState<GitHubRepo | null>(null)
   const [typingStats, setTypingStats] = useState<TypingBest | null>(null)
 
   useEffect(() => {
@@ -60,11 +60,7 @@ const AboutMe = () => {
         }
       })
   }, [])
-  useEffect(() => {
-    fetch('https://api.github.com/users/santos16426/repos?sort=pushed')
-      .then((res) => res.json())
-      .then((data) => setRepo(data[0]))
-  }, [])
+
   const photoAlbum = [
     '/images/about/1x1/about-1.jpg',
     '/images/about/1x1/about-2.jpg',
@@ -130,8 +126,13 @@ const AboutMe = () => {
         </div>
         {/* featured work grid 3 */}
         <div className="w-full  rounded-3xl bg-[#0e1218] text-[#e5e7eb] col-start-11 col-end-[24] row-start-1 row-end-[7] max-lg:col-start-3 max-lg:col-end-7 max-lg:row-end-3 overflow-hidden">
-          <div className="border-[#1f2b3a] max-md:border max-h-[300px]">
-            <PhotoGallery images={photoAlbum} />
+          <div className="relative border-[#1f2b3a] max-md:border max-h-[300px]">
+            <div className="absolute top-2 left-2 p-2 rounded-3xl text-white">
+              <p className="z-10 flex items-center gap-2 rounded-full border border-slate-700 bg-slate-950 shrink-0 py-2 pl-3 pr-4 absolute left-2 top-2 text-xs text-nowrap">
+                <Briefcase size={14} strokeWidth={2} />
+                Featured Work
+              </p>
+            </div>
           </div>
         </div>
 
@@ -152,9 +153,14 @@ const AboutMe = () => {
         </div>
 
         {/* spotify last played grid 5 */}
-        <div className="bg-red-100 w-full  rounded-3xl col-start-[24] col-end-[37] row-start-1 row-end-4 max-lg:col-start-1 max-lg:col-end-4 max-lg:row-start-4 max-lg:row-end-6 overflow-hidden">
-          <div className="border-[#1f2b3a] max-md:border h-full w-full">
-            {/* <PhotoGallery images={photoAlbum} /> */}
+        <div className="bg-[#0e1218] w-full  rounded-3xl col-start-[24] col-end-[37] row-start-1 row-end-4 max-lg:col-start-1 max-lg:col-end-4 max-lg:row-start-4 max-lg:row-end-6 overflow-hidden">
+          <div className="relative border-[#1f2b3a] max-md:border h-full w-full">
+            <div className="absolute top-2 left-2 p-2 rounded-3xl text-white flex">
+              <p className="z-10 flex items-center gap-2 rounded-full border border-slate-700 bg-slate-950 shrink-0 py-2 pl-3 pr-4 text-xs text-nowrap">
+                <Music size={14} strokeWidth={2} />
+                Music
+              </p>
+            </div>
           </div>
         </div>
 
@@ -251,13 +257,6 @@ const AboutMe = () => {
                 Github contributions
               </p>
             </div>
-            {repo && (
-              <div className="absolute top-5 right-2 w-full text-end px-10">
-                <p className="text-nowrap">
-                  <strong>Last pushed on </strong> {formatDate(repo.updated_at)}
-                </p>
-              </div>
-            )}
 
             <GitHubCalendar
               username="santos16426"
@@ -270,7 +269,30 @@ const AboutMe = () => {
 
         {/* tech stack grid 8 */}
         <div className="bg-[#0e1218] text-[#e5e7eb] w-full rounded-3xl overflow-hidden col-start-[19] col-end-[37] row-start-9 row-end-[14] max-lg:col-start-4 max-lg:col-end-7 max-lg:row-start-6 max-lg:row-end-9">
-          <div className="border-[#1f2b3a] max-md:border">techstack</div>
+          <div className="relative border-[#1f2b3a] max-md:border h-full">
+            <div className="absolute top-2 left-2 p-2 rounded-3xl text-white">
+              <p className="z-10 flex items-center gap-2 rounded-full border border-slate-700 bg-slate-950 shrink-0 py-2 pl-3 pr-4 absolute left-2 top-2 text-xs text-nowrap">
+                <Layers size={14} strokeWidth={2} />
+                Tech Stack
+              </p>
+            </div>
+            <div className="flex h-full flex-col gap-5 px-5 pb-6 pt-4 max-md:gap-8">
+              {/* <div className="w-full h-40">a</div> */}
+              <div className="w-full h-full flex-grow place-content-center mt-10">
+                <div className="relative flex w-full flex-col items-center justify-center overflow-hidden">
+                  <div className="group flex overflow-hidden p-2 flex-row [--duration:20s]"></div>
+                  <TechStackV2 />
+                </div>
+              </div>
+              <div className="w-full h-full space-y-2">
+                <p className="text-lg ">Tech stacks I'm familiar with</p>
+                <p className="text-sm text-slate-400 w-3/4">
+                  Primarily focused on the JavaScript ecosystem, but always
+                  eager to explore and learn new technologies.
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
