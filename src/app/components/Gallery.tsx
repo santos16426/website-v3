@@ -21,7 +21,7 @@ export const PhotoGallery = ({
     dots: false,
     infinite: true,
     slidesToScroll: 1,
-    autoplay: true,
+    // autoplay: true,
     autoplaySpeed: 5000,
     slidesToShow: 1,
     beforeChange: (current: any, next: React.SetStateAction<number>) => {
@@ -56,34 +56,11 @@ export const PhotoGallery = ({
               width={1000}
               height={1000}
               alt={image}
-              className="h-full w-full object-cover object-top"
+              className="h-full w-full object-contain object-center"
             />
           </div>
         ))}
       </Slider>
-      <div className="absolute bottom-2 text-white w-full flex flex-row justify-center gap-2 px-2 sm:gap-5">
-        <ChevronLeft
-          className="bg-white bg-opacity-50 p-1 cursor-pointer hover:bg-opacity-25 rounded-full"
-          onClick={goToPrevSlide}
-        />
-        <div className="flex flex-row justify-center items-center gap-2 px-2 sm:gap-5">
-          {images.map((i, index) => (
-            <Dot
-              color="white"
-              key={i + index}
-              className={cn(
-                'bg-white rounded-full w-[4px] h-[4px] cursor-pointer',
-                activeSlide === index && 'w-[6px] h-[6px]',
-              )}
-              onClick={() => goToSlide(index)}
-            />
-          ))}
-        </div>
-        <ChevronRight
-          className="bg-white bg-opacity-50 p-1 cursor-pointer hover:bg-opacity-25 active:bg-opacity-25 rounded-full"
-          onClick={goToNextSlide}
-        />
-      </div>
     </div>
   )
 }
