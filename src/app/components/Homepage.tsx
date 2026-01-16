@@ -12,12 +12,12 @@ const Homepage = () => {
     }
   };
   return (
-    <div className={cn("relative w-full h-screen")}>
+    <div className={cn("relative w-full min-h-screen pb-10 flex flex-col")}>
       <div className='absolute inset-0 z-[-10] h-full w-full bg-[#E3E1DF] bg-[radial-gradient(#f0f0f0_1px,transparent_1px)] [background-size:16px_16px]' />
       <Header />
-      <div className='flex flex-col-reverse sm:flex-row p-4 lg:p-20 sm:py-4 lg:py-36 tracking-wider justify-center'>
+      <div className='flex flex-col-reverse sm:flex-row p-4 lg:p-20 sm:py-4 lg:py-36 tracking-wider justify-center h-full'>
         <div className='w-full flex items-center'>
-          <div className=''>
+          <div className='flex flex-col items-center lg:items-start md:items-start'>
             <div className='mb-5 flex w-fit items-center rounded-full gap-3 py-1.5 pl-3 pr-4 border border-zinc-600/75 enter-animation'>
               <div className='relative size-3'>
                 <div className='absolute size-full animate-ping rounded-full bg-green-300 opacity-65'></div>

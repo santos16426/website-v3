@@ -34,7 +34,7 @@ const Home = () => {
         className='relative h-screen w-full  overflow-y-scroll font-inter'
         onScroll={handleScroll}
       >
-        <div className='h-screen' ref={homeRef}>
+        <div className='min-h-screen' ref={homeRef}>
           <SnapSection
             sectionId='1'
             showScrollTo={isScrolledTop}

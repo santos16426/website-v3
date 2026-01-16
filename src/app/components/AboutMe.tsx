@@ -87,11 +87,10 @@ const AboutMe = () => {
         }
       });
   }, []);
-  console.log(bitcoinDetails);
 
   return (
-    <div className='relative w-full items-center flex flex-row justify-center bg-[#EFEEEF] pt-20'>
-      <div className='auto-rows-[minmax(0,1fr)] grid-cols-[repeat(36,_minmax(0,_1fr))] gap-4 flex-col max-lg:grid-cols-6 max-md:flex max-md:gap-4 md:grid w-full lg:px-52 md:px-12 px-24'>
+    <div className='relative w-full min-h-screen items-center flex flex-row justify-center bg-[#EFEEEF] pt-20'>
+      <div className='auto-rows-[minmax(0,1fr)] grid-cols-[repeat(36,_minmax(0,_1fr))] gap-4 flex-col max-lg:grid-cols-6 max-md:flex max-md:gap-4 md:grid w-full lg:px-32 md:px-8 px-10'>
         {/* location grid 1 */}
         <div className='overflow-hidden w-full relative rounded-3xl col-start-1 aspect-square col-end-11 row-start-1 row-end-[8] max-lg:col-end-3 max-lg:row-end-3'>
           <div className='relative aspect-square h-full rounded-3xl border-[#1f2b3a] max-md:border'>
@@ -178,13 +177,13 @@ const AboutMe = () => {
         </div>
 
         {/* more projects grid 4 */}
-        <div className='min-h-5 bg-[#0e1218] text-[#e5e7eb] w-full rounded-3xl overflow-hidden col-start-11 col-end-[24] row-start-[7] row-end-[9] max-lg:col-start-4 max-lg:col-end-7 max-lg:row-start-3 max-lg:row-end-4 '>
+        <div className='min-h-5 bg-[#0e1218] text-[#e5e7eb] w-full rounded-3xl col-start-11 col-end-[24] row-start-[7] row-end-[9] max-lg:col-start-4 max-lg:col-end-7 max-lg:row-start-3 max-lg:row-end-4'>
           <Link
             href='#projects'
             onClick={scrollToSection}
             className='group flex flex-row justify-between gap-6 h-full items-center px-10 hover:text-orange-400'
           >
-            <p className="relative font-medium after:absolute after:left-0 after:top-1/2 after:w-0 after:content-[''] after:bg-gradient-to-tr from-orange-400 to-orange-600 after:mt-3 after:h-0.5 after:transition-all after:duration-700 group-hover:after:w-full">
+            <p className="relative font-medium after:absolute after:left-0 after:top-1/2 after:w-0 after:content-[''] after:bg-gradient-to-tr from-orange-400 to-orange-600 after:mt-3 after:h-0.5 after:transition-all after:duration-700 group-hover:after:w-full py-6">
               Discover more projects
             </p>
             <ArrowRight
@@ -247,10 +246,10 @@ const AboutMe = () => {
             <p className='group-hover:scale-110 group-hover:transition-all group-hover:duration-1000 font-display absolute z-0 w-full h-full left-0 lg:left-1/2 top:0 md:top-5 -translate-x-0 lg:top-8 lg:-translate-x-1/2 text-[150px] md:text-[155px] lg:text-[196px] font-extrabold leading-none opacity-70 text-transparent bg-clip-text bg-gradient-to-t from-[#0e1218] from-[0%] via-[#0e1218] via-[50%] to-white to-[100%]'>
               {typingStats?.wpm}
             </p>
-            <div className='w-full relative flex h-full flex-col justify-between overflow-hidden rounded-3xl px-8 pb-10 pt-4 max-md:gap-12'>
+            <div className='w-full relative flex h-full flex-col items-start justify-start overflow-hidden rounded-3xl px-8 pb-10 pt-4 max-md:gap-12'>
               <div className='h-full w-full' />
               <div className='flex items-baseline'>
-                <p className='font-display text-[84px] font-bold text-yellow-500 leading-tight tracking-normal'>
+                <p className='font-display text-[65px] md:text-[60px] lg:text-[84px] font-bold text-yellow-500 leading-tight tracking-normal'>
                   {typingStats?.wpm}
                 </p>
                 <p className='ml-2 text-2xl leading-none'>wpm</p>
