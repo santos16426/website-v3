@@ -1,10 +1,10 @@
-'use client'
+"use client";
 
-import { useEffect, useState } from 'react'
-import Link from 'next/link'
-import { DesktopGridItems, MobileGridItems } from '../config/siteConfig'
-import GridItem from './GridItem'
-import GoogleMapsComponent from './Maps'
+import React, { useEffect, useState } from "react";
+import BitcoinIcon from "../../../public/images/icons/v2/bitcoin.svg";
+import Link from "next/link";
+import Image from "next/image";
+import GoogleMapsComponent from "./Maps";
 import {
   ArrowRight,
   Briefcase,
@@ -12,69 +12,91 @@ import {
   Github,
   Keyboard,
   Layers,
+  LineChart,
   Linkedin,
   Music,
   Pin,
   Star,
-} from 'lucide-react'
-import { GitHubCalendar } from 'react-github-calendar'
-import { PhotoGallery } from './Gallery'
-import TechStackV2 from './TechStackV2'
-
+} from "lucide-react";
+import { GitHubCalendar } from "react-github-calendar";
+import TechStackV2 from "./TechStackV2";
 type TypingBest = {
-  wpm: number
-  acc: number
-}
-
-const formatDate = (dateString: string): string => {
-  const date = new Date(dateString)
-  const dayName = date.toLocaleDateString('en-US', { weekday: 'long' })
-  const monthName = date.toLocaleDateString('en-US', { month: 'long' })
-  const day = date.getDate()
-  const year = date.getFullYear()
-
-  const getOrdinalSuffix = (n: number): string => {
-    const j = n % 10
-    const k = n % 100
-    if (j === 1 && k !== 11) return 'st'
-    if (j === 2 && k !== 12) return 'nd'
-    if (j === 3 && k !== 13) return 'rd'
-    return 'th'
-  }
-
-  return `${dayName}, ${monthName} ${day}${getOrdinalSuffix(day)} ${year}`
-}
-
+  wpm: number;
+  acc: number;
+};
 const AboutMe = () => {
-  const [typingStats, setTypingStats] = useState<TypingBest | null>(null)
+  const [typingStats, setTypingStats] = useState<TypingBest | null>(null);
+  const [bitcoinDetails, setBitcoinDetails] = useState<any>({
+    Icon: BitcoinIcon,
+  });
+  const formatDate = (dateString: string): string => {
+    const date = new Date(dateString);
+    const dayName = date.toLocaleDateString("en-US", { weekday: "long" });
+    const monthName = date.toLocaleDateString("en-US", { month: "long" });
+    const day = date.getDate();
+    const year = date.getFullYear();
+    const time = date.getTime();
+    const getOrdinalSuffix = (n: number): string => {
+      const j = n % 10;
+      const k = n % 100;
+      if (j === 1 && k !== 11) return "st";
+      if (j === 2 && k !== 12) return "nd";
+      if (j === 3 && k !== 13) return "rd";
+      return "th";
+    };
 
+    return `${dayName}, ${monthName} ${day}${getOrdinalSuffix(
+      day,
+    )} ${year} at ${new Date(time).toLocaleTimeString("en-US", {
+      hour: "2-digit",
+      minute: "2-digit",
+    })}`;
+  };
+  const scrollToSection = () => {
+    const section = document.getElementById("3");
+    if (section) {
+      section.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+    }
+  };
   useEffect(() => {
-    fetch('https://api.monkeytype.com/users/lucas_gif/profile?isUid=false')
+    fetch(
+      "https://api.diadata.org/v1/feedStats/Bitcoin/0x0000000000000000000000000000000000000000",
+      // "https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=usd",
+    )
+      .then((res) => res.json())
+      .then((data) =>
+        setBitcoinDetails({
+          price: data.Price,
+          date: formatDate(data.Timestamp),
+          Icon: BitcoinIcon,
+        }),
+      );
+  }, []);
+  useEffect(() => {
+    fetch("https://api.monkeytype.com/users/lucas_gif/profile?isUid=false")
       .then((res) => res.json())
       .then(({ data }) => {
         if (data?.personalBests?.time?.[15]) {
           setTypingStats({
             wpm: data.personalBests.time[15][0].wpm,
             acc: data.personalBests.time[15][0].acc,
-          })
+          });
         }
-      })
-  }, [])
+      });
+  }, []);
+  console.log(bitcoinDetails);
 
-  const photoAlbum = [
-    '/images/about/1x1/about-1.jpg',
-    '/images/about/1x1/about-2.jpg',
-    '/images/about/1x1/about-4.jpg',
-    '/images/about/1x1/about-6.jpg',
-  ]
   return (
-    <div className="relative w-full items-center flex flex-row justify-center bg-[#EFEEEF]">
-      <div className="auto-rows-[minmax(0,1fr)] grid-cols-[repeat(36,_minmax(0,_1fr))] gap-4 flex-col max-lg:grid-cols-6 max-md:flex max-md:gap-4 md:grid w-full lg:px-52 md:px-12 px-24">
+    <div className='relative w-full items-center flex flex-row justify-center bg-[#EFEEEF] pt-20'>
+      <div className='auto-rows-[minmax(0,1fr)] grid-cols-[repeat(36,_minmax(0,_1fr))] gap-4 flex-col max-lg:grid-cols-6 max-md:flex max-md:gap-4 md:grid w-full lg:px-52 md:px-12 px-24'>
         {/* location grid 1 */}
-        <div className="overflow-hidden w-full relative rounded-3xl col-start-1 aspect-square col-end-11 row-start-1 row-end-[8] max-lg:col-end-3 max-lg:row-end-3">
-          <div className="relative aspect-square h-full rounded-3xl border-[#1f2b3a] max-md:border">
-            <div className="absolute top-2 left-2 p-2 rounded-3xl text-white">
-              <p className="z-10 flex items-center gap-2 rounded-full border border-slate-700 bg-slate-950 shrink-0 py-2 pl-3 pr-4 absolute left-2 top-2 text-xs no-text-wrap">
+        <div className='overflow-hidden w-full relative rounded-3xl col-start-1 aspect-square col-end-11 row-start-1 row-end-[8] max-lg:col-end-3 max-lg:row-end-3'>
+          <div className='relative aspect-square h-full rounded-3xl border-[#1f2b3a] max-md:border'>
+            <div className='absolute top-2 left-2 p-2 rounded-3xl text-white'>
+              <p className='z-10 flex items-center gap-2 rounded-full border border-slate-700 bg-slate-950 shrink-0 py-2 pl-3 pr-4 absolute left-2 top-2 text-xs no-text-wrap'>
                 <Pin size={14} strokeWidth={2} />
                 Location
               </p>
@@ -85,162 +107,209 @@ const AboutMe = () => {
           </div>
         </div>
         {/* socials grid 2 */}
-        <div className="w-full  grid grid-cols-3 rounded-3xl gap-4 col-start-1 col-end-11 row-start-[7] row-end-[9] max-lg:col-end-4 max-lg:row-start-3 max-lg:row-end-4 overflow-hidden">
-          <div className="aspect-square flex flex-row justify-between gap-6">
+        <div className='w-full  grid grid-cols-3 rounded-3xl gap-4 col-start-1 col-end-11 row-start-[7] row-end-[9] max-lg:col-end-4 max-lg:row-start-3 max-lg:row-end-4 overflow-hidden'>
+          <div className='aspect-square flex flex-row justify-between gap-6'>
             <Link
-              target="_blank"
-              href="https://www.linkedin.com/in/billy-santos/"
-              className="min-w-full h-full flex items-center justify-center rounded-3xl bg-[#0e1218] text-[#e5e7eb] hover:text-orange-400"
+              target='_blank'
+              href='https://www.linkedin.com/in/billy-santos/'
+              className='min-w-full h-full flex items-center justify-center rounded-3xl bg-[#0e1218] text-[#e5e7eb] hover:text-orange-400'
             >
               <div>
                 <Linkedin size={52} />
               </div>
             </Link>
-            <div className="min-w-full h-full">x</div>
-            <div className="min-w-full h-full">x</div>
+            <div className='min-w-full h-full'>x</div>
+            <div className='min-w-full h-full'>x</div>
           </div>
-          <div className="aspect-square flex flex-row justify-between gap-6">
+          <div className='aspect-square flex flex-row justify-between gap-6'>
             <Link
-              target="_blank"
-              href="http://github.com/santos16426"
-              className="min-w-full h-full flex items-center justify-center rounded-3xl bg-[#0e1218] text-[#e5e7eb] hover:text-orange-400"
+              target='_blank'
+              href='http://github.com/santos16426'
+              className='min-w-full h-full flex items-center justify-center rounded-3xl bg-[#0e1218] text-[#e5e7eb] hover:text-orange-400'
             >
               <div>
                 <Github size={52} />
               </div>
             </Link>
           </div>
-          <div className="aspect-square flex flex-row justify-between gap-6">
+          <div className='aspect-square flex flex-row justify-between gap-6'>
             <Link
-              href="https://codepen.io/joe_lucas"
-              target="_blank"
-              className="min-w-full h-full flex items-center justify-center rounded-3xl bg-[#0e1218] text-[#e5e7eb] hover:text-orange-400"
+              href='https://codepen.io/joe_lucas'
+              target='_blank'
+              className='min-w-full h-full flex items-center justify-center rounded-3xl bg-[#0e1218] text-[#e5e7eb] hover:text-orange-400'
             >
               <div>
                 <Codepen size={52} />
               </div>
             </Link>
-            <div className="min-w-full h-full">x</div>
-            <div className="min-w-full h-full">x</div>
+            <div className='min-w-full h-full'>x</div>
+            <div className='min-w-full h-full'>x</div>
           </div>
         </div>
         {/* featured work grid 3 */}
-        <div className="w-full  rounded-3xl bg-[#0e1218] text-[#e5e7eb] col-start-11 col-end-[24] row-start-1 row-end-[7] max-lg:col-start-3 max-lg:col-end-7 max-lg:row-end-3 overflow-hidden">
-          <div className="relative border-[#1f2b3a] max-md:border max-h-[300px]">
-            <div className="absolute top-2 left-2 p-2 rounded-3xl text-white">
-              <p className="z-10 flex items-center gap-2 rounded-full border border-slate-700 bg-slate-950 shrink-0 py-2 pl-3 pr-4 absolute left-2 top-2 text-xs text-nowrap">
+        <div className='group w-full  rounded-3xl bg-[#0e1218] text-[#e5e7eb] col-start-11 col-end-[24] row-start-1 row-end-[7] max-lg:col-start-3 max-lg:col-end-7 max-lg:row-end-3 overflow-hidden'>
+          <div className='relative border-[#1f2b3a] max-md:border max-h-[300px]'>
+            <div className='absolute top-2 left-2 p-2 rounded-3xl text-white'>
+              <p className='z-10 flex items-center gap-2 rounded-full border border-slate-700 bg-slate-950 shrink-0 py-2 pl-3 pr-4 absolute left-2 top-2 text-xs  whitespace-nowrap text-nowrap'>
                 <Briefcase size={14} strokeWidth={2} />
                 Featured Work
               </p>
+            </div>
+            <div className='flex h-full flex-col gap-5 px-5 pb-6 pt-4 max-md:gap-8'>
+              {/* <div className="w-full h-40">a</div> */}
+              <div className='w-full h-full flex-grow place-content-center lg:mt-16 mt-10'>
+                <p className='text-3xl '>Ambag (Split Bill App)</p>
+                <p className='text-sm text-slate-400 w-3/4'>
+                  Split bills with friends, track expenses, and settle up.
+                  Simple, fair, hassle-free.
+                </p>
+              </div>
+              <div className='w-full h-full space-y-2'>
+                <Image
+                  className='group-hover:-mt-15 group-hover:transition-all group-hover:duration-700 scale-120 z-0'
+                  src={"/images/projects/receipt.png"}
+                  alt={"receipt"}
+                  width={2000}
+                  height={1000}
+                />
+              </div>
             </div>
           </div>
         </div>
 
         {/* more projects grid 4 */}
-        <div className="bg-[#0e1218] text-[#e5e7eb] w-full rounded-3xl overflow-hidden col-start-11 col-end-[24] row-start-[7] row-end-[9] max-lg:col-start-4 max-lg:col-end-7 max-lg:row-start-3 max-lg:row-end-4 ">
+        <div className='min-h-5 bg-[#0e1218] text-[#e5e7eb] w-full rounded-3xl overflow-hidden col-start-11 col-end-[24] row-start-[7] row-end-[9] max-lg:col-start-4 max-lg:col-end-7 max-lg:row-start-3 max-lg:row-end-4 '>
           <Link
-            href="#projects"
-            className="group flex flex-row justify-between gap-6 h-full items-center px-10 hover:text-orange-400"
+            href='#projects'
+            onClick={scrollToSection}
+            className='group flex flex-row justify-between gap-6 h-full items-center px-10 hover:text-orange-400'
           >
             <p className="relative font-medium after:absolute after:left-0 after:top-1/2 after:w-0 after:content-[''] after:bg-gradient-to-tr from-orange-400 to-orange-600 after:mt-3 after:h-0.5 after:transition-all after:duration-700 group-hover:after:w-full">
               Discover more projects
             </p>
             <ArrowRight
               size={20}
-              className="transition-all duration-300 group-hover:rotate-[90deg]"
+              className='transition-all duration-300 group-hover:rotate-[90deg]'
             />
           </Link>
         </div>
 
-        {/* spotify last played grid 5 */}
-        <div className="bg-[#0e1218] w-full  rounded-3xl col-start-[24] col-end-[37] row-start-1 row-end-4 max-lg:col-start-1 max-lg:col-end-4 max-lg:row-start-4 max-lg:row-end-6 overflow-hidden">
-          <div className="relative border-[#1f2b3a] max-md:border h-full w-full">
-            <div className="absolute top-2 left-2 p-2 rounded-3xl text-white flex">
-              <p className="z-10 flex items-center gap-2 rounded-full border border-slate-700 bg-slate-950 shrink-0 py-2 pl-3 pr-4 text-xs text-nowrap">
-                <Music size={14} strokeWidth={2} />
-                Music
+        {/* trading last played grid 5 */}
+        <div className='group bg-[#0e1218] w-full  rounded-3xl col-start-[24] col-end-[37] row-start-1 row-end-4 max-lg:col-start-1 max-lg:col-end-4 max-lg:row-start-4 max-lg:row-end-6 overflow-hidden'>
+          <div className='relative border-[#1f2b3a] max-md:border h-full w-full'>
+            <div className='absolute top-2 left-2 p-2 rounded-3xl text-white flex justify-between w-full pr-8'>
+              <p className='z-10 flex items-center gap-2 rounded-full border border-slate-700 bg-slate-950 shrink-0 py-2 pl-3 pr-4 text-xs  whitespace-nowrap text-nowrap'>
+                <LineChart size={14} strokeWidth={2} />
+                Trading
               </p>
+              <bitcoinDetails.Icon className='h-8 w-8 scale-150 rotate-[28deg] group-hover:rotate-0 group-hover:transition-all group-hover:duration-500' />
+            </div>
+
+            <div className='flex flex-col h-full w-full text-white justify-evenly p-5'>
+              <p></p>
+              <p className='z-10  h-full text-[50px] pt-10 lg:pt-0 lg:text-[60px] font-bold items-end flex'>
+                {bitcoinDetails.price
+                  ? new Intl.NumberFormat("en-US", {
+                      style: "currency",
+                      currency: "USD",
+                    }).format(bitcoinDetails.price.toFixed(2))
+                  : "..."}
+              </p>
+              <p className='z-10 text-sm text-slate-100'>
+                As of {bitcoinDetails.date}
+              </p>
+            </div>
+            <div className='flex absolute z-0 w-full h-full left-0 top-0 blur-sm opacity-10 group-hover:opacity-30 group-hover:transition-all group-hover:duration-700'>
+              <Image
+                className='-z-[1]'
+                src='/images/stocks.jpg'
+                width={1000}
+                height={1000}
+                alt='stocks'
+              />
             </div>
           </div>
         </div>
 
         {/* typing speed grid 6 */}
-        <div className="bg-[#0e1218] text-[#e5e7eb] w-full  rounded-3xl col-start-[24] col-end-[37] row-start-4 row-end-[9] max-lg:col-start-4 max-lg:col-end-7 max-lg:row-start-4 max-lg:row-end-6 overflow-hidden">
+        <div className='group bg-[#0e1218] text-[#e5e7eb] w-full  rounded-3xl col-start-[24] col-end-[37] row-start-4 row-end-[9] max-lg:col-start-4 max-lg:col-end-7 max-lg:row-start-4 max-lg:row-end-6 overflow-hidden'>
           <Link
-            href="https://monkeytype.com/profile/lucas_gif"
-            target="_blank"
-            className="border-[#1f2b3a] max-md:border relative h-full w-full"
+            href='https://monkeytype.com/profile/lucas_gif'
+            target='_blank'
+            className='border-[#1f2b3a] max-md:border relative h-full w-full'
           >
-            <div className="absolute top-2 left-2 p-2 rounded-3xl text-white ">
-              <p className="z-10 flex items-center gap-2 rounded-full border border-slate-700 bg-slate-950 shrink-0 py-2 pl-3 pr-4 absolute text-xs text-nowrap">
+            <div className='absolute top-2 left-2 p-2 rounded-3xl text-white '>
+              <p className='z-10 flex items-center gap-2 rounded-full border border-slate-700 bg-slate-950 shrink-0 py-2 pl-3 pr-4 absolute text-xs  whitespace-nowrap text-nowrap'>
                 <Keyboard size={14} strokeWidth={4} />
                 Typing speed
               </p>
             </div>
-            <p className="font-display absolute z-0 w-full text-white h-full text-[196px] font-extrabold text-transparent left-1/2 top-8 -translate-x-1/2 leading-none opacity-70 bg-gradient-to-b from-[#1E293B] to-[transparent] bg-clip-text">
+            <p className='group-hover:scale-110 group-hover:transition-all group-hover:duration-1000 font-display absolute z-0 w-full h-full left-0 lg:left-1/2 top:0 md:top-5 -translate-x-0 lg:top-8 lg:-translate-x-1/2 text-[150px] md:text-[155px] lg:text-[196px] font-extrabold leading-none opacity-70 text-transparent bg-clip-text bg-gradient-to-t from-[#0e1218] from-[0%] via-[#0e1218] via-[50%] to-white to-[100%]'>
               {typingStats?.wpm}
             </p>
-            <div className="w-full relative flex h-full flex-col justify-between overflow-hidden rounded-3xl px-8 pb-10 pt-4 max-md:gap-12">
-              <div className="h-full w-full" />
-              <div className="flex items-baseline">
-                <p className="font-display text-[84px] font-medium leading-tight tracking-normal">
+            <div className='w-full relative flex h-full flex-col justify-between overflow-hidden rounded-3xl px-8 pb-10 pt-4 max-md:gap-12'>
+              <div className='h-full w-full' />
+              <div className='flex items-baseline'>
+                <p className='font-display text-[84px] font-bold text-yellow-500 leading-tight tracking-normal'>
                   {typingStats?.wpm}
                 </p>
-                <p className="ml-2 text-2xl leading-none">wpm</p>
+                <p className='ml-2 text-2xl leading-none'>wpm</p>
               </div>
-              <div className="flex gap-4">
-                <button data-state="closed">
-                  <div className="flex items-center gap-1 tracking-wider text-slate-200">
+              <div className='flex gap-4'>
+                <button data-state='closed'>
+                  <div className='flex items-center gap-1 tracking-wider text-slate-50'>
                     <svg
-                      aria-hidden="true"
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="1em"
-                      height="1em"
-                      viewBox="0 0 256 256"
-                      className="size-4 text-slate-500 group-hover:text-slate-300"
+                      aria-hidden='true'
+                      xmlns='http://www.w3.org/2000/svg'
+                      width='1em'
+                      height='1em'
+                      viewBox='0 0 256 256'
+                      className='size-4 text-slate-500 group-hover:text-slate-300'
                     >
                       <path
-                        fill="currentColor"
-                        d="M128 40a96 96 0 1 0 96 96a96.11 96.11 0 0 0-96-96m0 176a80 80 0 1 1 80-80a80.09 80.09 0 0 1-80 80m45.66-125.66a8 8 0 0 1 0 11.32l-40 40a8 8 0 0 1-11.32-11.32l40-40a8 8 0 0 1 11.32 0M96 16a8 8 0 0 1 8-8h48a8 8 0 0 1 0 16h-48a8 8 0 0 1-8-8"
+                        fill='currentColor'
+                        d='M128 40a96 96 0 1 0 96 96a96.11 96.11 0 0 0-96-96m0 176a80 80 0 1 1 80-80a80.09 80.09 0 0 1-80 80m45.66-125.66a8 8 0 0 1 0 11.32l-40 40a8 8 0 0 1-11.32-11.32l40-40a8 8 0 0 1 11.32 0M96 16a8 8 0 0 1 8-8h48a8 8 0 0 1 0 16h-48a8 8 0 0 1-8-8'
                       ></path>
                     </svg>
-                    <p>15s</p>
+                    <p className=' text-yellow-500'>15s</p>
                   </div>
                 </button>
-                <button data-state="closed">
-                  <div className="flex items-center gap-1 tracking-wider text-slate-200">
+                <button data-state='closed'>
+                  <div className='flex items-center gap-1 tracking-wider text-slate-50'>
                     <svg
-                      aria-hidden="true"
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="1em"
-                      height="1em"
-                      viewBox="0 0 256 256"
-                      className="size-4 text-slate-500 group-hover:text-slate-300"
+                      aria-hidden='true'
+                      xmlns='http://www.w3.org/2000/svg'
+                      width='1em'
+                      height='1em'
+                      viewBox='0 0 256 256'
+                      className='size-4 text-slate-500 group-hover:text-slate-300'
                     >
                       <path
-                        fill="currentColor"
-                        d="M221.87 83.16A104.1 104.1 0 1 1 195.67 49l22.67-22.68a8 8 0 0 1 11.32 11.32l-96 96a8 8 0 0 1-11.32-11.32l27.72-27.72a40 40 0 1 0 17.87 31.09a8 8 0 1 1 16-.9a56 56 0 1 1-22.38-41.65l22.75-22.75a87.88 87.88 0 1 0 23.13 29.67a8 8 0 0 1 14.44-6.9"
+                        fill='currentColor'
+                        d='M221.87 83.16A104.1 104.1 0 1 1 195.67 49l22.67-22.68a8 8 0 0 1 11.32 11.32l-96 96a8 8 0 0 1-11.32-11.32l27.72-27.72a40 40 0 1 0 17.87 31.09a8 8 0 1 1 16-.9a56 56 0 1 1-22.38-41.65l22.75-22.75a87.88 87.88 0 1 0 23.13 29.67a8 8 0 0 1 14.44-6.9'
                       ></path>
                     </svg>
-                    <p>{typingStats?.acc.toFixed(2)}%</p>
+                    <p className=' text-yellow-500'>
+                      {typingStats?.acc.toFixed(2)}%
+                    </p>
                   </div>
                 </button>
-                <button data-state="closed">
-                  <div className="flex items-center gap-1 tracking-wider text-slate-200">
+                <button data-state='closed'>
+                  <div className='flex items-center gap-1 tracking-wider text-slate-50'>
                     <svg
-                      aria-hidden="true"
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="1em"
-                      height="1em"
-                      viewBox="0 0 256 256"
-                      className="size-4 text-slate-500 group-hover:text-slate-300"
+                      aria-hidden='true'
+                      xmlns='http://www.w3.org/2000/svg'
+                      width='1em'
+                      height='1em'
+                      viewBox='0 0 256 256'
+                      className='size-4 text-slate-500 group-hover:text-slate-300'
                     >
                       <path
-                        fill="currentColor"
-                        d="m247.15 212.42l-56-112a8 8 0 0 0-14.31 0l-21.71 43.43A88 88 0 0 1 108 126.93A103.65 103.65 0 0 0 135.69 64H160a8 8 0 0 0 0-16h-56V32a8 8 0 0 0-16 0v16H32a8 8 0 0 0 0 16h87.63A87.76 87.76 0 0 1 96 116.35a87.7 87.7 0 0 1-19-31a8 8 0 1 0-15.08 5.34A103.6 103.6 0 0 0 84 127a87.55 87.55 0 0 1-52 17a8 8 0 0 0 0 16a103.46 103.46 0 0 0 64-22.08a104.2 104.2 0 0 0 51.44 21.31l-26.6 53.19a8 8 0 0 0 14.31 7.16L148.94 192h70.11l13.79 27.58A8 8 0 0 0 240 224a8 8 0 0 0 7.15-11.58M156.94 176L184 121.89L211.05 176Z"
+                        fill='currentColor'
+                        d='m247.15 212.42l-56-112a8 8 0 0 0-14.31 0l-21.71 43.43A88 88 0 0 1 108 126.93A103.65 103.65 0 0 0 135.69 64H160a8 8 0 0 0 0-16h-56V32a8 8 0 0 0-16 0v16H32a8 8 0 0 0 0 16h87.63A87.76 87.76 0 0 1 96 116.35a87.7 87.7 0 0 1-19-31a8 8 0 1 0-15.08 5.34A103.6 103.6 0 0 0 84 127a87.55 87.55 0 0 1-52 17a8 8 0 0 0 0 16a103.46 103.46 0 0 0 64-22.08a104.2 104.2 0 0 0 51.44 21.31l-26.6 53.19a8 8 0 0 0 14.31 7.16L148.94 192h70.11l13.79 27.58A8 8 0 0 0 240 224a8 8 0 0 0 7.15-11.58M156.94 176L184 121.89L211.05 176Z'
                       ></path>
                     </svg>
-                    <p>EN</p>
+                    <p className=' text-yellow-500'>EN</p>
                   </div>
                 </button>
               </div>
@@ -249,44 +318,62 @@ const AboutMe = () => {
         </div>
 
         {/* github contributions grid 7 */}
-        <div className="bg-[#0e1218] text-[#e5e7eb] w-full rounded-3xl overflow-hidden  items-center justify-center flex flex-col col-start-1 col-end-[19] row-start-9 row-end-[14] max-lg:col-start-1 max-lg:col-end-4 max-lg:row-start-6 max-lg:row-end-9">
-          <div className="relative border-[#1f2b3a] max-md:border group flex flex-col overflow-y-scroll  items-left justify-center w-full h-full px-10 items-center ">
-            <div className="absolute top-2 left-2 p-2 rounded-3xl text-white ">
-              <p className="z-10 flex items-center gap-2 rounded-full border border-slate-700 bg-slate-950 shrink-0 py-2 pl-3 pr-4 absolute text-xs text-nowrap">
+        <div className='bg-[#0e1218] text-[#e5e7eb] w-full rounded-3xl overflow-hidden  items-center justify-center flex flex-col col-start-1 col-end-[19] row-start-9 row-end-[14] max-lg:col-start-1 max-lg:col-end-4 max-lg:row-start-6 max-lg:row-end-9'>
+          <div className='relative border-[#1f2b3a] max-md:border group flex flex-col overflow-y-scroll  items-left justify-center w-full h-full px-10 items-center '>
+            <div className='absolute top-2 left-2 p-2 rounded-3xl text-white '>
+              <p className='z-10 flex items-center gap-2 rounded-full border border-slate-700 bg-slate-950 shrink-0 py-2 pl-3 pr-4 absolute text-xs  whitespace-nowrap text-nowrap'>
                 <Github size={14} strokeWidth={4} />
                 Github contributions
               </p>
             </div>
 
             <GitHubCalendar
-              username="santos16426"
+              username='santos16426'
+              tooltips={{
+                activity: {
+                  text: (activity) =>
+                    `${activity.count} contributions on ${activity.date}`,
+                  placement: "right",
+                  offset: 6,
+                  hoverRestMs: 300,
+                  transitionStyles: {
+                    duration: 100,
+                    common: { fontFamily: "monospace" },
+                  },
+                  withArrow: true,
+                },
+              }}
+              year={2026}
+              blockSize={16}
+              colorScheme={"dark"}
+              fontSize={16}
               labels={{
-                totalCount: '{{count}} contributions in the last year',
+                totalCount: "{{count}} contributions in the last year",
               }}
             />
           </div>
         </div>
 
         {/* tech stack grid 8 */}
-        <div className="bg-[#0e1218] text-[#e5e7eb] w-full rounded-3xl overflow-hidden col-start-[19] col-end-[37] row-start-9 row-end-[14] max-lg:col-start-4 max-lg:col-end-7 max-lg:row-start-6 max-lg:row-end-9">
-          <div className="relative border-[#1f2b3a] max-md:border h-full">
-            <div className="absolute top-2 left-2 p-2 rounded-3xl text-white">
-              <p className="z-10 flex items-center gap-2 rounded-full border border-slate-700 bg-slate-950 shrink-0 py-2 pl-3 pr-4 absolute left-2 top-2 text-xs text-nowrap">
+        <div className='bg-[#0e1218] text-[#e5e7eb] w-full rounded-3xl overflow-hidden col-start-[19] col-end-[37] row-start-9 row-end-[14] max-lg:col-start-4 max-lg:col-end-7 max-lg:row-start-6 max-lg:row-end-9'>
+          <div className='relative border-[#1f2b3a] max-md:border h-full'>
+            <div className='absolute top-2 left-2 p-2 rounded-3xl text-white'>
+              <p className='z-10 flex items-center gap-2 rounded-full border border-slate-700 bg-slate-950 shrink-0 py-2 pl-3 pr-4 absolute left-2 top-2 text-xs  whitespace-nowrap text-nowrap'>
                 <Layers size={14} strokeWidth={2} />
                 Tech Stack
               </p>
             </div>
-            <div className="flex h-full flex-col gap-5 px-5 pb-6 pt-4 max-md:gap-8">
+            <div className='flex h-full flex-col gap-5 px-5 pb-6 pt-4 max-md:gap-8'>
               {/* <div className="w-full h-40">a</div> */}
-              <div className="w-full h-full flex-grow place-content-center mt-10">
-                <div className="relative flex w-full flex-col items-center justify-center overflow-hidden">
-                  <div className="group flex overflow-hidden p-2 flex-row [--duration:20s]"></div>
+              <div className='w-full h-full flex-grow place-content-center mt-10'>
+                <div className='relative flex w-full flex-col items-center justify-center overflow-hidden'>
+                  <div className='group flex overflow-hidden p-2 flex-row [--duration:10s]'></div>
                   <TechStackV2 />
                 </div>
               </div>
-              <div className="w-full h-full space-y-2">
-                <p className="text-lg ">Tech stacks I'm familiar with</p>
-                <p className="text-sm text-slate-400 w-3/4">
+              <div className='w-full h-full space-y-2'>
+                <p className='text-lg '>Tech stacks I&apos;m familiar with</p>
+                <p className='text-sm text-slate-400 w-3/4'>
                   Primarily focused on the JavaScript ecosystem, but always
                   eager to explore and learn new technologies.
                 </p>
@@ -296,7 +383,7 @@ const AboutMe = () => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default AboutMe
+export default AboutMe;

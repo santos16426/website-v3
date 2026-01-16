@@ -69,54 +69,75 @@
 @layer base {
   * {
     @apply border-border;
-    *{
-    scrollbar-width: none !important;
-    &::-webkit-scrollbar{
+    * {
+      scrollbar-width: none !important;
+      &::-webkit-scrollbar {
         display: none !important;
+      }
     }
-}
-
   }
   body {
     @apply bg-background text-foreground;
     .neumorphism-shadow {
-      box-shadow: -4px -4px 10px rgb(255, 255, 255), 4px 4px 10px rgba(0, 0, 0, 0.219);
+      box-shadow: -4px -4px 10px rgb(255, 255, 255),
+        4px 4px 10px rgba(0, 0, 0, 0.219);
     }
-    .header{
+    .header {
       // font-family: 'Bebas Neue', sans-serif;
-      letter-spacing: -.15rem;
+      letter-spacing: -0.15rem;
       color: rgb(217, 216, 214);
       line-height: 6.667rem;
     }
-    div{
-        scrollbar-width: none;
-      &::-webkit-scrollbar{
-          display: none;
+    div {
+      scrollbar-width: none;
+      &::-webkit-scrollbar {
+        display: none;
       }
     }
-    .instagram{
+    .instagram {
       background: #f09433;
-      background: -moz-linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
-      background: -webkit-linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%);
-      background: linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%);
+      background: -moz-linear-gradient(
+        45deg,
+        #f09433 0%,
+        #e6683c 25%,
+        #dc2743 50%,
+        #cc2366 75%,
+        #bc1888 100%
+      );
+      background: -webkit-linear-gradient(
+        45deg,
+        #f09433 0%,
+        #e6683c 25%,
+        #dc2743 50%,
+        #cc2366 75%,
+        #bc1888 100%
+      );
+      background: linear-gradient(
+        45deg,
+        #f09433 0%,
+        #e6683c 25%,
+        #dc2743 50%,
+        #cc2366 75%,
+        #bc1888 100%
+      );
       filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f09433', endColorstr='#bc1888',GradientType=1 );
     }
-    .tech-slide{
-      display:flex !important
+    .tech-slide {
+      display: flex !important;
     }
-    .full-screen-slider{
-      .slick-slider{
+    .full-screen-slider {
+      .slick-slider {
         height: 100% !important;
-        .slick-list{
+        .slick-list {
           height: 100% !important;
-          .slick-track{
+          .slick-track {
             height: 100% !important;
-            .slick-slide{
+            .slick-slide {
               height: 100% !important;
-              div{
+              div {
                 height: 100%;
               }
-              .slide{
+              .slide {
                 height: 100% !important;
               }
             }
@@ -125,11 +146,8 @@
       }
     }
   }
+}
 
-}
-.react-activity-calendar__count {
-margin-top: 10px
-}
 .react-activity-calendar__tooltip {
   width: max-content;
   max-width: calc(100vw - 20px);
@@ -146,7 +164,7 @@ margin-top: 10px
 
   /* Use this instead of a media query - the component theme can be set */
   /* independent of the system color scheme. */
-  &[data-color-scheme='dark'] {
+  &[data-color-scheme="dark"] {
     background-color: hsl(0 0% 94%);
     color: hsl(0 0% 6%);
 
