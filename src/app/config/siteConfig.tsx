@@ -266,9 +266,7 @@ export const DesktopGridItems: GridItemInterface[] = [
     layout: '2x3',
     title: 'map',
     className: 'rounded-md',
-    children: (
-      <GoogleMapsComponent apiKey={process.env.NEXT_PUBLIC_GOOGLE_API_KEY} />
-    ),
+
   },
 ]
 
@@ -336,9 +334,6 @@ export const MobileGridItems: GridItemInterface[] = [
     layout: '2x2',
     title: 'map',
     className: 'rounded-md',
-    children: (
-      <GoogleMapsComponent apiKey={process.env.NEXT_PUBLIC_GOOGLE_API_KEY} />
-    ),
   },
   {
     layout: '4x6',

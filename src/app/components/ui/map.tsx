@@ -40,7 +40,7 @@ const Map = React.forwardRef<MapRef, MapProps>(
       if (theme === 'auto') {
         const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)')
         setIsDark(mediaQuery.matches)
-        
+
         const handleChange = (e: MediaQueryListEvent) => setIsDark(e.matches)
         mediaQuery.addEventListener('change', handleChange)
         return () => mediaQuery.removeEventListener('change', handleChange)
@@ -52,12 +52,12 @@ const Map = React.forwardRef<MapRef, MapProps>(
     React.useEffect(() => {
       if (!mapContainer.current) return
 
-      const getMapStyle = () => {
+      const getMapStyle = (): maplibregl.StyleSpecification => {
         const isDarkMode = theme === 'auto' ? isDark : theme === 'dark'
-        
+
         if (isDarkMode) {
           return {
-            version: 8,
+            version: 8 as const,
             sources: {
               "carto-dark": {
                 type: "raster",
@@ -79,7 +79,7 @@ const Map = React.forwardRef<MapRef, MapProps>(
           }
         } else {
           return {
-            version: 8,
+            version: 8 as const,
             sources: {
               "carto-positron": {
                 type: "raster",
@@ -146,11 +146,11 @@ const Map = React.forwardRef<MapRef, MapProps>(
     // Update map style when theme changes
     React.useEffect(() => {
       if (!mapInstance.current || !isLoaded) return
-      
+
       const isDarkMode = theme === 'auto' ? isDark : theme === 'dark'
-      const newStyle = isDarkMode
+      const newStyle: maplibregl.StyleSpecification = isDarkMode
         ? {
-            version: 8,
+            version: 8 as const,
             sources: {
               "carto-dark": {
                 type: "raster",
@@ -171,7 +171,7 @@ const Map = React.forwardRef<MapRef, MapProps>(
             ],
           }
         : {
-            version: 8,
+            version: 8 as const,
             sources: {
               "carto-positron": {
                 type: "raster",
@@ -191,11 +191,11 @@ const Map = React.forwardRef<MapRef, MapProps>(
               },
             ],
           }
-      
+
       mapInstance.current.once('style.load', () => {
         setIsLoaded(true)
       })
-      mapInstance.current.setStyle(newStyle as any)
+      mapInstance.current.setStyle(newStyle)
     }, [isDark, theme, isLoaded])
 
     React.useImperativeHandle(ref, () => ({
@@ -271,11 +271,11 @@ export const MapMarker: React.FC<MapMarkerProps> = ({
       img.style.objectFit = "contain"
       img.style.cursor = "pointer"
       img.style.pointerEvents = "auto"
-      
+
       const el = document.createElement("div")
       el.appendChild(img)
       el.className = "map-marker"
-      
+
       marker = new maplibregl.Marker({
         element: el,
         anchor: anchor,
@@ -283,7 +283,7 @@ export const MapMarker: React.FC<MapMarkerProps> = ({
     } else {
       const el = document.createElement("div")
       el.className = "map-marker"
-      
+
       if (children) {
         // Use React to render children into the DOM element
         const root = createRoot(el)
@@ -323,7 +323,7 @@ export const MapMarker: React.FC<MapMarkerProps> = ({
   // Re-render children if they change
   React.useEffect(() => {
     if (!map || !isLoaded || !children || !rootRef.current) return
-    
+
     rootRef.current.render(<>{children}</>)
   }, [map, isLoaded, children])
 
