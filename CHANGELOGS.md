@@ -42,3 +42,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - **Sitemap conflict** - Removed conflicting static sitemap.xml file in favor of dynamic route
 - **Structured data** - Fixed social media links in JSON-LD to properly filter undefined values
 - **Build error** - Fixed TypeScript type error in map.tsx where version property needed literal type 8 instead of number
+- **Accessibility - Invalid HTML** - Removed buttons nested inside anchor tags (invalid HTML structure)
+- **Accessibility - Missing ARIA labels** - Added aria-labels to all icon-only buttons and interactive elements
+- **Accessibility - Clickable spans** - Converted clickable span elements to proper button elements
+- **Accessibility - Keyboard navigation** - Added keyboard event handlers (Enter/Space) for all interactive elements
+- **Accessibility - Focus indicators** - Added visible focus-visible styles for keyboard navigation
+- **Accessibility - Semantic HTML** - Changed paragraph headings to proper h1/h2 tags and added semantic section/main elements
+- **Accessibility - Color contrast** - Improved text color contrast (gray-300 to gray-600) for better readability
+- **Accessibility - Skip link** - Added skip-to-main-content link for screen reader users
