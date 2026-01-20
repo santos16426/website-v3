@@ -64,10 +64,10 @@ const Projects = () => {
   }, [viewType]);
 
   return (
-    <section className='w-full h-fit flex flex-col bg-[#EFEEEF] py-4 lg:py-12' aria-label="Projects section">
-      <h2 className='text-7xl lg:text-[9rem] header font-bold p-2 lg:p-8 select-none' id="projects">
+    <div className='w-full h-fit flex flex-col bg-[#EFEEEF] py-4 lg:py-12'>
+      <p className='text-7xl lg:text-[9rem] header font-bold p-2 lg:p-8 select-none'>
         Projects{" "}
-      </h2>
+      </p>
       <div className='p-2 lg:p-8  items-start w-fit'>
         <ToggleGroup type='single' value={viewType}>
           <ToggleGroupItem
@@ -145,7 +145,7 @@ const Projects = () => {
           </div>
         )}
       </div>
-    </section>
+    </div>
   );
 };
 
