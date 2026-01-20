@@ -49,13 +49,13 @@ const NavItems = () => {
         >
           Experience
         </a>
-        <a
+        {/* <a
           href='#blogs'
           onClick={() => scrollToSection("5")}
           className={cn("relative text-primary", styles.navLink)}
         >
           Blogs
-        </a>
+        </a> */}
         <a href='#contact' onClick={() => scrollToSection("6")}>
           <button
             className={cn(
@@ -115,7 +115,7 @@ const NavItems = () => {
                 >
                   Experience
                 </a>
-
+{/*
                 <a
                   href='#about'
                   onClick={() => {
@@ -125,7 +125,7 @@ const NavItems = () => {
                   className={cn("relative text-primary", styles.navLink)}
                 >
                   Blogs
-                </a>
+                </a> */}
                 <a
                   href='#contact'
                   onClick={() => {

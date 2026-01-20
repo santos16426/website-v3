@@ -1,0 +1,21 @@
+{
+  "name": "Billy Santos - Software Engineer",
+  "short_name": "Billy Santos",
+  "description": "Software Engineer from the Philippines. Expert in crafting websites and mobile apps that blend creativity with functionality.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#E3E1DF",
+  "theme_color": "#2E2D2B",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/images/icons/logo.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["portfolio", "developer", "software"],
+  "lang": "en-US",
+  "dir": "ltr"
+}

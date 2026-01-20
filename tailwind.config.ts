@@ -86,6 +86,8 @@ module.exports = {
         'blink':'blink 1s infinite alternate',
       },
       fontFamily: {
+        sans: ["Inter", "sans-serif"],
+        mono: ["monospace"],
         bebas: ["Bebas Neue", "sans-serif"],
         inter: ["Inter", "sans-serif"]
       },

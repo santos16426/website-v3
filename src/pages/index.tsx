@@ -2,7 +2,7 @@ import Layout from "@/app/components/_layout";
 import SnapSection from "@/app/components/SnapSection";
 import { useRef, useState } from "react";
 import Homepage from "@/app/components/Homepage";
-import AboutMe from "@/app/components/AboutMe";
+import Dashboard from "@/app/components/Dashboard";
 import Experience from "@/app/components/Experience";
 import Projects from "@/app/components/Projects";
 import ContactMe from "@/app/components/ContactMe";
@@ -34,7 +34,7 @@ const Home = () => {
         className='relative h-screen w-full  overflow-y-scroll font-inter'
         onScroll={handleScroll}
       >
-        <div className='h-screen' ref={homeRef}>
+        <div className='min-h-screen' ref={homeRef}>
           <SnapSection
             sectionId='1'
             showScrollTo={isScrolledTop}
@@ -43,8 +43,8 @@ const Home = () => {
             content={<Homepage />}
           />
         </div>
-        <div className='h-fit' ref={aboutRef}>
-          <SnapSection sectionId='2' content={<AboutMe />} />
+        <div className='h-fit'>
+          <SnapSection sectionId='2' content={<Dashboard />} />
         </div>
         <div className='h-fit' ref={projRef}>
           <SnapSection sectionId='3' content={<Projects />} />
@@ -52,9 +52,9 @@ const Home = () => {
         <div className='h-fit' ref={expRef}>
           <SnapSection sectionId='4' content={<Experience />} />
         </div>
-        <div className='h-fit' ref={blogsRef}>
+        {/* <div className='h-fit' ref={blogsRef}>
           <SnapSection sectionId='5' content={<FeatureBlogs />} />
-        </div>
+        </div> */}
         <div className='h-fit' ref={contactRef}>
           <SnapSection sectionId='6' content={<ContactMe />} />
         </div>

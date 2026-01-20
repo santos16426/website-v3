@@ -1,37 +1,17 @@
-import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api'
+import { Map, MapMarker } from './ui/map'
 
-const containerStyle = {
-  width: '100%',
-  height: '100%',
-}
+const center: [number, number] = [121.02196502685547, 14.608887672424316] // [lng, lat] format for MapLibre
 
-const center = {
-  lat: 14.608887672424316,
-  lng: 121.02196502685547,
-}
-const mapOptions = {
-  disableDefaultUI: true,
-}
-const markerOptions: google.maps.Icon = {
-  url: '/images/icons/pin_map.png',
-  scaledSize: {
-    width: 100,
-    height: 100,
-  } as google.maps.Size,
-}
-const GoogleMapsComponent = ({ apiKey }: { apiKey: string | undefined }) => {
-  if (!apiKey) return <div>No API key</div>
+const GoogleMapsComponent = () => {
   return (
-    <LoadScript googleMapsApiKey={apiKey}>
-      <GoogleMap
-        mapContainerStyle={containerStyle}
-        center={center}
-        zoom={10}
-        options={mapOptions}
-      >
-        <Marker position={center} icon={markerOptions} />
-      </GoogleMap>
-    </LoadScript>
+    <Map center={center} zoom={10} className="w-full h-full min-h-[300px] md:min-h-0" theme="dark">
+      <MapMarker
+        position={center}
+        icon="/images/icons/pin_map.png"
+        iconSize={[120, 120]}
+        anchor="center"
+      />
+    </Map>
   )
 }
 
