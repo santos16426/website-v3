@@ -7,6 +7,7 @@ import "@/app/styles/globals.scss";
 import { AppProps } from "next/app";
 import SEO from "@/app/components/SEO";
 import StructuredData from "@/app/components/StructuredData";
+import ErrorBoundary from "@/app/components/ErrorBoundary";
 
 const MyApp: React.FC<AppProps> = ({ Component, pageProps }) => {
   const router = useRouter();
@@ -63,7 +64,9 @@ const MyApp: React.FC<AppProps> = ({ Component, pageProps }) => {
         data-website-id={umamiWebsiteId}
         strategy="afterInteractive"
       />
-      <Component {...pageProps} />
+      <ErrorBoundary>
+        <Component {...pageProps} />
+      </ErrorBoundary>
     </>
   );
 };

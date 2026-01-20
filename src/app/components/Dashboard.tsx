@@ -7,6 +7,7 @@ import { Linkedin, Github, Codepen, Pin, ArrowRight, Layers, Briefcase, Keyboard
 import GoogleMapsComponent from "./Maps";
 import { GitHubCalendar } from "react-github-calendar";
 import TechStackV2 from "./TechStackV2";
+import ErrorBoundary from "./ErrorBoundary";
 
 type TypingBest = {
   wpm: number;
@@ -91,7 +92,15 @@ const Dashboard = () => {
               </p>
             </div>
             <div className='absolute inset-0 w-full h-full rounded-3xl overflow-hidden'>
-              <GoogleMapsComponent />
+              <ErrorBoundary
+                fallback={
+                  <div className="flex items-center justify-center h-full bg-gray-100 rounded-3xl">
+                    <p className="text-sm text-gray-600">Map unavailable</p>
+                  </div>
+                }
+              >
+                <GoogleMapsComponent />
+              </ErrorBoundary>
             </div>
           </div>
         </div>

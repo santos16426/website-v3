@@ -113,22 +113,35 @@ const Map = React.forwardRef<MapRef, MapProps>(
         }
       }
 
-      const map = new maplibregl.Map({
-        container: mapContainer.current,
-        style: getMapStyle(),
-        center: initialCenterRef.current,
-        zoom: initialZoomRef.current,
-        attributionControl: false,
-      })
+      try {
+        const map = new maplibregl.Map({
+          container: mapContainer.current,
+          style: getMapStyle(),
+          center: initialCenterRef.current,
+          zoom: initialZoomRef.current,
+          attributionControl: false,
+        })
 
-      map.on("load", () => {
-        setIsLoaded(true)
-        // Trigger resize to ensure map renders correctly, especially on mobile
-        map.resize()
-      })
+        map.on("load", () => {
+          setIsLoaded(true)
+          // Trigger resize to ensure map renders correctly, especially on mobile
+          try {
+            map.resize()
+          } catch (error) {
+            console.error("Error resizing map:", error)
+          }
+        })
 
-      mapInstance.current = map
-      mapCreatedRef.current = true
+        map.on("error", (error) => {
+          console.error("Map error:", error)
+        })
+
+        mapInstance.current = map
+        mapCreatedRef.current = true
+      } catch (error) {
+        console.error("Error creating map:", error)
+        return
+      }
 
       // Resize map when container size changes (important for mobile)
       let resizeObserver: ResizeObserver | null = null
@@ -281,63 +294,72 @@ export const MapMarker: React.FC<MapMarkerProps> = ({
   React.useEffect(() => {
     if (!map || !isLoaded || typeof document === 'undefined') return
 
-    let marker: maplibregl.Marker
+    let marker: maplibregl.Marker | null = null
 
-    if (icon) {
-      // Use image icon directly
-      const img = document.createElement("img")
-      img.src = icon
-      img.style.width = `${iconSize[0]}px`
-      img.style.height = `${iconSize[1]}px`
-      img.style.objectFit = "contain"
-      img.style.cursor = "pointer"
-      img.style.pointerEvents = "auto"
+    try {
+      if (icon) {
+        // Use image icon directly
+        const img = document.createElement("img")
+        img.src = icon
+        img.style.width = `${iconSize[0]}px`
+        img.style.height = `${iconSize[1]}px`
+        img.style.objectFit = "contain"
+        img.style.cursor = "pointer"
+        img.style.pointerEvents = "auto"
 
-      const el = document.createElement("div")
-      el.appendChild(img)
-      el.className = "map-marker"
+        const el = document.createElement("div")
+        el.appendChild(img)
+        el.className = "map-marker"
 
-      marker = new maplibregl.Marker({
-        element: el,
-        anchor: anchor,
-      }).setLngLat(position).addTo(map)
-    } else {
-      const el = document.createElement("div")
-      el.className = "map-marker"
-
-      if (children) {
-        // Use React to render children into the DOM element
-        const root = createRoot(el)
-        rootRef.current = root
-        root.render(<>{children}</>)
+        marker = new maplibregl.Marker({
+          element: el,
+          anchor: anchor,
+        }).setLngLat(position).addTo(map)
       } else {
-        el.style.width = "20px"
-        el.style.height = "20px"
-        el.style.borderRadius = "50%"
-        el.style.backgroundColor = "#ef4444"
-        el.style.border = "2px solid white"
-        el.style.cursor = "pointer"
+        const el = document.createElement("div")
+        el.className = "map-marker"
+
+        if (children) {
+          // Use React to render children into the DOM element
+          const root = createRoot(el)
+          rootRef.current = root
+          root.render(<>{children}</>)
+        } else {
+          el.style.width = "20px"
+          el.style.height = "20px"
+          el.style.borderRadius = "50%"
+          el.style.backgroundColor = "#ef4444"
+          el.style.border = "2px solid white"
+          el.style.cursor = "pointer"
+        }
+
+        marker = new maplibregl.Marker(el).setLngLat(position).addTo(map)
       }
 
-      marker = new maplibregl.Marker(el).setLngLat(position).addTo(map)
-    }
+      if (popup && marker) {
+        const popupEl = document.createElement("div")
+        const popupRoot = createRoot(popupEl)
+        popupRoot.render(<>{popup}</>)
+        const popupInstance = new maplibregl.Popup({ offset: 25 }).setDOMContent(popupEl)
+        marker.setPopup(popupInstance)
+        popupRef.current = popupInstance
+      }
 
-    if (popup) {
-      const popupEl = document.createElement("div")
-      const popupRoot = createRoot(popupEl)
-      popupRoot.render(<>{popup}</>)
-      const popupInstance = new maplibregl.Popup({ offset: 25 }).setDOMContent(popupEl)
-      marker.setPopup(popupInstance)
-      popupRef.current = popupInstance
+      markerRef.current = marker
+    } catch (error) {
+      console.error("Error creating map marker:", error)
     }
-
-    markerRef.current = marker
 
     return () => {
       if (rootRef.current) {
         rootRef.current.unmount()
       }
-      marker.remove()
+      if (markerRef.current) {
+        markerRef.current.remove()
+      }
+      if (popupRef.current) {
+        popupRef.current.remove()
+      }
     }
   }, [map, isLoaded, position, icon, iconSize, anchor, children, popup])
 
