@@ -23,21 +23,12 @@ const SnapSection: React.FC<SnapSectionProps> = ({
       {goTo && scrollTo && (
         <div
           className={cn(
-            "absolute left-2/4 transform translate-x-[-50%] text-center bottom-[10px] cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gray-400 focus-visible:ring-offset-2 rounded",
+            "absolute left-2/4 transform translate-x-[-50%] text-center bottom-[10px] cursor-pointer",
             !showScrollTo
               ? "transition-opacity duration-500 opacity-0"
               : "transition-opacity duration-500 opacity-100",
           )}
           onClick={() => scrollTo(goTo)}
-          onKeyDown={(e) => {
-            if (e.key === 'Enter' || e.key === ' ') {
-              e.preventDefault();
-              scrollTo(goTo);
-            }
-          }}
-          role="button"
-          tabIndex={0}
-          aria-label="Scroll to next section"
         >
           <span
             className={cn(
@@ -52,7 +43,6 @@ const SnapSection: React.FC<SnapSectionProps> = ({
               "inline-block align-middle w-[14px] h-[22px] relative border-2 border-solid border-gray-100 rounded-xl",
               styles.mouse,
             )}
-            aria-hidden="true"
           ></span>
           <span
             className={cn(

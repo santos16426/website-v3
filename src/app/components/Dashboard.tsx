@@ -7,7 +7,6 @@ import { Linkedin, Github, Codepen, Pin, ArrowRight, Layers, Briefcase, Keyboard
 import GoogleMapsComponent from "./Maps";
 import { GitHubCalendar } from "react-github-calendar";
 import TechStackV2 from "./TechStackV2";
-import ErrorBoundary from "./ErrorBoundary";
 
 type TypingBest = {
   wpm: number;
@@ -80,7 +79,7 @@ const Dashboard = () => {
 
 
   return (
-    <section className='relative w-full min-h-screen items-center flex flex-row justify-center bg-[#EFEEEF] pt-20' id="about" aria-label="About section">
+    <div className='relative w-full min-h-screen items-center flex flex-row justify-center bg-[#EFEEEF] pt-20'>
       <div className='auto-rows-[minmax(0,1fr)] grid-cols-[repeat(36,_minmax(0,_1fr))] gap-4 flex-col max-lg:grid-cols-6 max-md:flex max-md:gap-4 md:grid w-full lg:px-40 xl:px-52 2xl:px-64 md:px-4 px-4'>
         {/* Location card - grid 1 */}
         <div className='overflow-hidden w-full relative rounded-3xl col-start-1 aspect-square col-end-11 row-start-1 row-end-[8] max-lg:col-end-3 max-lg:row-end-3 max-md:aspect-auto max-md:min-h-[300px] max-md:h-[300px]'>
@@ -92,15 +91,7 @@ const Dashboard = () => {
               </p>
             </div>
             <div className='absolute inset-0 w-full h-full rounded-3xl overflow-hidden'>
-              <ErrorBoundary
-                fallback={
-                  <div className="flex items-center justify-center h-full bg-gray-100 rounded-3xl">
-                    <p className="text-sm text-gray-600">Map unavailable</p>
-                  </div>
-                }
-              >
-                <GoogleMapsComponent />
-              </ErrorBoundary>
+              <GoogleMapsComponent />
             </div>
           </div>
         </div>
@@ -110,29 +101,23 @@ const Dashboard = () => {
           <Link
             target='_blank'
             href='https://www.linkedin.com/in/billy-santos/'
-            className='aspect-square flex items-center justify-center rounded-3xl bg-[#0e1218] border border-[#1f2b3a] text-[#e5e7eb] hover:text-orange-400 max-md:min-h-[100px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-400 focus-visible:ring-offset-2'
-            aria-label="Visit LinkedIn profile"
-            rel="noopener noreferrer"
+            className='aspect-square flex items-center justify-center rounded-3xl bg-[#0e1218] border border-[#1f2b3a] text-[#e5e7eb] hover:text-orange-400 max-md:min-h-[100px]'
           >
-            <Linkedin size={52} aria-hidden="true" />
+            <Linkedin size={52} />
           </Link>
           <Link
             target='_blank'
             href='http://github.com/santos16426'
-            className='aspect-square flex items-center justify-center rounded-3xl bg-[#0e1218] border border-[#1f2b3a] text-[#e5e7eb] hover:text-orange-400 max-md:min-h-[100px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-400 focus-visible:ring-offset-2'
-            aria-label="Visit GitHub profile"
-            rel="noopener noreferrer"
+            className='aspect-square flex items-center justify-center rounded-3xl bg-[#0e1218] border border-[#1f2b3a] text-[#e5e7eb] hover:text-orange-400 max-md:min-h-[100px]'
           >
-            <Github size={52} aria-hidden="true" />
+            <Github size={52} />
           </Link>
           <Link
             href='https://codepen.io/joe_lucas'
             target='_blank'
-            className='aspect-square flex items-center justify-center rounded-3xl bg-[#0e1218] border border-[#1f2b3a] text-[#e5e7eb] hover:text-orange-400 max-md:min-h-[100px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-400 focus-visible:ring-offset-2'
-            aria-label="Visit CodePen profile"
-            rel="noopener noreferrer"
+            className='aspect-square flex items-center justify-center rounded-3xl bg-[#0e1218] border border-[#1f2b3a] text-[#e5e7eb] hover:text-orange-400 max-md:min-h-[100px]'
           >
-            <Codepen size={52} aria-hidden="true" />
+            <Codepen size={52} />
           </Link>
         </div>
 
@@ -171,8 +156,7 @@ const Dashboard = () => {
           <Link
             href='#projects'
             onClick={scrollToSection}
-            className="group flex flex-row justify-between gap-6 h-full items-center px-10 hover:text-orange-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-400 focus-visible:ring-offset-2 rounded"
-            aria-label="Navigate to projects section"
+            className='group flex flex-row justify-between gap-6 h-full items-center px-10 hover:text-orange-400'
           >
             <p className="relative font-medium after:absolute after:left-0 after:top-1/2 after:w-0 after:content-[''] after:bg-gradient-to-tr from-orange-400 to-orange-600 after:mt-3 after:h-0.5 after:transition-all after:duration-700 group-hover:after:w-full py-6">
               Discover more projects
@@ -391,7 +375,7 @@ const Dashboard = () => {
           </div>
         </div>
       </div>
-    </section>
+    </div>
   );
 };
 
