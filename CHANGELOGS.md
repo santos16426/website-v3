@@ -56,3 +56,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - **Production error - Infinite loop** - Fixed infinite error loop in map component by preventing map recreation on every isDark state change
 - **Production error - SSR safety** - Added window and document guards in map component to prevent client-side exceptions during SSR
 - **Production error - Map initialization** - Changed map creation to run only once on mount instead of recreating on theme changes
+- **Error handling - Error boundaries** - Added ErrorBoundary component to catch and gracefully handle client-side exceptions
+- **Error handling - Map component** - Wrapped map component with error boundary and added try-catch blocks for map creation and marker creation
+- **Error handling - Global error boundary** - Added global error boundary in _app.tsx to catch all unhandled errors
