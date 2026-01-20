@@ -41,3 +41,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - **Hydration errors** - Resolved Suspense boundary hydration issues in SEO components
 - **Sitemap conflict** - Removed conflicting static sitemap.xml file in favor of dynamic route
 - **Structured data** - Fixed social media links in JSON-LD to properly filter undefined values
+- **Build error** - Fixed TypeScript type error in map.tsx where version property needed literal type 8 instead of number
