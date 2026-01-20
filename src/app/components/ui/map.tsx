@@ -34,6 +34,9 @@ const Map = React.forwardRef<MapRef, MapProps>(
     const mapInstance = React.useRef<maplibregl.Map | null>(null)
     const [isLoaded, setIsLoaded] = React.useState(false)
     const [isDark, setIsDark] = React.useState(false)
+    const initialCenterRef = React.useRef(center)
+    const initialZoomRef = React.useRef(zoom)
+    const initialThemeRef = React.useRef(theme)
 
     // Detect dark mode
     React.useEffect(() => {
@@ -53,7 +56,8 @@ const Map = React.forwardRef<MapRef, MapProps>(
       if (!mapContainer.current) return
 
       const getMapStyle = (): maplibregl.StyleSpecification => {
-        const isDarkMode = theme === 'auto' ? isDark : theme === 'dark'
+        // Use current isDark state for initial map creation
+        const isDarkMode = initialThemeRef.current === 'auto' ? isDark : initialThemeRef.current === 'dark'
 
         if (isDarkMode) {
           return {
@@ -105,8 +109,8 @@ const Map = React.forwardRef<MapRef, MapProps>(
       const map = new maplibregl.Map({
         container: mapContainer.current,
         style: getMapStyle(),
-        center: center,
-        zoom: zoom,
+        center: initialCenterRef.current,
+        zoom: initialZoomRef.current,
         attributionControl: false,
       })
 

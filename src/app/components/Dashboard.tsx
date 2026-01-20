@@ -162,9 +162,8 @@ const Dashboard = () => {
           <Link
             href='#projects'
             onClick={scrollToSection}
-            className="focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-400 focus-visible:ring-offset-2 rounded"
+            className="group flex flex-row justify-between gap-6 h-full items-center px-10 hover:text-orange-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-400 focus-visible:ring-offset-2 rounded"
             aria-label="Navigate to projects section"
-            className='group flex flex-row justify-between gap-6 h-full items-center px-10 hover:text-orange-400'
           >
             <p className="relative font-medium after:absolute after:left-0 after:top-1/2 after:w-0 after:content-[''] after:bg-gradient-to-tr from-orange-400 to-orange-600 after:mt-3 after:h-0.5 after:transition-all after:duration-700 group-hover:after:w-full py-6">
               Discover more projects

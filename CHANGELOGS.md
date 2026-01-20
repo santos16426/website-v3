@@ -50,3 +50,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - **Accessibility - Semantic HTML** - Changed paragraph headings to proper h1/h2 tags and added semantic section/main elements
 - **Accessibility - Color contrast** - Improved text color contrast (gray-300 to gray-600) for better readability
 - **Accessibility - Skip link** - Added skip-to-main-content link for screen reader users
+- **Build error - Duplicate props** - Fixed duplicate className prop in Dashboard component Link element
+- **Build error - React hooks** - Fixed useEffect dependency warnings in map component using refs instead of eslint-disable
+- **SEO - Favicon support** - Enhanced favicon configuration with multiple link tags and meta tags for better browser compatibility

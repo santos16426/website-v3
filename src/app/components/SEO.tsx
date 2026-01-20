@@ -99,9 +99,12 @@ const SEO: React.FC<SEOProps> = ({
       {/* PWA Manifest */}
       <link rel="manifest" href="/manifest.json" />
 
-      {/* Favicon */}
+      {/* Favicon - Multiple sizes for better browser support */}
       <link rel="icon" href="/images/icons/logo.svg" type="image/svg+xml" />
+      <link rel="icon" href="/images/icons/logo.svg" type="image/svg+xml" sizes="any" />
       <link rel="apple-touch-icon" href="/images/icons/logo.svg" />
+      <link rel="shortcut icon" href="/images/icons/logo.svg" />
+      <meta name="msapplication-TileImage" content="/images/icons/logo.svg" />
 
       {/* Preconnect for performance */}
       <link rel="preconnect" href="https://fonts.googleapis.com" />
