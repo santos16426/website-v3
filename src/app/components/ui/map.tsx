@@ -37,9 +37,12 @@ const Map = React.forwardRef<MapRef, MapProps>(
     const initialCenterRef = React.useRef(center)
     const initialZoomRef = React.useRef(zoom)
     const initialThemeRef = React.useRef(theme)
+    const mapCreatedRef = React.useRef(false)
 
     // Detect dark mode
     React.useEffect(() => {
+      if (typeof window === 'undefined') return
+
       if (theme === 'auto') {
         const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)')
         setIsDark(mediaQuery.matches)
@@ -52,12 +55,16 @@ const Map = React.forwardRef<MapRef, MapProps>(
       }
     }, [theme])
 
+    // Create map only once on mount
     React.useEffect(() => {
-      if (!mapContainer.current) return
+      if (!mapContainer.current || typeof window === 'undefined' || mapCreatedRef.current) return
 
       const getMapStyle = (): maplibregl.StyleSpecification => {
-        // Use current isDark state for initial map creation
-        const isDarkMode = initialThemeRef.current === 'auto' ? isDark : initialThemeRef.current === 'dark'
+        // Use initial theme for map creation
+        const initialIsDark = initialThemeRef.current === 'auto'
+          ? window.matchMedia('(prefers-color-scheme: dark)').matches
+          : initialThemeRef.current === 'dark'
+        const isDarkMode = initialIsDark
 
         if (isDarkMode) {
           return {
@@ -121,23 +128,33 @@ const Map = React.forwardRef<MapRef, MapProps>(
       })
 
       mapInstance.current = map
+      mapCreatedRef.current = true
 
       // Resize map when container size changes (important for mobile)
-      const resizeObserver = new ResizeObserver(() => {
-        if (mapInstance.current) {
-          mapInstance.current.resize()
-        }
-      })
+      let resizeObserver: ResizeObserver | null = null
+      if ('ResizeObserver' in window) {
+        resizeObserver = new ResizeObserver(() => {
+          if (mapInstance.current) {
+            mapInstance.current.resize()
+          }
+        })
 
-      if (mapContainer.current) {
-        resizeObserver.observe(mapContainer.current)
+        if (mapContainer.current) {
+          resizeObserver.observe(mapContainer.current)
+        }
       }
 
       return () => {
-        resizeObserver.disconnect()
-        map.remove()
+        if (resizeObserver) {
+          resizeObserver.disconnect()
+        }
+        if (mapInstance.current) {
+          mapInstance.current.remove()
+          mapInstance.current = null
+        }
+        mapCreatedRef.current = false
       }
-    }, [isDark])
+    }, [])
 
     // Update center and zoom when they change
     React.useEffect(() => {
@@ -262,7 +279,7 @@ export const MapMarker: React.FC<MapMarkerProps> = ({
   const rootRef = React.useRef<any>(null)
 
   React.useEffect(() => {
-    if (!map || !isLoaded) return
+    if (!map || !isLoaded || typeof document === 'undefined') return
 
     let marker: maplibregl.Marker
 
