@@ -53,3 +53,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - **Build error - Duplicate props** - Fixed duplicate className prop in Dashboard component Link element
 - **Build error - React hooks** - Fixed useEffect dependency warnings in map component using refs instead of eslint-disable
 - **SEO - Favicon support** - Enhanced favicon configuration with multiple link tags and meta tags for better browser compatibility
+- **Production error - Infinite loop** - Fixed infinite error loop in map component by preventing map recreation on every isDark state change
+- **Production error - SSR safety** - Added window and document guards in map component to prevent client-side exceptions during SSR
+- **Production error - Map initialization** - Changed map creation to run only once on mount instead of recreating on theme changes
