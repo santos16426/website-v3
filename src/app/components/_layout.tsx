@@ -1,9 +1,6 @@
 import React, { ReactElement, ReactNode } from 'react'
-import { Inter } from 'next/font/google'
 import { Metadata } from 'next'
 import { cn } from '@/app/lib/utils'
-
-const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
   title: 'Lucas | Software Engineer',
@@ -17,9 +14,7 @@ export default function RootLayout({
   isScrolledTop?: boolean
 }) {
   return (
-    <div
-      className={cn('relative h-full font-inter antialiased', inter.className)}
-    >
+    <div className={cn('relative h-full antialiased')}>
       <main className="relative flex flex-col min-h-screen">
         <div className="flex-grow flex-1">{children}</div>
       </main>
