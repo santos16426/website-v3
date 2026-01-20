@@ -1,10 +1,10 @@
 import { experiences } from "../config/experiences";
 const Experience = () => {
   return (
-    <div className='w-full h-full flex flex-col bg-[#EFEEEF] py-4 sm:py-6 lg:py-12'>
-      <p className='text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-[9rem] header p-4 sm:p-6 lg:p-8 leading-tight sm:leading-normal'>
+    <section className='w-full h-full flex flex-col bg-[#EFEEEF] py-4 sm:py-6 lg:py-12' aria-label="Experience section">
+      <h2 className='text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-[9rem] header p-4 sm:p-6 lg:p-8 leading-tight sm:leading-normal' id="experience">
         Experience{" "}
-      </p>
+      </h2>
       <div className='w-full'>
         <div className='mt-5 table w-full'>
           <div className='w-full hidden lg:flex flex-row border-b-[1px] border-gray-300 px-4 sm:px-6 lg:px-8 text-base lg:text-lg'>
@@ -47,7 +47,7 @@ const Experience = () => {
           )}
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

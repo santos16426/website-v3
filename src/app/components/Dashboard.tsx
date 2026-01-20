@@ -79,7 +79,7 @@ const Dashboard = () => {
 
 
   return (
-    <div className='relative w-full min-h-screen items-center flex flex-row justify-center bg-[#EFEEEF] pt-20'>
+    <section className='relative w-full min-h-screen items-center flex flex-row justify-center bg-[#EFEEEF] pt-20' id="about" aria-label="About section">
       <div className='auto-rows-[minmax(0,1fr)] grid-cols-[repeat(36,_minmax(0,_1fr))] gap-4 flex-col max-lg:grid-cols-6 max-md:flex max-md:gap-4 md:grid w-full lg:px-40 xl:px-52 2xl:px-64 md:px-4 px-4'>
         {/* Location card - grid 1 */}
         <div className='overflow-hidden w-full relative rounded-3xl col-start-1 aspect-square col-end-11 row-start-1 row-end-[8] max-lg:col-end-3 max-lg:row-end-3 max-md:aspect-auto max-md:min-h-[300px] max-md:h-[300px]'>
@@ -101,23 +101,29 @@ const Dashboard = () => {
           <Link
             target='_blank'
             href='https://www.linkedin.com/in/billy-santos/'
-            className='aspect-square flex items-center justify-center rounded-3xl bg-[#0e1218] border border-[#1f2b3a] text-[#e5e7eb] hover:text-orange-400 max-md:min-h-[100px]'
+            className='aspect-square flex items-center justify-center rounded-3xl bg-[#0e1218] border border-[#1f2b3a] text-[#e5e7eb] hover:text-orange-400 max-md:min-h-[100px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-400 focus-visible:ring-offset-2'
+            aria-label="Visit LinkedIn profile"
+            rel="noopener noreferrer"
           >
-            <Linkedin size={52} />
+            <Linkedin size={52} aria-hidden="true" />
           </Link>
           <Link
             target='_blank'
             href='http://github.com/santos16426'
-            className='aspect-square flex items-center justify-center rounded-3xl bg-[#0e1218] border border-[#1f2b3a] text-[#e5e7eb] hover:text-orange-400 max-md:min-h-[100px]'
+            className='aspect-square flex items-center justify-center rounded-3xl bg-[#0e1218] border border-[#1f2b3a] text-[#e5e7eb] hover:text-orange-400 max-md:min-h-[100px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-400 focus-visible:ring-offset-2'
+            aria-label="Visit GitHub profile"
+            rel="noopener noreferrer"
           >
-            <Github size={52} />
+            <Github size={52} aria-hidden="true" />
           </Link>
           <Link
             href='https://codepen.io/joe_lucas'
             target='_blank'
-            className='aspect-square flex items-center justify-center rounded-3xl bg-[#0e1218] border border-[#1f2b3a] text-[#e5e7eb] hover:text-orange-400 max-md:min-h-[100px]'
+            className='aspect-square flex items-center justify-center rounded-3xl bg-[#0e1218] border border-[#1f2b3a] text-[#e5e7eb] hover:text-orange-400 max-md:min-h-[100px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-400 focus-visible:ring-offset-2'
+            aria-label="Visit CodePen profile"
+            rel="noopener noreferrer"
           >
-            <Codepen size={52} />
+            <Codepen size={52} aria-hidden="true" />
           </Link>
         </div>
 
@@ -156,6 +162,8 @@ const Dashboard = () => {
           <Link
             href='#projects'
             onClick={scrollToSection}
+            className="focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-400 focus-visible:ring-offset-2 rounded"
+            aria-label="Navigate to projects section"
             className='group flex flex-row justify-between gap-6 h-full items-center px-10 hover:text-orange-400'
           >
             <p className="relative font-medium after:absolute after:left-0 after:top-1/2 after:w-0 after:content-[''] after:bg-gradient-to-tr from-orange-400 to-orange-600 after:mt-3 after:h-0.5 after:transition-all after:duration-700 group-hover:after:w-full py-6">
@@ -375,7 +383,7 @@ const Dashboard = () => {
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

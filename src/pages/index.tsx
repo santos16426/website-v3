@@ -30,9 +30,17 @@ const Home = () => {
 
   return (
     <Layout>
+      <a
+        href="#main-content"
+        className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-orange-400 focus:text-white focus:rounded focus:shadow-lg"
+      >
+        Skip to main content
+      </a>
       <div
         className='relative h-screen w-full  overflow-y-scroll font-inter'
         onScroll={handleScroll}
+        id="main-content"
+        tabIndex={-1}
       >
         <div className='min-h-screen' ref={homeRef}>
           <SnapSection
@@ -59,19 +67,19 @@ const Home = () => {
           <SnapSection sectionId='6' content={<ContactMe />} />
         </div>
       </div>
-      <div
+      <button
         className={cn(
-          "absolute z-50 bottom-10 left-1/2 -translate-x-1/2 p-4 bg-orange-400 text-white rounded-full shadow-sm transition-all scale-100 cursor-pointer",
+          "absolute z-50 bottom-10 left-1/2 -translate-x-1/2 p-4 bg-orange-400 text-white rounded-full shadow-sm transition-all scale-100 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-400 focus-visible:ring-offset-2",
           {
             "scale-0": isScrolledTop,
           },
         )}
         onClick={(e) => scrollTo(homeRef)}
+        aria-label="Scroll to top"
+        aria-hidden={isScrolledTop}
       >
-        <div>
-          <ArrowUp />
-        </div>
-      </div>
+        <ArrowUp aria-hidden="true" />
+      </button>
     </Layout>
   );
 };

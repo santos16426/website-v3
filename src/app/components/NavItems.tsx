@@ -31,21 +31,24 @@ const NavItems = () => {
         <a
           href='#about'
           onClick={() => scrollToSection("2")}
-          className={cn("relative text-primary", styles.navLink)}
+          className={cn("relative text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-2 rounded", styles.navLink)}
+          aria-label="Navigate to about section"
         >
           About
         </a>
         <a
           href='#projects'
           onClick={() => scrollToSection("3")}
-          className={cn("relative text-primary", styles.navLink)}
+          className={cn("relative text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-2 rounded", styles.navLink)}
+          aria-label="Navigate to projects section"
         >
           Projects
         </a>
         <a
           href='#experience'
           onClick={() => scrollToSection("4")}
-          className={cn("relative text-primary", styles.navLink)}
+          className={cn("relative text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-2 rounded", styles.navLink)}
+          aria-label="Navigate to experience section"
         >
           Experience
         </a>
@@ -56,25 +59,28 @@ const NavItems = () => {
         >
           Blogs
         </a> */}
-        <a href='#contact' onClick={() => scrollToSection("6")}>
-          <button
-            className={cn(
-              "relative w-fit z-10 h-full border-2 border-black px-3 py-2 font-semibold rounded-full overflow-hidden transition-all ease-out duration-300 hover:text-white",
-              'before:content-[""] before:absolute before:top-0 before:left-0 before:w-0 before:h-full before:bg-black before:z-[-1] before:transition-all before:ease-out before:duration-500',
-              "hover:before:w-full",
-            )}
-          >
-            {`Let's Talk`}
-          </button>
-        </a>
+        <button
+          onClick={() => scrollToSection("6")}
+          className={cn(
+            "relative w-fit z-10 h-full border-2 border-black px-3 py-2 font-semibold rounded-full overflow-hidden transition-all ease-out duration-300 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-2",
+            'before:content-[""] before:absolute before:top-0 before:left-0 before:w-0 before:h-full before:bg-black before:z-[-1] before:transition-all before:ease-out before:duration-500',
+            "hover:before:w-full",
+          )}
+          aria-label="Navigate to contact section"
+        >
+          {`Let's Talk`}
+        </button>
       </nav>
       <div className='block lg:hidden'>
         <Drawer open={isDrawerOpen} onClose={() => setIsDrawerOpen(false)}>
-          <DrawerTrigger>
-            <Menu
-              className='block lg:hidden text-gray-700 cursor-pointer'
-              onClick={() => setIsDrawerOpen(true)}
-            />
+          <DrawerTrigger asChild>
+            <button
+              className='block lg:hidden text-gray-700 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-2 rounded p-1'
+              aria-label="Open navigation menu"
+              aria-expanded={isDrawerOpen}
+            >
+              <Menu />
+            </button>
           </DrawerTrigger>
           <DrawerContent>
             <div className='h-screen text-black flex flex-col justify-center items-center text-center'>
@@ -91,7 +97,8 @@ const NavItems = () => {
                     scrollToSection("2");
                     setTimeout(() => setIsDrawerOpen(false), 250);
                   }}
-                  className={cn("relative text-primary", styles.navLink)}
+                  className={cn("relative text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-2 rounded", styles.navLink)}
+                  aria-label="Navigate to about section"
                 >
                   About
                 </a>
@@ -101,7 +108,8 @@ const NavItems = () => {
                     scrollToSection("3");
                     setTimeout(() => setIsDrawerOpen(false), 250);
                   }}
-                  className={cn("relative text-primary", styles.navLink)}
+                  className={cn("relative text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-2 rounded", styles.navLink)}
+                  aria-label="Navigate to projects section"
                 >
                   Projects
                 </a>
@@ -111,7 +119,8 @@ const NavItems = () => {
                     scrollToSection("4");
                     setTimeout(() => setIsDrawerOpen(false), 250);
                   }}
-                  className={cn("relative text-primary", styles.navLink)}
+                  className={cn("relative text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-2 rounded", styles.navLink)}
+                  aria-label="Navigate to experience section"
                 >
                   Experience
                 </a>
@@ -126,28 +135,28 @@ const NavItems = () => {
                 >
                   Blogs
                 </a> */}
-                <a
-                  href='#contact'
+                <button
                   onClick={() => {
                     scrollToSection("6");
                     setTimeout(() => setIsDrawerOpen(false), 250);
                   }}
+                  className={cn(
+                    "relative w-fit h-full border-2 border-black px-3 py-2 font-semibold rounded-full overflow-hidden transition-all ease-out duration-300 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-2",
+                    'before:content-[""] before:absolute before:top-0 before:left-0 before:w-0 before:h-full before:bg-black before:z-[-1] before:transition-all before:ease-out before:duration-500',
+                    "hover:before:w-full",
+                  )}
+                  aria-label="Navigate to contact section"
                 >
-                  <button
-                    className={cn(
-                      "relative w-fit h-full border-2 border-black px-3 py-2 font-semibold rounded-full overflow-hidden transition-all ease-out duration-300 hover:text-white",
-                      'before:content-[""] before:absolute before:top-0 before:left-0 before:w-0 before:h-full before:bg-black before:z-[-1] before:transition-all before:ease-out before:duration-500',
-                      "hover:before:w-full",
-                    )}
-                  >
-                    {`Let's Talk`}
-                  </button>
-                </a>
+                  {`Let's Talk`}
+                </button>
                 <DrawerFooter>
-                  <X
-                    className='text-primary'
+                  <button
+                    className='text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-2 rounded p-1'
                     onClick={() => setIsDrawerOpen(false)}
-                  />
+                    aria-label="Close navigation menu"
+                  >
+                    <X />
+                  </button>
                 </DrawerFooter>
               </nav>
             </div>
